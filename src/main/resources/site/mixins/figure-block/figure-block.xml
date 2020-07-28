@@ -1,0 +1,24 @@
+<mixin>
+    <display-name>Figure-block mixin</display-name>
+    <form>
+        <input name="image" type="ImageSelector">
+            <!-- @description[no]: Her kan man laste opp nye bilder eller velge fra de eksisterende. -->
+            <!-- @description[en]: Upload a new image or use an already existing one. -->
+            <label i18n="image">Image</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowPath>${site}/*</allowPath>
+            </config>
+        </input>
+        <input type="HtmlArea" name="text">
+            <!-- @description[no]: Felt for å legge inn bildetekst. Mellomrom i teksten vil vises på siden. -->
+            <!-- @description[en]: Field for image text. Space in the text will be displayed on the site. -->
+            <label i18n="image-text">Image text</label>
+            <occurrences minimum="0" maximum="1" />
+            <config>
+                <exclude>*</exclude>
+                <include>Bold Italic</include>
+            </config>
+        </input>
+    </form>
+</mixin>

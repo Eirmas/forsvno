@@ -1,0 +1,15 @@
+<div class="container" style="margin-bottom: 3rem">
+    <div class="row layout-2-col">
+        <div data-portal-region="left" class="col-lg-6">
+            <div data-th-each="component : ${leftRegion.components}" data-th-remove="tag">
+                <div data-portal-component="${component.path}" data-th-remove="tag" />
+            </div>
+        </div>
+
+        <div data-portal-region="right" class="col-lg-6" >
+            <div data-th-each="component : ${rightRegion.components}" data-th-remove="tag">
+                <div data-portal-component="${component.path}" data-th-remove="tag" />
+            </div>
+        </div>
+    </div>
+</div>

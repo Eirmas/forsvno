@@ -1,0 +1,20 @@
+<mixin>
+    <display-name>Link with text mixin</display-name>
+    <form>
+        <item-set name="links">
+            <!-- @description[no]: Legg til lenker. Dette feltet er valgfritt. -->
+            <!-- @description[en]: Add links. This field is optional. --> 
+            <label i18n="links">Links</label>
+            <occurrences minimum="0" maximum="1"/>
+            <items>
+                <input name="linkText" type="TextLine">
+                    <!-- @description[no]: Velg mellom lenker til siden eller eksterne. -->
+                    <!-- @description[en]: Choose between links to the site or external ones. -->
+                    <label i18n="link-text">Lenketekst</label>
+                    <occurrences minimum="1" maximum="1"/>
+                </input>
+                <mixin name="link"/>
+            </items>
+        </item-set>
+    </form>
+</mixin>

@@ -1,0 +1,24 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Scrollbar - infografikk</display-name>
+    <form>
+        <item-set name="data">
+            <label>Steg</label>
+            <items>
+                <input name="text" type="TextLine">
+                    <label>Tekst</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>30</max-length>
+                    </config>
+                </input>
+                <input  name="active" type="CheckBox">
+                    <label>Aktiv</label>
+                    <config>
+                        <alignment>right</alignment>
+                    </config>
+                </input>
+            </items>
+            <occurrences minimum="2" maximum="6"/>
+        </item-set>
+    </form>
+</part>

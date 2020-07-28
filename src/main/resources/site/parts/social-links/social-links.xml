@@ -1,0 +1,54 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Lenke - sosiale medier</display-name>
+    <form>
+        <input type="HtmlArea" name="text">
+            <!-- @description[no]: Tekst  -->
+            <!-- @description[en]: Text -->
+            <label i18n="text">Text</label>
+            <config>
+                <exclude>Code | Table | Image</exclude>
+                <allowHeadings>h4</allowHeadings>
+                <min>0</min>
+                <max>120</max>
+            </config>
+        </input>
+        <item-set name="items">
+            <label>Media lenker</label>
+            <items>
+                <input name="text" type="TextLine">
+                    <label>Tekst</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>30</max-length>
+                    </config>
+                </input>
+                <input name="href" type="TextLine">
+                    <label>Ekstern lenke</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <regexp>^(http|https)://</regexp>
+                    </config>
+                </input>
+                <input name="icon" type="ImageSelector">
+                    <label>Icon</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <allowPath>${site}/*</allowPath>
+                        <treeMode>true</treeMode>
+                        <showStatus>true</showStatus>
+                        <hideToggleIcon>true</hideToggleIcon>
+                    </config>
+                </input>
+            </items>
+            <occurrences minimum="1" maximum="5"/>
+        </item-set>
+        <input  name="newTab" type="CheckBox">
+            <label>Åpne i ny fane</label>
+            <default>checked</default>
+            <config>
+                <alignment>right</alignment>
+            </config>
+        </input>
+        <mixin name="background-color"/>
+    </form>
+</part>

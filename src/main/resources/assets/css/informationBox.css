@@ -1,0 +1,11 @@
+.info-box__title {
+  text-align: center;
+  padding-bottom: 1em;
+  font-weight: 600;
+}
+.info-box__image-right {
+    flex-direction: row-reverse;
+}
+.info-box__inner-wrapper {
+    padding: 2em 0;
+}

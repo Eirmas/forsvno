@@ -1,0 +1,14 @@
+<mixin>
+    <display-name>Background color mixin</display-name>
+    <form>
+        <input type="CustomSelector" name="color">
+            <!-- @description[no]: Velg en bakgrunnsfarge.  -->
+            <!-- @description[en]: Choose a background color. -->
+            <label i18n="background-choose">Bakgrunn</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <service>background-color-service</service>
+            </config>
+        </input>
+    </form>
+</mixin>

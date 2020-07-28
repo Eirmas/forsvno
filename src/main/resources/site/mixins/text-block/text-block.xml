@@ -1,0 +1,15 @@
+<mixin>
+    <display-name>Text-block mixin</display-name>
+    <form>
+        <input type="HtmlArea" name="text">
+            <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
+            <!-- @description[en]: Main content in a text block -->
+            <label i18n="text">Text</label>
+            <occurrences minimum="0" maximum="2" />
+            <config>
+                <exclude>Code | Table | Image</exclude>
+                <allowHeadings>h4</allowHeadings>
+            </config>
+        </input>
+    </form>
+</mixin>

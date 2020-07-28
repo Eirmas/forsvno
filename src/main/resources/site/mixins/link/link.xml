@@ -1,0 +1,65 @@
+<mixin>
+    <display-name>Link mixin</display-name>
+    <form>
+        <option-set name="linkType">
+            <!-- @description[no]: Velg hvilken type lenke. Velg mellom intern som er lenker til annet innhold, eller eksterne sider. -->
+            <!-- @description[en]: Choose the type of link. Choose between internal which is links to other content, or external sites. -->
+            <label i18n="link.type">Type of link</label>
+            <expanded>true</expanded>
+            <occurrences minimum="1" maximum="1" />
+            <options minimum="1" maximum="1">
+
+                <option name="internal">
+                    <!-- @description[no]: Velg denne for å lenke til annet innhold. -->
+                    <!-- @description[en]: Choose this to link to other content. -->
+                    <label i18n="link.internal">Internal</label>
+                    <default>true</default>
+                    <items>
+                        <input type="ContentSelector" name="id">
+                            <!-- @description[no]: Velg et innhold med innholdsvelgeren. -->
+                            <!-- @description[en]: Select a content using the content selector. -->
+                            <label i18n="content-choose">Choose content</label>
+                            <occurrences minimum="1" maximum="1" />
+                            <config>
+                                <allowPath>${site}/*</allowPath>
+                            </config>
+                        </input>
+                        <input name="anchor" type="TextLine">
+                            <!-- @description[no]: Tittel for lenkelisten. -->
+                            <!-- @description[en]: Title for the link list. -->
+                            <label i18n="anchor">Anchor</label>
+                            <occurrences minimum="0" maximum="1"/>
+                            <config>
+                                <regexp>^[^ \:\-\\\/]*$</regexp>
+                            </config>
+                        </input>
+                    </items>
+                </option>
+
+                <option name="external">
+                    <!-- @description[no]: Velg denne for å lenke til en ekstern nettside. -->
+                    <!-- @description[en]: Choose this to link to an external website. -->
+                    <label i18n="link.external">External</label>
+                    <items>
+                        <input type="TextLine" name="url">
+                            <!-- @description[no]: Skriv en full ekstern URL som skal lenkes til. -->
+                            <!-- @description[en]: Write a full external URL to link to. -->
+                            <label i18n="link.url">Type URL (with http/https attached)</label>
+                            <occurrences minimum="1" maximum="1" />
+                        </input>
+                        <input name="newTab" type="CheckBox">
+                            <!-- @description[no]: Kryss av hvis lenken skal åpnes i ny tab. -->
+                            <!-- @description[en]: Check if link should be opened i new tab. -->
+                            <label i18n="link.tab">Open in new tab</label>
+                            <default>checked</default>
+                            <config>
+                                <alignment>right</alignment>
+                            </config>
+                        </input>
+                    </items>
+                </option>
+
+            </options>
+        </option-set>
+    </form>
+</mixin>
