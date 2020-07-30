@@ -1,0 +1,111 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Quiz - flervalgs</display-name>
+    <form>
+        <input name="title" type="TextLine">
+            <label>Tittel</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <max-length>60</max-length>
+            </config>
+        </input>
+        <input name="subTitle" type="TextLine">
+            <label>Undertittel</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <max-length>100</max-length>
+            </config>
+        </input>
+        <input type="HtmlArea" name="startText">
+            <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
+            <!-- @description[en]: Main content in a text block -->
+            <label i18n="text">Beskrivelse</label>
+            <occurrences minimum="0" maximum="1" />
+            <config>
+                <exclude>Code | Table | Image</exclude>
+                <allowHeadings>h4</allowHeadings>
+            </config>
+        </input>
+        <item-set name="questions">
+            <label>Spørsmål</label>
+            <items>
+                <input name="text" type="TextLine">
+                    <label>Spørsmål</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>100</max-length>
+                    </config>
+                </input>
+                <input  name="desc" type="TextArea">
+                    <label>Beskrivelse</label>
+                    <config>
+                        <max-length>300</max-length>
+                    </config>
+                </input>
+                <item-set name="options">
+                    <label>Svar alternativ</label>
+                    <items>
+                        <input name="text" type="TextLine">
+                            <label>Tekst</label>
+                            <occurrences minimum="1" maximum="1"/>
+                            <config>
+                                <max-length>100</max-length>
+                            </config>
+                        </input>
+                        <input  name="isCorrect" type="CheckBox">
+                            <label>Korrekt svar</label>
+                            <config>
+                                <alignment>right</alignment>
+                            </config>
+                        </input>
+                    </items>
+                    <occurrences minimum="1" maximum="8"/>
+                </item-set>
+                <input name="side" type="RadioButton">
+                    <label>Bildeposisjon</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <option value="left">Venstre</option>
+                        <option value="right">Høyre</option>
+                    </config>
+                    <default>left</default>
+                </input>
+                <option-set name="media">
+                    <label>Media</label>
+                    <expanded>false</expanded>
+                    <occurrences minimum="0" maximum="1"/>
+                    <options minimum="0" maximum="1">
+                        <option name="image">
+                            <label>Bilde</label>
+                            <items>
+                                <input name="image" type="ImageSelector">
+                                    <label>Bilde</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                    <config>
+                                        <allowPath>${site}/*</allowPath>
+                                        <treeMode>true</treeMode>
+                                        <showStatus>true</showStatus>
+                                    </config>
+                                </input>
+                            </items>
+                        </option>
+                        <option name="video">
+                            <label>Video</label>
+                            <help-text>Kommer senere</help-text>
+                        </option>
+                    </options>
+                </option-set>
+            </items>
+            <occurrences minimum="1" maximum="30"/>
+        </item-set>
+        <input type="HtmlArea" name="endText">
+            <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
+            <!-- @description[en]: Main content in a text block -->
+            <label i18n="text">Slutt tekst</label>
+            <occurrences minimum="0" maximum="1" />
+            <config>
+                <exclude>Code | Table | Image</exclude>
+                <allowHeadings>h4</allowHeadings>
+            </config>
+        </input>
+    </form>
+</part>
