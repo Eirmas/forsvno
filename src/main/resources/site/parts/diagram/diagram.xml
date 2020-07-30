@@ -1,0 +1,206 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Diagram</display-name>
+    <form>
+        <input name="title" type="TextLine">
+            <!-- @description[no]: Tittel  -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="subTitle" type="TextLine">
+            <!-- @description[no]: Undertittel  -->
+            <!-- @description[en]: Sub title -->
+            <label i18n="subTitle">Undertittel</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <option-set name="type">
+            <label>Velg diagramtype</label>
+            <expanded>false</expanded>
+            <occurrences minimum="1" maximum="1"/>
+            <options minimum="1" maximum="1">
+                <option name="pieData">
+                    <label>Sektordiagram</label>
+                    <items>
+                        <item-set name="series">
+                            <label>Kategori</label>
+                            <occurrences minimum="2" maximum="12"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Navn  -->
+                                    <!-- @description[en]: Name -->
+                                    <label i18n="name">Navn</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <input name="y" type="Long">
+                                    <!-- @description[no]: Verdi  -->
+                                    <!-- @description[en]: Value -->
+                                    <label i18n="value">Verdi</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                    <config>
+                                        <regexp>^[0-9]*$</regexp>
+                                    </config>
+                                </input>
+                            </items>
+                        </item-set>
+                    </items>
+                </option>
+                <option name="columnData">
+                    <label>Søylediagram</label>
+                    <items>
+                        <item-set name="categories">
+                            <label>Felt (x-akse)</label>
+                            <occurrences minimum="1" maximum="6"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Tekst  -->
+                                    <!-- @description[en]: Text -->
+                                    <label i18n="text">Tekst</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                            </items>
+                        </item-set>
+                        <item-set name="series">
+                            <label>Kategori</label>
+                            <occurrences minimum="1" maximum="10"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Navn  -->
+                                    <!-- @description[en]: Name -->
+                                    <label i18n="name">Navn</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <item-set name="data">
+                                    <label>Verdier</label>
+                                    <occurrences minimum="1" maximum="6"/>
+                                    <items>
+                                        <input name="y" type="Long">
+                                            <!-- @description[no]: Verdi  -->
+                                            <!-- @description[en]: Value -->
+                                            <label i18n="value">Verdi</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                            <config>
+                                                <regexp>^[0-9]*$</regexp>
+                                            </config>
+                                        </input>
+                                    </items>
+                                </item-set>
+                            </items>
+                        </item-set>
+                        <input name="xText" type="TextLine">
+                            <label>Tekst på x-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                        <input name="yText" type="TextLine">
+                            <label>Tekst på y-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                    </items>
+                </option>
+                <option name="lineData">
+                    <label>Linjediagram</label>
+                    <items>
+                        <item-set name="categories">
+                            <label>Felt (x-akse)</label>
+                            <occurrences minimum="1" maximum="6"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Tekst  -->
+                                    <!-- @description[en]: Text -->
+                                    <label i18n="text">Tekst</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                            </items>
+                        </item-set>
+                        <item-set name="series">
+                            <label>Kategori</label>
+                            <occurrences minimum="1" maximum="10"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Navn -->
+                                    <!-- @description[en]: Name -->
+                                    <label i18n="name">Navn</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <item-set name="data">
+                                    <label>Verdi</label>
+                                    <occurrences minimum="1" maximum="6"/>
+                                    <items>
+                                        <input name="y" type="Long">
+                                            <!-- @description[no]: Verdi  -->
+                                            <!-- @description[en]: Value -->
+                                            <label i18n="value">Verdi</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                            <config>
+                                                <regexp>^[0-9]*$</regexp>
+                                            </config>
+                                        </input>
+                                    </items>
+                                </item-set>
+                            </items>
+                        </item-set>
+                        <input name="xText" type="TextLine">
+                            <label>Tekst på x-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                        <input name="yText" type="TextLine">
+                            <label>Tekst på y-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                    </items>
+                </option>
+                <option name="areaData">
+                    <label>Områdediagram</label>
+                    <items>
+                        <item-set name="categories">
+                            <label>Felt (x-akse)</label>
+                            <occurrences minimum="1" maximum="6"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Tekst  -->
+                                    <!-- @description[en]: Text -->
+                                    <label i18n="text">Tekst</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                            </items>
+                        </item-set>
+                        <item-set name="series">
+                            <label>Kategori</label>
+                            <occurrences minimum="1" maximum="10"/>
+                            <items>
+                                <input name="name" type="TextLine">
+                                    <!-- @description[no]: Navn  -->
+                                    <!-- @description[en]: Name -->
+                                    <label i18n="name">Navn</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <item-set name="data">
+                                    <label>Verdi</label>
+                                    <occurrences minimum="1" maximum="6"/>
+                                    <items>
+                                        <input name="y" type="Long">
+                                            <!-- @description[no]: Verdi  -->
+                                            <!-- @description[en]: Value -->
+                                            <label i18n="value">Verdi</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                            <config>
+                                                <regexp>^[0-9]*$</regexp>
+                                            </config>
+                                        </input>
+                                    </items>
+                                </item-set>
+                            </items>
+                        </item-set>
+                        <input name="xText" type="TextLine">
+                            <label>Tekst på x-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                        <input name="yText" type="TextLine">
+                            <label>Tekst på y-akse</label>
+                            <occurrences minimum="0" maximum="1"/>
+                        </input>
+                    </items>
+                </option>
+            </options>
+        </option-set>
+    </form>
+</part>

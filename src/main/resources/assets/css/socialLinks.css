@@ -35,6 +35,17 @@
 .social-links__text a:hover {
     text-decoration: none;
 }
+.social-links__wrapper {
+    padding: 5rem 0;
+}
+@media (max-width: 991px) {
+    .social-links__wrapper {
+        padding: 3rem 0;
+    }
+    .social-links {
+        padding: 5rem 3rem;
+    }
+}
 @media (max-width: 767px) {
     .social-links {
         padding: 3.4rem 1.875rem;
