@@ -1,0 +1,81 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Videohistorier</display-name>
+    <form>
+        <input name="title" type="TextLine">
+            <label>Tittel</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <item-set name="stories">
+            <label>Story</label>
+            <items>
+                <input name="title" type="TextLine">
+                    <label>Tittel</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>30</max-length>
+                    </config>
+                </input>
+                <input name="profilePic" type="ImageSelector">
+                    <label>Profilbilde</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <allowPath>${site}/*</allowPath>
+                        <treeMode>true</treeMode>
+                        <showStatus>true</showStatus>
+                    </config>
+                </input>
+                <item-set name="storyItems">
+                    <label>Media</label>
+                    <items>
+                        <option-set name="type">
+                            <!-- @description[no]: Toppbildet er det profilerte bildet som vises i toppen av siden. Det er også det bildet som brukes i alle kortvisninger av siden. Du kan velge å bruke et bilde eller en video som toppbilde. -->
+                            <!-- @description[en]: The cover image is the profile image that is shown at the top of the site. The cover is also used in all card displays of the site. You can choose between using an image and a video as a cover image. -->
+                            <label i18n="media">Bilde eller video</label>
+                            <occurrences minimum="1" maximum="1" />
+                            <options minimum="1" maximum="1">
+                                <option name="image">
+                                    <!-- @description[no]: Velg denne om du ønsker et statisk bilde som toppbilde. Bildetekst er hentet direkte fra bilde innholdet. -->
+                                    <!-- @description[en]: Select this if you want a static image as cover image. The image text is taken directly from the image content. -->
+                                    <label i18n="image">Bilde</label>
+                                    <items>
+                                        <input name="id" type="ImageSelector">
+                                            <!-- @description[no]: Velg et bilde med innholdsvelgeren. -->
+                                            <!-- @description[en]: Select an image using the content selector. -->
+                                            <label i18n="content-choose">Velg innhold</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                            <config>
+                                                <allowPath>${site}/*</allowPath>
+                                            </config>
+                                        </input>
+                                    </items>
+                                </option>
+                                <option name="video">
+                                    <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
+                                    <!-- @description[en]: Select this if you want a video as cover image. -->
+                                    <label i18n="video">Video</label>
+                                    <items>
+                                        <input name="id" type="ContentSelector">
+                                            <!-- @description[no]: Velg en video med innholdsvelgeren. -->
+                                            <!-- @description[en]: Select a video using the content selector. -->
+                                            <label i18n="content-choose">Velg innhold</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                            <config>
+                                                <allowContentType>video</allowContentType>
+                                                <allowPath>${site}/*</allowPath>
+                                            </config>
+                                        </input>
+                                    </items>
+                                </option>
+                            </options>
+                        </option-set>
+                    </items>
+                    <occurrences minimum="1" maximum="10" />
+                </item-set>
+            </items>
+            <occurrences minimum="1" maximum="3"/>
+        </item-set>
+    </form>
+</part>

@@ -41,12 +41,16 @@ exports.get = () => {
     const view = resolve("quiz.ftl");
     const body = libs.freemarker.render(view, model);
 
+    const quizCss = libs.portal.assetUrl({ path: "css/quiz.css" });
+    const quizCssContribution = `<link rel="preload" href="${quizCss}" as="style"><link rel="stylesheet" href="${quizCss}">`;
+
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/quizVue.js" })}" async></script>`;
 
     return {
         body: body,
         pageContributions: {
+            headEnd: [quizCssContribution],
             bodyEnd: [initialDataScript, vueScript]
         }
     };

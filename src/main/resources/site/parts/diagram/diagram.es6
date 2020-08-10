@@ -39,12 +39,15 @@ exports.get = () => {
     };
     const view = resolve("diagram.ftl");
     const body = libs.freemarker.render(view, model);
+    const diagramCss = libs.portal.assetUrl({ path: "css/diagram.css" });
+    const diagramCssContribution = `<link rel="preload" href="${diagramCss}" as="style"><link rel="stylesheet" href="${diagramCss}">`;
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/diagramVue.js" })}" async></script>`;
 
     return {
         body: body,
         pageContributions: {
+            headEnd: [diagramCssContribution],
             bodyEnd: [initialDataScript, vueScript]
         }
     };

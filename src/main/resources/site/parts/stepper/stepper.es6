@@ -18,12 +18,16 @@ exports.get = () => {
     const view = resolve("stepper.ftl");
     const body = libs.freemarker.render(view, model);
 
+    const stepperCss = libs.portal.assetUrl({ path: "css/stepper.css" });
+    const stepperCssContribution = `<link rel="preload" href="${stepperCss}" as="style"><link rel="stylesheet" href="${stepperCss}">`;
+
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/stepperVue.js" })}" async></script>`;
 
     return {
         body: body,
         pageContributions: {
+            headEnd: [stepperCssContribution],
             bodyEnd: [initialDataScript, vueScript]
         }
     };
