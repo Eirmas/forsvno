@@ -13,6 +13,7 @@ exports.get = () => {
     const config = libs.portal.getComponent().config
     const data = {
         title: config.title || "",
+        background: config.background || false,
         stories: toArray(config.stories).map((story) => ({
             title: story.title,
             profilePic: libs.portal.imageUrl({

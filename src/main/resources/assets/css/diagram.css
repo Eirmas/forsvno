@@ -1,54 +1,6 @@
 .diagram__wrapper-inner {
     position: relative;
 }
-.diagram__info {
-    z-index: 1;
-    position: relative;
-    right: 2rem;
-    top: 0;
-    text-align: right;
-}
-.diagram__info button {
-    color: #191b21;
-    position: relative;
-    width: 2rem;
-    height: 2rem;
-    font-size: 20px;
-    background: #C6C7C4;
-    border-radius: 100%;
-    align-items: center;
-    text-align: center;
-    border: none;
-}
-.diagram__info-bubble {
-    display: none;
-    max-width: 350px;
-    position: absolute;
-    text-align: left;
-    padding: 1rem;
-    right: 0;
-    top: 3rem;
-    background: #F5F7F8;
-}
-.diagram__info-bubble .diagram__info-bubble-divider {
-    margin: 0.25rem auto;
-    height: 2px;
-    width: 40%;
-    background: #E2E6E9;
-}
-.diagram__info-bubble p {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    padding-right: 2rem;
-}
-.diagram__info-bubble-close {
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    right: 1rem;
-}
 .diagram__tooltip {
     padding: 1.75rem 2rem;
 }
@@ -90,10 +42,6 @@
 .diagram__wrapper-inner {
     padding: 5rem 0;
 }
-.diagram__info-wrapper {
-    height: 0;
-    padding: 0;
-}
 .diagram__legend {
     max-width: 680px;
     margin: auto;
@@ -120,9 +68,6 @@
 @media (max-width: 991px) {
     .diagram__wrapper-inner {
         padding: 2rem 0;
-    }
-    .diagram__info {
-        right: 0;
     }
 }
 @media (max-width: 767px) {

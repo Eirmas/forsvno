@@ -77,5 +77,20 @@
             </items>
             <occurrences minimum="1" maximum="3"/>
         </item-set>
+        <item-set name="background">
+            <!-- @description[no]: Velg bakgrunnsfarge til listen. -->
+            <!-- @description[en]: Chose background color of the list. -->
+            <label i18n="background">Bakgrunn</label>
+            <occurrences minimum="0" maximum="1" />
+            <items>
+                <mixin name="background-color" />
+                <input name="twoTone" type="CheckBox">
+                    <!-- @description[no]: Kryss av for at bakgrunnsfarge ikke skal dekke hele listen.  -->
+                    <!-- @description[en]: Check this to prevent background color from covering the whole list. -->
+                    <label i18n="background.twotone">2-tone bakgrunn</label>
+                    <occurrences minimum="0" maximum="1" />
+                </input>
+            </items>
+        </item-set>
     </form>
 </part>

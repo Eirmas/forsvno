@@ -14,7 +14,7 @@
                 <input  name="active" type="CheckBox">
                     <label>Aktiv</label>
                     <config>
-                        <alignment>right</alignment>
+                        <alignment>left</alignment>
                     </config>
                 </input>
             </items>

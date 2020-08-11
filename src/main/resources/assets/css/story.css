@@ -1,3 +1,21 @@
+.stories__list-two-tone-grey-light {
+    background: linear-gradient(180deg, transparent 50%, #f5f7f8 50%);
+}
+.stories__list-two-tone-green {
+    background: linear-gradient(180deg, transparent 50%, #C6C7C4 50%);
+}
+.stories__list-two-tone-green-light {
+    background: linear-gradient(180deg, transparent 50%, #F1F2F0 50%);
+}
+.stories__list-two-tone-blue-light {
+    background: linear-gradient(180deg, transparent 50%, #E2E6E9 50%);
+}
+.stories__list-two-tone-beige-light {
+    background: linear-gradient(180deg, transparent 50%, #EDE9E8 50%);
+}
+.stories__list-two-tone-beige {
+    background: linear-gradient(180deg, transparent 50%, #E3DDD8 50%);
+}
 .story__fs-wrapper {
     pointer-events: none;
     width: 100%;
@@ -51,7 +69,6 @@
 .stories__list {
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, transparent 50%, #f5f7f8 50%);
 }
 .stories__title {
     width: 252px;
