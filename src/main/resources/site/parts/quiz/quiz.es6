@@ -13,6 +13,18 @@ exports.get = () => {
     const data = {
         title: config.title || "",
         subTitle: config.subTitle || "",
+        media: {
+            selected: config.media ? config.media._selected : "",
+            image: {
+                src: config.media ? libs.portal.imageUrl({
+                    id: config.media.image.image,
+                    scale: 'max(600)'
+                }) : null
+            },
+            video: (config.media.video.id) ? libs.content.get({
+                key: config.media.video.id
+            }) : null
+        },
         startText: config.startText || "",
         questions: toArray(config.questions).map((v) => ({
             text: v.text || "",
@@ -25,11 +37,11 @@ exports.get = () => {
                     src: v.media ? libs.portal.imageUrl({
                         id: v.media.image.image,
                         scale: 'max(600)'
-                    }) : ""
+                    }) : null
                 },
-                video: {
-                    src: ""
-                }
+                video: (v.media.video.id) ? libs.content.get({
+                    key: v.media.video.id
+                }) : null
             }
         })),
         endText: config.endText || ""
@@ -46,11 +58,12 @@ exports.get = () => {
 
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/quizVue.js" })}" async></script>`;
+    const goBrainScript = "<script src=\"//play2.qbrick.com/framework/GoBrain.min.js\"></script>";
 
     return {
         body: body,
         pageContributions: {
-            headEnd: [quizCssContribution],
+            headEnd: [quizCssContribution, goBrainScript],
             bodyEnd: [initialDataScript, vueScript]
         }
     };

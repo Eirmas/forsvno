@@ -15,6 +15,44 @@
                 <max-length>100</max-length>
             </config>
         </input>
+        <option-set name="media">
+            <label>Media</label>
+            <expanded>false</expanded>
+            <occurrences minimum="0" maximum="1"/>
+            <options minimum="0" maximum="1">
+                <option name="image">
+                    <label>Bilde</label>
+                    <items>
+                        <input name="image" type="ImageSelector">
+                            <label>Bilde</label>
+                            <occurrences minimum="1" maximum="1"/>
+                            <config>
+                                <allowPath>${site}/*</allowPath>
+                                <treeMode>true</treeMode>
+                                <showStatus>true</showStatus>
+                            </config>
+                        </input>
+                    </items>
+                </option>
+                <option name="video">
+                    <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
+                    <!-- @description[en]: Select this if you want a video as cover image. -->
+                    <label i18n="video">Video</label>
+                    <items>
+                        <input name="id" type="ContentSelector">
+                            <!-- @description[no]: Velg en video med innholdsvelgeren. -->
+                            <!-- @description[en]: Select a video using the content selector. -->
+                            <label i18n="content-choose">Velg innhold</label>
+                            <occurrences minimum="1" maximum="1"/>
+                            <config>
+                                <allowContentType>video</allowContentType>
+                                <allowPath>${site}/*</allowPath>
+                            </config>
+                        </input>
+                    </items>
+                </option>
+            </options>
+        </option-set>
         <input type="HtmlArea" name="startText">
             <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
             <!-- @description[en]: Main content in a text block -->
@@ -89,8 +127,21 @@
                             </items>
                         </option>
                         <option name="video">
-                            <label>Video</label>
-                            <help-text>Kommer senere</help-text>
+                            <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
+                            <!-- @description[en]: Select this if you want a video as cover image. -->
+                            <label i18n="video">Video</label>
+                            <items>
+                                <input name="id" type="ContentSelector">
+                                    <!-- @description[no]: Velg en video med innholdsvelgeren. -->
+                                    <!-- @description[en]: Select a video using the content selector. -->
+                                    <label i18n="content-choose">Velg innhold</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                    <config>
+                                        <allowContentType>video</allowContentType>
+                                        <allowPath>${site}/*</allowPath>
+                                    </config>
+                                </input>
+                            </items>
                         </option>
                     </options>
                 </option-set>
