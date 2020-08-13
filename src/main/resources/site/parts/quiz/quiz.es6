@@ -44,7 +44,8 @@ exports.get = () => {
                 }) : null
             }
         })),
-        endText: config.endText || ""
+        endText: config.endText || "",
+        feedback: config.feedback ? config.feedback : false
     }
     const model = {
         uniqueId,

@@ -1,77 +1,77 @@
-.diagram__wrapper-inner {
+.diagram__wrapper .diagram__wrapper-inner {
     position: relative;
 }
-.diagram__tooltip {
+.diagram__wrapper .diagram__tooltip {
     padding: 1.75rem 2rem;
 }
-.diagram__tooltip-category {
+.diagram__wrapper .diagram__tooltip-category {
     padding-top: 1em;
     font-size: 1.125rem;
 }
-.diagram__tooltip-title {
+.diagram__wrapper .diagram__tooltip-title {
     font-weight: 400;
     padding: 0;
     margin: 0;
     font-size: 2em;
     text-align: center;
 }
-.diagram__tooltip-total {
+.diagram__wrapper .diagram__tooltip-total {
     font-weight: 500;
     padding-top: 0.5em;
     text-transform: uppercase;
     padding-bottom: 2rem;
     font-size: 1.5em;
 }
-.diagram__tooltip-box {
+.diagram__wrapper .diagram__tooltip-box {
     padding-top: 0.5rem;
     margin-top: 0.5rem;
     text-align: center;
 }
-.diagram__tooltip-value {
+.diagram__wrapper .diagram__tooltip-value {
     font-weight: 600;
     padding: 0;
     font-size: 2.75em;
 }
-.diagram__tooltip-suffix {
+.diagram__wrapper .diagram__tooltip-suffix {
     font-size: 1.4rem;
 }
-.diagram__tooltip-border {
-    border-top: 1px solid #E2E6E9;
-    margin-top: .25em;
+.diagram__wrapper .diagram__tooltip-border {
+    border-top: 1px solid #e2e6e9;
+    margin-top: 0.25em;
 }
-.diagram__wrapper-inner {
+.diagram__wrapper .diagram__wrapper-inner {
     padding: 5rem 0;
 }
-.diagram__legend {
+.diagram__wrapper .diagram__legend {
     max-width: 680px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.diagram__legend-item {
+.diagram__wrapper .diagram__legend-item {
     display: flex;
     padding: 0.5rem;
     align-items: center;
 }
-.diagram__legend-item-color {
+.diagram__wrapper .diagram__legend-item-color {
     width: 1rem;
     height: 1rem;
     min-width: 1rem;
     min-height: 1rem;
     border-radius: 100%;
-    margin-right: .75rem
+    margin-right: 0.75rem;
 }
-.diagram__legend-item-text {
+.diagram__wrapper .diagram__legend-item-text {
     font-weight: 600;
 }
 @media (max-width: 991px) {
-    .diagram__wrapper-inner {
+    .diagram__wrapper .diagram__wrapper-inner {
         padding: 2rem 0;
     }
 }
 @media (max-width: 767px) {
-    .diagram__title {
+    .diagram__wrapper .diagram__title {
         font-size: 1.4rem;
         font-weight: 500;
     }

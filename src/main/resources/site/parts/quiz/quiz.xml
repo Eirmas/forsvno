@@ -158,5 +158,39 @@
                 <allowHeadings>h4</allowHeadings>
             </config>
         </input>
+        <item-set name="feedback">
+            <label>Overstyrte tilbakemeldinger</label>
+            <occurrences minimum="0" maximum="1" />
+            <items>
+                <input name="feedback0" type="TextLine">
+                    <label>Ingen riktig</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback1" type="TextLine">
+                    <label>0% - 19%</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback2" type="TextLine">
+                    <label>20% - 39%</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback3" type="TextLine">
+                    <label>40% - 59%</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback4" type="TextLine">
+                    <label>60% - 79%</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback5" type="TextLine">
+                    <label>80% - 99%</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input name="feedback6" type="TextLine">
+                    <label>Alt riktig</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+            </items>
+        </item-set>
     </form>
 </part>
