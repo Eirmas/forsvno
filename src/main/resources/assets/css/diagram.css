@@ -1,41 +1,41 @@
 .diagram__wrapper .diagram__wrapper-inner {
     position: relative;
 }
-.diagram__wrapper .diagram__tooltip {
+.diagram__tooltip {
     padding: 1.75rem 2rem;
 }
-.diagram__wrapper .diagram__tooltip-category {
+.diagram__tooltip-category {
     padding-top: 1em;
     font-size: 1.125rem;
 }
-.diagram__wrapper .diagram__tooltip-title {
+.diagram__tooltip-title {
     font-weight: 400;
     padding: 0;
     margin: 0;
     font-size: 2em;
     text-align: center;
 }
-.diagram__wrapper .diagram__tooltip-total {
+.diagram__tooltip-total {
     font-weight: 500;
     padding-top: 0.5em;
     text-transform: uppercase;
     padding-bottom: 2rem;
     font-size: 1.5em;
 }
-.diagram__wrapper .diagram__tooltip-box {
+.diagram__tooltip-box {
     padding-top: 0.5rem;
     margin-top: 0.5rem;
     text-align: center;
 }
-.diagram__wrapper .diagram__tooltip-value {
+.diagram__tooltip-value {
     font-weight: 600;
     padding: 0;
     font-size: 2.75em;
 }
-.diagram__wrapper .diagram__tooltip-suffix {
+.diagram__tooltip-suffix {
     font-size: 1.4rem;
 }
-.diagram__wrapper .diagram__tooltip-border {
+.diagram__tooltip-border {
     border-top: 1px solid #e2e6e9;
     margin-top: 0.25em;
 }

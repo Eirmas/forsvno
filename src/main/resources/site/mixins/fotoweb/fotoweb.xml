@@ -1,0 +1,14 @@
+<mixin>
+    <display-name>Fotoweb input mixin</display-name>
+    <form>
+        <input type="CustomSelector" name="color">
+            <!-- @description[no]: Søk blant bilder i Forsvarets mediearkiv.  -->
+            <!-- @description[en]: Search for images in Norwegian armed forces media archive. -->
+            <label i18n="background-choose">Forsvarets Mediearkiv</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <service>fotoweb-service</service>
+            </config>
+        </input>
+    </form>
+</mixin>
