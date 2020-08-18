@@ -4,8 +4,7 @@ const libs = {
 };
 
 exports.get = () => {
-    const path = libs.portal.getComponent().path;
-    const uniqueId = path.split("/").join("-");
+    const path = libs.portal.getComponent().path;;
 
     const config = libs.portal.getComponent().config
     const items = (config.items) ? ((!config.items.length) ? [ config.items ] : config.items) : []
@@ -25,7 +24,7 @@ exports.get = () => {
     const view = resolve("social-links.ftl");
     const body = libs.freemarker.render(view, data);
 
-    const socialLinksCss = libs.portal.assetUrl({ path: "css/socialLinks.css" });
+    const socialLinksCss = libs.portal.assetUrl({ path: "css/social-links.css" });
     const socialLinksCssContribution = `<link rel="preload" href="${socialLinksCss}" as="style"><link rel="stylesheet" href="${socialLinksCss}">`;
 
     return {

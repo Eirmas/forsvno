@@ -1,25 +1,25 @@
 /* Normal font weights */
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-Thin.otf);
+    src: url(../fonts/CeraPro-Light.otf);
     font-weight: 300;
     font-style: normal
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-Light.otf);
+    src: url(../fonts/CeraPro-Regular.otf);
     font-weight: 400;
     font-style: normal
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-Regular.otf);
+    src: url(../fonts/CeraPro-Medium.otf);
     font-weight: 500;
     font-style: normal
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-Medium.otf);
+    src: url(../fonts/CeraPro-Bold.otf);
     font-weight: 600;
     font-style: normal
 }
@@ -32,25 +32,25 @@
 /* Italic font weights */
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-ThinItalic.otf);
+    src: url(../fonts/CeraPro-LightItalic.otf);
     font-weight: 300;
     font-style: italic
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-LightItalic.otf);
+    src: url(../fonts/CeraPro-RegularItalic.otf);
     font-weight: 400;
     font-style: italic
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-RegularItalic.otf);
+    src: url(../fonts/CeraPro-MediumItalic.otf);
     font-weight: 500;
     font-style: italic
 }
 @font-face {
     font-family: Cera Pro;
-    src: url(../fonts/CeraPro-MediumItalic.otf);
+    src: url(../fonts/CeraPro-BoldItalic.otf);
     font-weight: 600;
     font-style: italic
 }

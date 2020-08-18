@@ -9,7 +9,7 @@
     font-size: 1.125rem;
 }
 .diagram__tooltip-title {
-    font-weight: 400;
+    font-weight: 500;
     padding: 0;
     margin: 0;
     font-size: 2em;
@@ -63,7 +63,7 @@
     margin-right: 0.75rem;
 }
 .diagram__wrapper .diagram__legend-item-text {
-    font-weight: 600;
+    font-weight: 500;
 }
 @media (max-width: 991px) {
     .diagram__wrapper .diagram__wrapper-inner {

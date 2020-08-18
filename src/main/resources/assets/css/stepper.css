@@ -33,7 +33,7 @@
     background-color: #191b21;
 }
 .stepper__wrapper .stepper__dot-label {
-    font-weight: 600;
+    font-weight: 500;
     position: relative;
     white-space: nowrap;
     overflow-x: hidden;

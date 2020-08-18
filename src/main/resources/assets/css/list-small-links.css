@@ -1,0 +1,30 @@
+.list-small-links__wrapper {
+    padding: 5rem 0;
+}
+.list-small-links__wrapper .list-small-links__head {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #c6c7c4;
+    margin-bottom: 1.5rem;
+}
+.list-small-links__wrapper .list-small-links__col {
+    display: flex;
+}
+.list-small-links__wrapper .list-small-links__col a {
+    width: 100%;
+    display: flex;
+    text-decoration: none !important;
+}
+.list-small-links__wrapper .list-small-links__col a span {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+.list-small-links__wrapper .list-small-links__col a img {
+    width: 22px;
+    margin-right: 1rem;
+    transition: transform 0.2s ease;
+}
+.list-small-links__wrapper .list-small-links__col a:hover img {
+    transform: translateX(10%);
+}
