@@ -8,13 +8,6 @@
                 <max-length>60</max-length>
             </config>
         </input>
-        <input name="subTitle" type="TextLine">
-            <label>Undertittel</label>
-            <occurrences minimum="1" maximum="1"/>
-            <config>
-                <max-length>100</max-length>
-            </config>
-        </input>
         <option-set name="media">
             <label>Media</label>
             <expanded>false</expanded>
@@ -53,10 +46,17 @@
                 </option>
             </options>
         </option-set>
+        <input name="subTitle" type="TextLine">
+            <label>Undertittel</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>100</max-length>
+            </config>
+        </input>
         <input type="HtmlArea" name="startText">
             <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
             <!-- @description[en]: Main content in a text block -->
-            <label i18n="text">Beskrivelse</label>
+            <label i18n="text">Startside tekst</label>
             <occurrences minimum="0" maximum="1" />
             <config>
                 <exclude>Code | Table | Image</exclude>
@@ -73,10 +73,11 @@
                         <max-length>100</max-length>
                     </config>
                 </input>
-                <input  name="desc" type="TextArea">
+                <input  name="desc" type="HtmlArea">
                     <label>Beskrivelse</label>
                     <config>
-                        <max-length>300</max-length>
+                        <exclude>Code | Table | Image</exclude>
+                        <allowHeadings>h4</allowHeadings>
                     </config>
                 </input>
                 <item-set name="options">
@@ -98,15 +99,6 @@
                     </items>
                     <occurrences minimum="1" maximum="8"/>
                 </item-set>
-                <input name="side" type="RadioButton">
-                    <label>Bildeposisjon</label>
-                    <occurrences minimum="1" maximum="1"/>
-                    <config>
-                        <option value="left">Venstre</option>
-                        <option value="right">Høyre</option>
-                    </config>
-                    <default>left</default>
-                </input>
                 <option-set name="media">
                     <label>Media</label>
                     <expanded>false</expanded>
@@ -123,6 +115,15 @@
                                         <treeMode>true</treeMode>
                                         <showStatus>true</showStatus>
                                     </config>
+                                </input>
+                                <input name="side" type="RadioButton">
+                                    <label>Bildeposisjon</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                    <config>
+                                        <option value="left">Venstre</option>
+                                        <option value="right">Høyre</option>
+                                    </config>
+                                    <default>left</default>
                                 </input>
                             </items>
                         </option>
@@ -141,6 +142,15 @@
                                         <allowPath>${site}/*</allowPath>
                                     </config>
                                 </input>
+                                <input name="side" type="RadioButton">
+                                    <label>Videoposisjon</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                    <config>
+                                        <option value="left">Venstre</option>
+                                        <option value="right">Høyre</option>
+                                    </config>
+                                    <default>left</default>
+                                </input>
                             </items>
                         </option>
                     </options>
@@ -151,7 +161,7 @@
         <input type="HtmlArea" name="endText">
             <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
             <!-- @description[en]: Main content in a text block -->
-            <label i18n="text">Slutt tekst</label>
+            <label i18n="text">Resultatside tekst</label>
             <occurrences minimum="0" maximum="1" />
             <config>
                 <exclude>Code | Table | Image</exclude>
@@ -159,7 +169,7 @@
             </config>
         </input>
         <item-set name="feedback">
-            <label>Overstyrte tilbakemeldinger</label>
+            <label>Overstyrte resultatmeldinger</label>
             <occurrences minimum="0" maximum="1" />
             <items>
                 <input name="feedback0" type="TextLine">

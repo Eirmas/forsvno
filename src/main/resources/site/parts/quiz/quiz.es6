@@ -30,7 +30,7 @@ exports.get = () => {
             text: v.text || "",
             desc: v.desc || "",
             options: v.options || [],
-            isImageLeft: v.side === 'left',
+            isImageLeft: (v.media["_selected"] === 'image') ? (v.media.image.side === 'left') : (v.media.video.side === 'left'),
             media: {
                 selected: v.media ? v.media._selected : "",
                 image: {

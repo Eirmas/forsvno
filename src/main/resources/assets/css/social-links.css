@@ -1,3 +1,6 @@
+.social-links__wrapper {
+    padding: 5rem 0;
+}
 .social-links {
     padding: 5rem;
 }
@@ -47,6 +50,9 @@
     }
 }
 @media (max-width: 767px) {
+    .social-links__wrapper {
+        padding: 3rem 0;
+    }
     .social-links {
         padding: 3.4rem 1.875rem;
     }

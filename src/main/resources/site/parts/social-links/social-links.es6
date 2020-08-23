@@ -15,7 +15,7 @@ exports.get = () => {
         items: items.map((item) => ({
             icon: libs.portal.imageUrl({
                 id: item.icon,
-                scale: 'block(60,60)'
+                scale: 'block(20,20)'
             }),
             href: item.href,
             text: item.text

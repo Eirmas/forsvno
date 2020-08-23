@@ -10,6 +10,7 @@
 }
 .list-small-links__wrapper .list-small-links__col {
     display: flex;
+    padding: .25rem 1rem;
 }
 .list-small-links__wrapper .list-small-links__col a {
     width: 100%;
@@ -19,6 +20,8 @@
 .list-small-links__wrapper .list-small-links__col a span {
     font-weight: 500;
     font-size: 1.25rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 .list-small-links__wrapper .list-small-links__col a img {
     width: 22px;

@@ -21,12 +21,17 @@ exports.get = () => {
                 scale: 'block(90,90)',
                 quality: '70'
             }),
+            thumbnailOverride: (story.thumbnail && story.thumbnail.url) ? libs.portal.imageUrl({
+                id: story.thumbnail.url,
+                scale: 'max(1000)',
+                quality: '100'
+            }) : false,
             storyItems: toArray(story.storyItems).map((storyItem) => ({
                 type: storyItem.type["_selected"],
                 image: libs.portal.imageUrl({
                     id: storyItem.type.image.id,
                     scale: 'max(1000)',
-                    quality: '80'
+                    quality: '100'
                 }),
                 video: (storyItem.type.video.id) ? libs.content.get({
                     key: storyItem.type.video.id
@@ -34,7 +39,6 @@ exports.get = () => {
             })).filter((storyItem) => storyItem.type && (storyItem.image || storyItem.video))
         }))
     }
-
     const model = {
         uniqueId,
         data: JSON.stringify(data)
