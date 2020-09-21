@@ -1,0 +1,114 @@
+.link-activate .link-activate__wrapper {
+    padding: 2rem;
+}
+.link-activate .link-activate__wrapper .link-activate__head {
+    padding: 1rem 0 0 2.5rem;
+    position: relative;
+    text-align: center;
+}
+.link-activate .link-activate__wrapper .link-activate__head .link-activate__label {
+    position: relative;
+    margin-bottom: 0;
+    cursor: pointer;
+    text-align: left;
+}
+.link-activate .link-activate__wrapper .link-activate__head .link-activate__label .link-activate__checkbox {
+    border: 2.5px solid #191b21;
+    position: absolute;
+    top: calc(50% - 12.5px);
+    left: -2.5rem;
+    height: 20px;
+    width: 20px;
+    box-sizing: content-box;
+}
+.link-activate .link-activate__wrapper .link-activate__head .link-activate__label .link-activate__checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+    width: 15px;
+    height: 15px;
+    top: 2.5px;
+    left: 2.5px;
+    background-color: #191b21;
+}
+.link-activate .link-activate__wrapper .link-activate__head input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.link-activate .link-activate__wrapper .link-activate__head input:checked ~ .link-activate__checkbox:after {
+    display: block;
+}
+.link-activate .link-activate__wrapper .link-activate__body {
+    padding: 1rem 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link {
+    border: 3px solid #191b21;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    display: inline-flex;
+    margin: 0.5rem 1rem;
+    text-decoration: none;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link img {
+    width: 20px;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link span {
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    text-align: left;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #191b21;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link:hover img {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link-disabled {
+    border: 3px solid rgba(25, 27, 33, 0.50);
+    color: rgba(25, 27, 33, 0.50);
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link-disabled:hover {
+    text-decoration: none;
+    color: rgba(25, 27, 33, 0.50);
+    background-color: transparent;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link-disabled:hover img {
+    -webkit-filter: unset;
+    filter: unset;
+}
+.link-activate .link-activate__wrapper .link-activate__body .link-activate__link-disabled img {
+    opacity: 50%;
+}
+@media (max-width: 768px) {
+    .link-activate .link-activate__wrapper .link-activate__head {
+        text-align: left;
+    }
+    .link-activate .link-activate__wrapper .link-activate__body {
+        display: block;
+    }
+    .link-activate .link-activate__wrapper .link-activate__body div {
+        padding: 0.5rem 0;
+    }
+    .link-activate .link-activate__wrapper .link-activate__body .link-activate__link {
+        justify-content: space-between;
+        width:100%;
+        margin: 0;
+    }
+    .link-activate .link-activate__wrapper .link-activate__body .link-activate__link span {
+        width: 100%;
+        max-width: unset;
+    }
+}

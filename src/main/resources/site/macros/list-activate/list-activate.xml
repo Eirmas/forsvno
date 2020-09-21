@@ -1,0 +1,36 @@
+<macro>
+    <display-name i18n="a-macro.display-name">Lenke - Aktivt valg</display-name>
+    <form>
+        <input name="text" type="TextLine">
+            <label>Tekst til høyre for avhukingsboks</label>
+        </input>
+        <input name="link1text" type="TextLine">
+            <label>Knapp 1 - Tekst</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <input name="link1href" type="TextLine">
+            <label>Knapp 1 - Lenke</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <regexp>^(http|https)://</regexp>
+            </config>
+        </input>
+        <input name="link2text" type="TextLine">
+            <label>Knapp 2 - Tekst</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <input name="link2href" type="TextLine">
+            <label>Knapp 2 - Lenke</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <regexp>^(http|https)://</regexp>
+            </config>
+        </input>
+    </form>
+</macro>

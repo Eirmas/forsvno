@@ -1,0 +1,132 @@
+.promocard-horizontal__wrapper {
+    padding: 5rem 0;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header {
+    text-align: center;
+    position: relative;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header span {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left, .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-right {
+    border: none;
+    background-color: transparent;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left svg, .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-right svg {
+    width: 24px;
+    height: 16px;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left {
+    margin-right: 1rem;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left svg {
+    transform: scale(-1, 1);
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body {
+    overflow-x: hidden;
+    padding-top: 5rem;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card {
+    margin: 0 1rem;
+    width: 400px;
+    background-color: #e2e6e9;
+    padding-bottom: 6rem;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-head {
+    text-align: center;
+    height: 6rem;
+    position: relative;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-head span {
+    font-size: 4rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body {
+    padding: 0 4rem;
+    text-align: center;
+    line-height: 1.75rem;
+    position: relative;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body .promocard-horizontal__card-decoration img {
+    width: 25px;
+    margin-bottom: 1rem;
+    transform: translateY(-10px);
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body .promocard-horizontal__card-decoration .promocard-horizontal__card-decoration-caption {
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.65rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__footer {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 12px;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__footer .promocard-horizontal__progress-bar {
+    width: 10rem;
+    margin: 0 auto 2rem auto;
+    height: 2px;
+    background: rgba(25, 27, 33, .4);
+    display: flex;
+    align-items: center;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__footer .promocard-horizontal__progress-bar-inner {
+    height: 4px;
+    background: #191b21;
+    width: 0;
+    transition: left 0.2s ease-in-out;
+    -webkit-transition: left 0.2s ease-in-out;
+    -o-transition: left 0.2s ease-in-out;
+    -moz-transition: left 0.2s ease-in-out;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .promocard-horizontal__wrapper {
+        padding: 2rem 0;
+    }
+    .promocard-horizontal__wrapper .promocard-horizontal__container {
+        max-width: unset !important;
+    }
+    .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__navigation {
+        display: none;
+    }
+}
+@media (max-width: 530px) {
+    .promocard-horizontal__wrapper .promocard-horizontal__container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__card {
+        width: calc(100vw - 4rem) !important;
+        margin: 0 0.5rem !important;
+    }
+    .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__card .promocard-horizontal__card-body {
+        padding: 0 2rem !important;
+    }
+}
