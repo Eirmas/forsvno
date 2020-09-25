@@ -40,6 +40,9 @@
     width: 50%;
     padding: 1rem;
   }
+  .slang-words__wrapper .slang-words__list p {
+    text-align: center;
+  }
   @media (min-width: 768px) {
     .slang-words__wrapper .slang-words__list table {
       width: 650px;
