@@ -1,82 +1,87 @@
 .slang-words__wrapper .hug-top * {
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
-  }
-  .slang-words__wrapper .hug-top input {
-    background: white;
-    padding: 0.65rem 2rem;
-    width: 450px;
-    text-align: left;
-    margin-bottom: 1rem;
-    border: 0;
-    border-radius: 25px;
-    outline: none;
-  }
-  .slang-words__wrapper .hug-top p {
-    padding-bottom: 1.5rem;
-    font-weight: 500;
-  }
-  .slang-words__wrapper .hug-top div .slang-words__search-icon {
-    width: 15px;
-    margin-left: -2.2rem;
-  }
-  .slang-words__wrapper .slang-words__list {
-    padding: 2rem;
-  }
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+}
+.slang-words__wrapper .hug-top input {
+  background: white;
+  padding: 0.65rem 2rem;
+  width: 450px;
+  text-align: left;
+  margin-bottom: 1rem;
+  border: 0;
+  border-radius: 25px;
+  outline: none;
+  margin-left: 1rem;
+}
+.slang-words__wrapper .hug-top p {
+  padding-bottom: 1.5rem;
+  font-weight: 500;
+}
+.slang-words__wrapper .hug-top div .slang-words__search-icon {
+  width: 15px;
+  position: relative;
+  right: 2rem;
+}
+.slang-words__wrapper .slang-words__list {
+  padding: 2rem;
+}
+.slang-words__wrapper .slang-words__list table {
+  width: 100%;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+.slang-words__wrapper .slang-words__list table thead th {
+  width: 50%;
+  padding: 1rem;
+}
+.slang-words__wrapper .slang-words__list table tbody tr {
+  border-bottom: 1.2px solid #c6c7c4;
+}
+.slang-words__wrapper .slang-words__list table tbody tr td {
+  width: 50%;
+  padding: 1rem;
+  overflow-x: scroll;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+.slang-words__wrapper .slang-words__list table tbody tr td::-webkit-scrollbar {
+  width: 0px; /* For Chrome, Safari, and Opera */
+}
+.slang-words__wrapper .slang-words__list p {
+  text-align: center;
+}
+.slang-words__wrapper .slang-words__pagination {
+  margin-top: 4rem;
+}
+.slang-words__wrapper .slang-words__pagination * {
+  text-align: center;
+  font-size: small;
+  margin-top: 2rem;
+}
+
+.slang-words__wrapper .slang-words__pagination .slang-words__progress-bar {
+  width: 10rem;
+  margin: 0 auto 2rem auto;
+  height: 1px;
+  background: rgba(25, 27, 33, 0.4);
+  display: flex;
+  align-items: center;
+}
+.slang-words__wrapper .slang-words__pagination .slang-words__progress-bar .slang-words__progress-bar-inner {
+  height: 2px;
+  margin-top: 0;
+  background: #191b21;
+  width: 0;
+  position: relative;
+}
+@media (min-width: 900px) {
   .slang-words__wrapper .slang-words__list table {
-    width: 100%;
-    table-layout: fixed;
-    margin: 0 auto;
+    width: 650px;
   }
-  .slang-words__wrapper .slang-words__list table thead th {
-    width: 50%;
-    padding: 1rem;
+}
+@media (max-width: 450px) {
+  .slang-words__wrapper .hug-top input {
+    width: 85%;
   }
-  .slang-words__wrapper .slang-words__list table tbody tr {
-    border-bottom: 1.2px solid #c6c7c4;
-  }
-  .slang-words__wrapper .slang-words__list table tbody tr td {
-    width: 50%;
-    padding: 1rem;
-  }
-  .slang-words__wrapper .slang-words__list p {
-    text-align: center;
-  }
-  @media (min-width: 768px) {
-    .slang-words__wrapper .slang-words__list table {
-      width: 650px;
-    }
-  }
-  .slang-words__wrapper .slang-words__pagination {
-    margin-top: 4rem;
-  }
-  .slang-words__wrapper .slang-words__pagination * {
-    text-align: center;
-    font-size: small;
-    margin-top: 2rem;
-  }
-  .slang-words__wrapper .slang-words__pagination button {
-    border: 1.5px solid #191B21;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-  }
-  .slang-words__wrapper .slang-words__pagination .slang-words__progress-bar {
-    width: 10rem;
-    margin: 0 auto 2rem auto;
-    height: 1px;
-    background: rgba(25, 27, 33, 0.4);
-    display: flex;
-    align-items: center;
-  }
-  .slang-words__wrapper .slang-words__pagination .slang-words__progress-bar .slang-words__progress-bar-inner {
-    height: 2px;
-    margin-top: 0;
-    background: #191b21;
-    width: 0;
-    position: relative;
-  }
-  
+}
