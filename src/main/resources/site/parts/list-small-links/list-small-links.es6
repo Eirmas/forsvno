@@ -25,7 +25,8 @@ exports.get = () => {
     }
     const view = resolve("list-small-links.ftl");
     const body = libs.freemarker.render(view, {
-        linkRows: mapLinks(links)
+        linkRows: mapLinks(links),
+        color: (config.color) ? config.color : ''
     });
 
     const listSmallLinksCss = libs.portal.assetUrl({ path: "css/list-small-links.css" });

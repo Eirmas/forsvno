@@ -1,4 +1,4 @@
-<div class="list-small-links__wrapper">
+<div class="list-small-links__wrapper ${color}">
     <div class="container">
         <div class="list-small-links__head">
             <span>Ressurser</span>

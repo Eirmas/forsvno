@@ -14,6 +14,14 @@ exports.get = () => {
     const data = {
         title: config.title || "",
         background: config.background || false,
+        soundIcons: {
+            on: libs.portal.assetUrl({
+                path: 'images/sound-on.svg'
+            }),
+            off: libs.portal.assetUrl({
+                path: 'images/sound-off.svg'
+            })
+        },
         stories: toArray(config.stories).map((story) => ({
             title: story.title,
             profilePic: libs.portal.imageUrl({

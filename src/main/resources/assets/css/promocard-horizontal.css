@@ -47,25 +47,31 @@
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card {
     margin: 0 1rem;
-    width: 400px;
+    width: 380px;
     background-color: #e2e6e9;
-    padding-bottom: 6rem;
+    display: grid;
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-head {
     text-align: center;
     height: 6rem;
-    position: relative;
+    align-self: baseline;
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-head span {
     font-size: 4rem;
     position: absolute;
     transform: translate(-50%, -50%);
 }
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-footer {
+    height: 6rem;
+    align-self: end;
+}
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body {
-    padding: 0 4rem;
     text-align: center;
     line-height: 1.75rem;
-    position: relative;
+    align-self: center;
+}
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body .promocard-horizontal__card-body-wrapper {
+    padding: 0 4rem;
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body .promocard-horizontal__card-wrapper .promocard-horizontal__card .promocard-horizontal__card-body .promocard-horizontal__card-decoration img {
     width: 25px;
@@ -126,7 +132,7 @@
         width: calc(100vw - 4rem) !important;
         margin: 0 0.5rem !important;
     }
-    .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__card .promocard-horizontal__card-body {
+    .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__card .promocard-horizontal__card-body .promocard-horizontal__card-body-wrapper {
         padding: 0 2rem !important;
     }
 }
