@@ -26,6 +26,10 @@
     width: 100%;
     padding: 0.75rem 0;
     background: #191b21;
+    outline: 0;
+}
+.contact-form__wrapper form button[type=submit]:focus{
+    outline: 1px solid #191b21;
 }
 .contact-form__wrapper form h6 {
     margin: 1.2rem 0;
@@ -55,6 +59,9 @@
     background: transparent;
     padding: 0;
     border: 2px solid #e6e8e9;
+    outline: 0;
+}
+.dropdown__toggle:focus {
     outline: 1px solid #191b21;
 }
 .dropdown__label {
