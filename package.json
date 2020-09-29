@@ -7,7 +7,8 @@
   "scripts": {
     "watch": "babel --watch=src/main/resources --out-dir=build/resources/main --ignore \"**/*.js\"",
     "build": "npm-run-all build:*",
-    "build:js": "babel src/main/resources --out-dir=build/resources/main --ignore \"**/*.js\""
+    "build:js": "babel src/main/resources --out-dir=build/resources/main --ignore \"**/*.js\"",
+    "vue": "./build-vue.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
