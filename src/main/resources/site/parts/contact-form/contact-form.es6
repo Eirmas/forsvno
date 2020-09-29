@@ -1,7 +1,6 @@
 const libs = {
     portal: require("/lib/xp/portal"),
     freemarker: require("/site/lib/tineikt/freemarker"),
-    mailLib: require('/lib/xp/mail')
 };
 
 exports.get = () => {
@@ -24,7 +23,6 @@ exports.get = () => {
         uniqueId,
         data: JSON.stringify( { data: fields, serviceUrl: libs.portal.serviceUrl({ service: "contact-form-service" }) })
     };
-    log.info("data: %s", model.data);
     const body = libs.freemarker.render(view, model);
 
     const contactFormCss = libs.portal.assetUrl({ path: "css/contact-form.css" });
