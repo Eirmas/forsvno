@@ -9,7 +9,6 @@ exports.post = (req) => {
     for (const key in form) {
         body += form[key] + "<br>"
     }
-    log.info(form)
     var status = libs.mailLib.send({
         from: 'me@enonic.com',
         to: form.contact_email,
