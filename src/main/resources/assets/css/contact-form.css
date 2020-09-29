@@ -55,6 +55,7 @@
     background: transparent;
     padding: 0;
     border: 2px solid #e6e8e9;
+    outline: 1px solid #191b21;
 }
 .dropdown__label {
     padding: .5rem 1rem;
