@@ -4,12 +4,12 @@ const libs = {
 };
 
 exports.post = (req) => {
-    let form = JSON.parse(req.body).data;
-    let body = "";
+    const form = JSON.parse(req.body).data;
+    const body = "";
     for (const key in form) {
-        body += form[key] + "<br>"
+        body += `${form[key]}<br>`;
     }
-    var status = libs.mailLib.send({
+    const status = libs.mailLib.send({
         from: 'me@enonic.com',
         to: form.contact_email,
         subject: 'Test subject',

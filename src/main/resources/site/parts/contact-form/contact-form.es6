@@ -16,12 +16,11 @@ exports.get = () => {
         inputId: data.element[data.element._selected].inputId,
         inputType: data.element[data.element._selected].inputType || "",
         options: data.element[data.element._selected].options || [],
-        value: ""
     }))
     const view = resolve("contact-form.ftl");
     const model = {
         uniqueId,
-        data: JSON.stringify( { data: fields, serviceUrl: libs.portal.serviceUrl({ service: "contact-form-service" }) })
+        data: JSON.stringify( { chosenEmail: config.chosenEmail, fields: fields, serviceUrl: libs.portal.serviceUrl({ service: "contact-form-service" }) })
     };
     const body = libs.freemarker.render(view, model);
 
