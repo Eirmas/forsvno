@@ -23,11 +23,26 @@
     overflow-x: hidden;
     text-overflow: ellipsis;
 }
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-up img {
+    transform: rotate(-90deg);
+}
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-down img {
+    transform: rotate(90deg);
+}
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-right img {
+    transform: rotate(0deg);
+}
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-up:hover img {
+    transform: rotate(-90deg) translateX(10%);
+}
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-down:hover img {
+    transform: rotate(90deg) translateX(10%);
+}
+.list-small-links__wrapper .list-small-links__col a.list-small-links__anchor-right:hover img {
+    transform: rotate(0deg) translateX(10%);
+}
 .list-small-links__wrapper .list-small-links__col a img {
     width: 22px;
     margin-right: 1rem;
     transition: transform 0.2s ease;
-}
-.list-small-links__wrapper .list-small-links__col a:hover img {
-    transform: translateX(10%);
 }

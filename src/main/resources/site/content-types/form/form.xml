@@ -1,0 +1,294 @@
+<content-type xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Skjema</display-name>
+    <description>Innholdstype for skjema</description>
+    <super-type>base:structured</super-type>
+    <form>
+        <item-set name="receiver">
+            <label>Mottaker</label>
+            <occurrences minimum="1" maximum="1"/>
+            <items>
+                <input name="text" type="TextLine">
+                    <label>Mottaker</label>
+                    <occurrences minimum="1" maximum="1"/>
+                </input>
+                <input name="value" type="TextLine">
+                    <label>E-mail</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <regex>^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$</regex>
+                    </config>
+                </input>
+            </items>
+        </item-set>
+        <item-set name="fields">
+            <label>Skjemafelter</label>
+            <items>
+                <option-set name="field">
+                    <label>Felt</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <options minimum="1" maximum="1">
+                        <option name="Select">
+                            <label>Nedtrekksliste</label>
+                            <items>
+                                <input name="inputHeading" type="TextLine">
+                                    <label>Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <item-set name="options">
+                                    <label>Valg</label>
+                                    <items>
+                                        <input name="text" type="TextLine">
+                                            <label>Tekst</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
+                                        <input name="value" type="TextLine">
+                                            <label>Verdi</label>
+                                            <help-text>Verdien som vist i systemene våre. Eks: Tekst er Forsvarets Mediesenter, Verdi er desk@fms.mil.no. Vi gjør dette for å pynte på valget. Ved default blir verdien det samme som teksten.</help-text>
+                                            <occurrences minimum="0" maximum="1"/>
+                                        </input>
+                                    </items>
+                                    <occurrences minimum="1" maximum="100"/>
+                                </item-set>
+                                <input name="required" type="CheckBox">
+                                    <label>Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                            </items>
+                        </option>
+                        <option name="Input">
+                            <label>Tekstfelt</label>
+                            <help-text>Til kort tekst som navn, telefon nummer eller e-mail adresse</help-text>
+                            <items>
+                                <input name="label" type="TextLine">
+                                    <label>Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <input name="placeholder" type="TextLine">
+                                    <label>Placeholder</label>
+                                </input>
+                                <input name="cc" type="ComboBox">
+                                    <label>Innholdstype</label>
+                                    <help-text>Ved å spesifisere riktig innholdstype vil autocomplete hjelpe brukeren fylle skjemaet</help-text>
+                                    <config>
+                                        <option value="off">Avskrudd</option>
+                                        <option value="given-name">Fornavn</option>
+                                        <option value="family-name">Etternavn</option>
+                                        <option value="name">Fullt navn</option>
+                                        <option value="phone">Telefonnummer</option>
+                                        <option value="email">E-postaddresse</option>
+                                        <option value="street-address">Adresse</option>
+                                        <option value="locality">Poststed</option>
+                                        <option value="postal-code">Postkode</option>
+                                        <option value="off">Personnummer</option>
+                                    </config>
+                                </input>
+                                <input name="required" type="CheckBox">
+                                    <label>Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <item-set name="advanced">
+                                    <label>Avansert</label>
+                                    <items>
+                                        <input name="maxLength" type="Long">
+                                            <label>Maximum Lengde</label>
+                                            <config>
+                                                <min>0</min>
+                                            </config>
+                                            <occurrences minimum="0" maximum="1"/>
+                                        </input>
+                                        <input name="minLength" type="Long">
+                                            <label>Minimum Lengde</label>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <config>
+                                                <min>0</min>
+                                            </config>
+                                        </input>
+                                        <option-set name="regex">
+                                            <label>Regulert uttrykk</label>
+                                            <help-text>En formel for hva som skal være lovlig å skrive inn</help-text>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <options minimum="1" maximum="1">
+                                                <option name="template">
+                                                    <label>Ferdigdefinerte</label>
+                                                    <items>
+                                                        <input name="regex" type="ComboBox">
+                                                            <label>Formel</label>
+                                                            <occurrences minimum="0" maximum="1"/>
+                                                            <config>
+                                                                <option value="email">E-postadresse</option>
+                                                                <option value="url">Lenke</option>
+                                                                <option value="pnum">Personnummer (Norsk)</option>
+                                                                <option value="phone">Telefonnummer (Norsk)</option>
+                                                            </config>
+                                                        </input>
+                                                    </items>
+                                                </option>
+                                                <option name="custom">
+                                                    <label>Egendefinert</label>
+                                                    <items>
+                                                        <input name="regex" type="TextLine">
+                                                            <label>Formel</label>
+                                                            <occurrences minimum="0" maximum="1"/>
+                                                        </input>
+                                                    </items>
+                                                </option>
+                                            </options>
+                                        </option-set>
+                                    </items>
+                                    <occurrences minimum="0" maximum="1"/>
+                                </item-set>
+                            </items>
+                        </option>
+                        <option name="Textarea">
+                            <label>Tekstområde</label>
+                            <help-text>Til lengre tekst som en kommentar eller tilbakemelding</help-text>
+                            <items>
+                                <input name="inputHeading" type="TextLine">
+                                    <label>Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <input name="required" type="CheckBox">
+                                    <label>Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <default>checked</default>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <item-set name="advanced">
+                                    <label>Avansert</label>
+                                    <items>
+                                        <input name="maxLength" type="TextLine">
+                                            <label>Maximum Lengde</label>
+                                            <config>
+                                                <regexp>^[0-9]\d*$</regexp>
+                                            </config>
+                                            <occurrences minimum="0" maximum="1"/>
+                                        </input>
+                                        <input name="minLength" type="TextLine">
+                                            <label>Minimum Lengde</label>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <config>
+                                                <regexp>^[0-9]\d*$</regexp>
+                                            </config>
+                                        </input>
+                                    </items>
+                                    <occurrences minimum="0" maximum="1"/>
+                                </item-set>
+                            </items>
+                        </option>
+                        <option name="Buttons">
+                            <label>Avhukinsfelt</label>
+                            <items>
+                                <input name="inputHeading" type="TextLine">
+                                    <label>Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <item-set name="options">
+                                    <label>Valg</label>
+                                    <items>
+                                        <input name="text" type="TextLine">
+                                            <label>Tekst</label>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
+                                        <input name="value" type="TextLine">
+                                            <label>Verdi</label>
+                                            <help-text>Verdien som vist i systemene våre. Eks: Tekst er Forsvarets Mediesenter, Verdi er desk@fms.mil.no. Vi gjør dette for å pynte på valget. Ved default blir verdien det samme som teksten.</help-text>
+                                            <occurrences minimum="0" maximum="1"/>
+                                        </input>
+                                    </items>
+                                    <occurrences minimum="1" maximum="100"/>
+                                </item-set>
+                                <input name="required" type="CheckBox">
+                                    <label>Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <input name="multiple" type="CheckBox">
+                                    <label>Tillat flere valg</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                            </items>
+                        </option>
+                        <option name="Attachment">
+                            <label>Fil-opplastning</label>
+                            <items>
+                                <input name="inputHeading" type="TextLine">
+                                    <label>Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <input name="multiple" type="CheckBox">
+                                    <label>Tillat flere valg</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <input name="required" type="CheckBox">
+                                    <label>Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <item-set name="advanced">
+                                    <label>Avansert</label>
+                                    <items>
+                                        <option-set name="accept">
+                                            <label>Tillate filtyper</label>
+                                            <options minimum="1" maximum="1">
+                                                <option name="custom">
+                                                    <label>Egendefinerte filtyper</label>
+                                                    <items>
+                                                        <item-set name="extensions">
+                                                            <label>Filtyper</label>
+                                                            <items>
+                                                                <input name="extension" type="TextLine">
+                                                                    <label>Filtype</label>
+                                                                    <help-text>Her skriver du type fil du vil skal være tillat. Eks. ".jpg", ".docx" eller ".pdf"</help-text>
+                                                                    <occurrences minimum="1" maximum="1"/>
+                                                                </input>
+                                                            </items>
+                                                            <occurrences minimum="1" maximum="100"/>
+                                                        </item-set>
+                                                    </items>
+                                                </option>
+                                                <option name="template">
+                                                    <label>Ferdige filtype-maler</label>
+                                                    <items>
+                                                        <input name="extension" type="ComboBox">
+                                                            <label>Tillate filtyper</label>
+                                                            <occurrences minimum="0" maximum="3"/>
+                                                            <config>
+                                                                <option value="images/*">Bilder</option>
+                                                                <option value="video/*">Video</option>
+                                                                <option value="audio/*">Audio</option>
+                                                            </config>
+                                                        </input>
+                                                    </items>
+                                                </option>
+                                            </options>
+                                        </option-set>
+                                    </items>
+                                    <occurrences minimum="0" maximum="1"/>
+                                </item-set>
+                            </items>
+                        </option>
+                    </options>
+                </option-set>
+            </items>
+            <occurrences minimum="1" maximum="1000"/>
+        </item-set>
+    </form>
+</content-type>

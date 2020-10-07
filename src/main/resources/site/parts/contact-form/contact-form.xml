@@ -1,138 +1,14 @@
 <part xmlns="urn:enonic:xp:model:1.0">
     <display-name>Kontaktskjema</display-name>
     <form>
-        <item-set name="chosenEmail">
-            <label>Dynamiske mottakere</label>
-            <help-text>Dersom dynamisk mottaker er valgt vil denne overstyre mottaker-email nederst</help-text>
-            <items>
-                <input name="inputHeading" type="TextLine">
-                    <label>Overskrift</label>
-                    <occurrences minimum="1" maximum="1"/>
-                </input>
-                <item-set name="options">
-                    <label>Mottaker</label>
-                    <items>
-                        <input name="text" type="TextLine">
-                            <label>Mottaker</label>
-                            <occurrences minimum="1" maximum="1"/>
-                        </input>
-                        <input name="value" type="TextLine">
-                            <label>Email</label>
-                            <occurrences minimum="1" maximum="1"/>
-                            <config>
-                                <regex>^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$</regex>
-                            </config>
-                        </input>
-                    </items>
-                    <occurrences minimum="1" maximum="20"/>
-                </item-set>
-            </items>
-            <occurrences minimum="0" maximum="1"/>
-        </item-set>
-        <item-set name="inputFields">
-            <label>Skjemafelter</label>
-            <items>
-                <option-set name="element">
-                    <label>Blokk</label>
-                    <occurrences minimum="1" maximum="1"/>
-                    <help-text>Select</help-text>
-                    <options minimum="1" maximum="1">
-                        <option name="dropdown">
-                            <label>Dropdown-liste</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <item-set name="options">
-                                    <label>Valg</label>
-                                    <items>
-                                        <input name="text" type="TextLine">
-                                            <label>Tekst</label>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
-                                        <input name="value" type="TextLine">
-                                            <label>Verdi</label>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
-                                    </items>
-                                    <occurrences minimum="1" maximum="20"/>
-                                </item-set>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                        <option name="text">
-                            <label>Tekstfelt</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <input name="inputType" type="ComboBox">
-                                    <label>Type</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                    <config>
-                                        <option value="text">Tekst</option>
-                                        <option value="tel">Telefonnummer</option>
-                                        <option value="email">Emailaddresse</option>
-                                    </config>
-                                </input>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                        <option name="textarea">
-                            <label>Tekstområde</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                    </options>
-                </option-set>
-            </items>
-            <occurrences minimum="1" maximum="20"/>
-        </item-set>
-        <input name="reciever" type="TextLine">
-            <label>Mottaker</label>
-            <occurrences minimum="1" maximum="1"/>
+        <input name="forms" type="ContentSelector">
+            <label>Velg innhold</label>
+            <occurrences minimum="0" maximum="0"/>
             <config>
-                <regex>^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$</regex>
+                <relationshipType>system:form</relationshipType>
+                <allowPath>${site}/Skjemaer/</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
             </config>
         </input>
     </form>

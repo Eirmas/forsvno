@@ -1,6 +1,7 @@
 const libs = {
     portal: require("/lib/xp/portal"),
     freemarker: require("/site/lib/tineikt/freemarker"),
+    contentLib: require("/lib/xp/content")
 };
 
 exports.get = () => {
@@ -8,19 +9,18 @@ exports.get = () => {
     const config = component.config;
     const path = component.path;
     const uniqueId = path.split("/").join("-");
-    let fields = (config.inputFields) ? ((!config.inputFields.length) ? [ config.inputFields ] : config.inputFields) : [];
-    fields = fields.map((data) => ({
-        _selected: data.element._selected,
-        inputHeading: data.element[data.element._selected].inputHeading || "",
-        required: data.element[data.element._selected].required || "",
-        inputId: data.element[data.element._selected].inputId,
-        inputType: data.element[data.element._selected].inputType || "",
-        options: data.element[data.element._selected].options || [],
-    }))
+    const toArray = function (e) {
+        return [].concat(e || []);
+    }
+
+    const data = {
+        forms: toArray(config.forms).map((e) => libs.contentLib.get({ key: e }).data)
+    }
+    log.info("Data: %s", data);
     const view = resolve("contact-form.ftl");
     const model = {
         uniqueId,
-        data: JSON.stringify( { chosenEmail: config.chosenEmail, fields: fields, serviceUrl: libs.portal.serviceUrl({ service: "contact-form-service" }) })
+        data: JSON.stringify(data)
     };
     const body = libs.freemarker.render(view, model);
 

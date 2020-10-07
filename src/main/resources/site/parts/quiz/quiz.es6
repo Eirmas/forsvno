@@ -7,7 +7,7 @@ exports.get = () => {
     const path = libs.portal.getComponent().path;
     const uniqueId = path.split("/").join("-");
     const toArray = function (e) {
-        return (e) ? ((!e.length) ? [ e ] : e) : []
+        return [].concat(e || []);
     }
     const config = libs.portal.getComponent().config
     const data = {
