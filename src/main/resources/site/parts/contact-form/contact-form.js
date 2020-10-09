@@ -62,7 +62,7 @@ exports.get = () => {
     }
 
     const formatInput = (field) => {
-        const regex = (field.advanced) ? field.advanced.regex["_selected"] : undefined
+        const regex = (field.advanced && field.advanced.regex) ? field.advanced.regex["_selected"] : undefined
         const validations = {
             required: field.required,
             maxLength: (field.advanced) ? field.advanced.maxLength : null,
