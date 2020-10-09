@@ -446,7 +446,8 @@
                                                             <label i18n="form.accepted">Tillate filtyper</label>
                                                             <occurrences minimum="0" maximum="3"/>
                                                             <config>
-                                                                <option value="images/*">Bilder</option>
+                                                                <option value="image/*">Bilder</option>
+                                                                <option value=".docx, .pdf">Dokumenter</option>
                                                                 <option value="video/*">Video</option>
                                                                 <option value="audio/*">Audio</option>
                                                             </config>

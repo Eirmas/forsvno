@@ -12,7 +12,6 @@ exports.get = () => {
     const uniqueId = path.split("/").join("-");
 
     const mapValidations = (v) => {
-        log.info(JSON.stringify(v));
         return [
             (v.required) ? { name: "required", text: "Dette feltet er obligatorisk", value: 0} : null,
             (v.max) ? { name: "max", text: "Antallet verdier er over maksimalkravet", value: v.max} : null,
@@ -31,7 +30,7 @@ exports.get = () => {
     const mapOption = (option) => {
         return {
             text: option.text || "",
-            value: option.value || option.text,
+            value: option.value || (option.text || ""),
             picked: option.picked
         }
     }
@@ -40,7 +39,7 @@ exports.get = () => {
         if (accept["_selected"] === "custom") {
             return accept.custom.extensions.map((v) => v.extension);
         } else if (accept["_selected"] === "template") {
-            return accept.template.extension
+            return libs.utilx.forceArray(accept.template.extension);
         }
         return null
     }
@@ -54,19 +53,19 @@ exports.get = () => {
                 required: field.required
             }),
             settings: {
-                multiple: (field.advanced) ? field.advanced.multiple : null,
+                multiple: field.advanced?.multiple,
                 required: field.required
             },
-            cols: (field.advanced) ? field.advanced.cols : null
+            cols: field.advanced?.cols
         }
     }
 
     const formatInput = (field) => {
-        const regex = (field.advanced && field.advanced.regex) ? field.advanced.regex["_selected"] : undefined
+        const regex = field.advanced?.regex?._selected
         const validations = {
             required: field.required,
-            maxLength: (field.advanced) ? field.advanced.maxLength : null,
-            minLength: (field.advanced) ? field.advanced.minLength : null
+            maxLength: field.advanced?.maxLength,
+            minLength: field.advanced?.minLength
         }
         if (regex) validations[regex] = field.advanced.regex[regex].regex;
 
@@ -78,10 +77,10 @@ exports.get = () => {
             settings: {
                 cc: field.cc,
                 required: field.required,
-                maxLength: (field.advanced) ? field.advanced.maxLength : null,
-                minLength: (field.advanced) ? field.advanced.minLength : null,
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength,
             },
-            cols: (field.advanced) ? field.advanced.cols : null
+            cols: field.advanced?.cols
         }
     }
 
@@ -92,15 +91,15 @@ exports.get = () => {
             placeholder: field.placeholder,
             validations: mapValidations({
                 required: field.required,
-                maxLength: (field.advanced) ? field.advanced.maxLength : null,
-                minLength: (field.advanced) ? field.advanced.minLength : null
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength
             }),
             settings: {
                 required: field.required,
-                maxLength: (field.advanced) ? field.advanced.maxLength : null,
-                minLength: (field.advanced) ? field.advanced.minLength : null,
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength
             },
-            cols: (field.advanced) ? field.advanced.cols : null
+            cols: field.advanced?.cols
         }
     }
 
@@ -113,14 +112,13 @@ exports.get = () => {
                 required: field.required
             }),
             settings: {
-                multiple: (field.advanced) ? field.advanced.multiple : null,
+                multiple: field.advanced?.multiple,
                 required: field.required
             },
-            cols: (field.advanced) ? field.advanced.cols : null
+            cols: field.advanced?.cols
         }
     }
     const formatAttachment = (field) => {
-        const accept = (field.advanced) ? field.advanced.accept : null
         return {
             component: "Attachment",
             label: field.label,
@@ -128,15 +126,15 @@ exports.get = () => {
             validations: mapValidations({
                 required: field.required,
                 maxLength: (field.advanced && !field.advanced.multiple) ? 1 : false,
-                maxSize: (field.advanced && field.advanced.maxSize && field.advanced.maxSize > 0) ? (field.advanced.maxSize * (Math.pow(32, 4))) : null,
+                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
             }),
             settings: {
-                multiple: (field.advanced) ? field.advanced.multiple : false,
-                maxSize: (field.advanced) ? field.advanced.maxSize : null,
+                multiple: field.advanced?.multiple,
+                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
                 required: field.required,
-                accept: (accept) ? mapAccept(accept).join(', '): null
+                accept: (field.advanced?.accept) ? mapAccept(field.advanced.accept).join(', '): null
             },
-            cols: (field.advanced) ? field.advanced.cols : null,
+            cols: field.advanced?.cols,
             value: []
         }
     }
@@ -172,6 +170,8 @@ exports.get = () => {
         uniqueId,
         data: JSON.stringify(data)
     };
+
+    log.info("Data: %s", JSON.stringify(data));
     const body = libs.freemarker.render(view, model);
 
     const contactFormCss = libs.portal.assetUrl({ path: "css/contact-form.css" });
