@@ -85,6 +85,25 @@ exports.get = () => {
         }
     }
 
+    const formatTextarea = (field) => {
+        return {
+            component: "Textarea",
+            label: field.label,
+            placeholder: field.placeholder,
+            validations: mapValidations({
+                required: field.required,
+                maxLength: (field.advanced) ? field.advanced.maxLength : null,
+                minLength: (field.advanced) ? field.advanced.minLength : null
+            }),
+            settings: {
+                required: field.required,
+                maxLength: (field.advanced) ? field.advanced.maxLength : null,
+                minLength: (field.advanced) ? field.advanced.minLength : null,
+            },
+            cols: (field.advanced) ? field.advanced.cols : null
+        }
+    }
+
     const formatButtons = (field) => {
         return {
             component: (field.advanced && field.advanced.multiple) ? "Checkbox" : "Radio",
@@ -108,10 +127,11 @@ exports.get = () => {
             options: libs.utilx.forceArray(field.options).map((opt) => mapOption(opt)),
             validations: mapValidations({
                 required: field.required,
-                maxSize: (field.advanced) ? field.advanced.maxSize : null,
+                maxLength: (field.advanced && !field.advanced.multiple) ? 1 : false,
+                maxSize: (field.advanced && field.advanced.maxSize && field.advanced.maxSize > 0) ? (field.advanced.maxSize * (Math.pow(32, 4))) : null,
             }),
             settings: {
-                multiple: (field.advanced) ? field.advanced.multiple : null,
+                multiple: (field.advanced) ? field.advanced.multiple : false,
                 maxSize: (field.advanced) ? field.advanced.maxSize : null,
                 required: field.required,
                 accept: (accept) ? mapAccept(accept).join(', '): null
@@ -126,7 +146,7 @@ exports.get = () => {
         Input: formatInput,
         Buttons: formatButtons,
         Attachment: formatAttachment,
-        Textarea: formatSelect
+        Textarea: formatTextarea
     }
 
     const processForm = (form) => {
@@ -146,7 +166,7 @@ exports.get = () => {
         },
         forms: forms.map((form) => processForm(form))
     }
-    log.info(JSON.stringify(data))
+
     const view = resolve("contact-form.ftl");
     const model = {
         uniqueId,
