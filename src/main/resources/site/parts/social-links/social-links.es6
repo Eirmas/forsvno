@@ -7,7 +7,7 @@ exports.get = () => {
     const path = libs.portal.getComponent().path;;
 
     const config = libs.portal.getComponent().config
-    const items = (config.items) ? ((!config.items.length) ? [ config.items ] : config.items) : []
+    const items = [].concat(config.items || []);
     const data = {
         title: config.text,
         backgroundColor: config.color || "",
