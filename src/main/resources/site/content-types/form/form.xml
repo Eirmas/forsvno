@@ -4,11 +4,13 @@
     <super-type>base:structured</super-type>
     <form>
         <item-set name="receiver">
-            <label>Mottaker</label>
+            <!-- @description[no]: Velg hvilken type lenke. Velg mellom intern som er lenker til annet innhold, eller eksterne sider. -->
+            <!-- @description[en]: Choose the type of link. Choose between internal which is links to other content, or external sites. -->
+            <label i18n="form.receiver">Mottaker</label>
             <occurrences minimum="1" maximum="1"/>
             <items>
                 <input name="text" type="TextLine">
-                    <label>Mottaker</label>
+                    <label>Navn</label>
                     <occurrences minimum="1" maximum="1"/>
                 </input>
                 <input name="value" type="TextLine">
@@ -30,7 +32,7 @@
                         <option name="Select">
                             <label>Nedtrekksliste</label>
                             <items>
-                                <input name="inputHeading" type="TextLine">
+                                <input name="label" type="TextLine">
                                     <label>Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
@@ -56,6 +58,29 @@
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
+                                <item-set name="advanced">
+                                    <label>Avansert</label>
+                                    <items>
+                                        <input name="multiple" type="CheckBox">
+                                            <label>Tillat flere valg</label>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <config>
+                                                <alignment>left</alignment>
+                                            </config>
+                                        </input>
+                                        <input name="cols" type="Long">
+                                            <label>Bredde</label>
+                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
+                                            <default>12</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>12</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
+                                    </items>
+                                    <occurrences minimum="0" maximum="1"/>
+                                </item-set>
                             </items>
                         </option>
                         <option name="Input">
@@ -110,7 +135,7 @@
                                             </config>
                                         </input>
                                         <option-set name="regex">
-                                            <label>Regulert uttrykk</label>
+                                            <label>Regulært uttrykk</label>
                                             <help-text>En formel for hva som skal være lovlig å skrive inn</help-text>
                                             <occurrences minimum="0" maximum="1"/>
                                             <options minimum="1" maximum="1">
@@ -140,6 +165,16 @@
                                                 </option>
                                             </options>
                                         </option-set>
+                                        <input name="cols" type="Long">
+                                            <label>Bredde</label>
+                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
+                                            <default>12</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>12</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
@@ -149,9 +184,13 @@
                             <label>Tekstområde</label>
                             <help-text>Til lengre tekst som en kommentar eller tilbakemelding</help-text>
                             <items>
-                                <input name="inputHeading" type="TextLine">
+                                <input name="label" type="TextLine">
                                     <label>Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <input name="placeholder" type="TextLine">
+                                    <label>Placeholder</label>
+                                    <occurrences minimum="0" maximum="1"/>
                                 </input>
                                 <input name="required" type="CheckBox">
                                     <label>Obligatorisk</label>
@@ -164,19 +203,29 @@
                                 <item-set name="advanced">
                                     <label>Avansert</label>
                                     <items>
-                                        <input name="maxLength" type="TextLine">
+                                        <input name="maxLength" type="Long">
                                             <label>Maximum Lengde</label>
                                             <config>
-                                                <regexp>^[0-9]\d*$</regexp>
+                                                <min>0</min>
                                             </config>
                                             <occurrences minimum="0" maximum="1"/>
                                         </input>
-                                        <input name="minLength" type="TextLine">
+                                        <input name="minLength" type="Long">
                                             <label>Minimum Lengde</label>
                                             <occurrences minimum="0" maximum="1"/>
                                             <config>
-                                                <regexp>^[0-9]\d*$</regexp>
+                                                <min>0</min>
                                             </config>
+                                        </input>
+                                        <input name="cols" type="Long">
+                                            <label>Bredde</label>
+                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
+                                            <default>12</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>12</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
                                         </input>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
@@ -186,7 +235,7 @@
                         <option name="Buttons">
                             <label>Avhukinsfelt</label>
                             <items>
-                                <input name="inputHeading" type="TextLine">
+                                <input name="label" type="TextLine">
                                     <label>Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
@@ -212,19 +261,35 @@
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
-                                <input name="multiple" type="CheckBox">
-                                    <label>Tillat flere valg</label>
+                                <item-set name="advanced">
+                                    <label>Avansert</label>
+                                    <items>
+                                        <input name="multiple" type="CheckBox">
+                                            <label>Tillat flere valg</label>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <config>
+                                                <alignment>left</alignment>
+                                            </config>
+                                        </input>
+                                        <input name="cols" type="Long">
+                                            <label>Bredde</label>
+                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
+                                            <default>12</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>12</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
+                                    </items>
                                     <occurrences minimum="0" maximum="1"/>
-                                    <config>
-                                        <alignment>left</alignment>
-                                    </config>
-                                </input>
+                                </item-set>
                             </items>
                         </option>
                         <option name="Attachment">
                             <label>Fil-opplastning</label>
                             <items>
-                                <input name="inputHeading" type="TextLine">
+                                <input name="label" type="TextLine">
                                     <label>Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
@@ -280,6 +345,26 @@
                                                 </option>
                                             </options>
                                         </option-set>
+                                        <input name="maxSize" type="Long">
+                                            <label>Max opplastningsstørrelse (MB)</label>
+                                            <help-text>Tallet på hvor mange megabyte hvert med filer brukeren skal få lov å laste opp.</help-text>
+                                            <default>20</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>1024</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
+                                        <input name="cols" type="Long">
+                                            <label>Bredde</label>
+                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
+                                            <default>12</default>
+                                            <config>
+                                                <min>1</min>
+                                                <max>12</max>
+                                            </config>
+                                            <occurrences minimum="1" maximum="1"/>
+                                        </input>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>

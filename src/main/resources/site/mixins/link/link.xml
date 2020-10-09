@@ -1,4 +1,4 @@
-<mixin>
+ <mixin>
     <display-name>Link mixin</display-name>
     <form>
         <option-set name="linkType">
