@@ -4,17 +4,21 @@
     <super-type>base:structured</super-type>
     <form>
         <item-set name="receiver">
-            <!-- @description[no]: Velg hvilken type lenke. Velg mellom intern som er lenker til annet innhold, eller eksterne sider. -->
-            <!-- @description[en]: Choose the type of link. Choose between internal which is links to other content, or external sites. -->
+            <!-- @description[no]: Mottaker -->
+            <!-- @description[en]: Receiver -->
             <label i18n="form.receiver">Mottaker</label>
             <occurrences minimum="1" maximum="1"/>
             <items>
                 <input name="text" type="TextLine">
-                    <label>Navn</label>
+                    <!-- @description[no]: Navn -->
+                    <!-- @description[en]: Name -->
+                    <label i18n="name">Navn</label>
                     <occurrences minimum="1" maximum="1"/>
                 </input>
                 <input name="value" type="TextLine">
-                    <label>E-mail</label>
+                    <!-- @description[no]: E-postadresse -->
+                    <!-- @description[en]: E-mail -->
+                    <label i18n="email">E-postadresse</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <regex>^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$</regex>
@@ -23,28 +27,42 @@
             </items>
         </item-set>
         <item-set name="fields">
-            <label>Skjemafelter</label>
+            <!-- @description[no]: Skjemafelter -->
+            <!-- @description[en]: Form fields -->
+            <label i18n="form.form-fields">Skjemafelter</label>
             <items>
                 <option-set name="field">
-                    <label>Felt</label>
+                    <!-- @description[no]: Felt -->
+                    <!-- @description[en]: Field -->
+                    <label i18n="form.field">Felt</label>
                     <occurrences minimum="1" maximum="1"/>
                     <options minimum="1" maximum="1">
                         <option name="Select">
-                            <label>Nedtrekksliste</label>
+                            <!-- @description[no]: Nedtrekksliste -->
+                            <!-- @description[en]: Dropdown list -->
+                            <label i18n="form.dropdown-list">Nedtrekksliste</label>
                             <items>
                                 <input name="label" type="TextLine">
-                                    <label>Overskrift</label>
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <item-set name="options">
-                                    <label>Valg</label>
+                                    <!-- @description[no]: Valg -->
+                                    <!-- @description[en]: Choice -->
+                                    <label i18n="form.choice">Valg</label>
                                     <items>
                                         <input name="text" type="TextLine">
-                                            <label>Tekst</label>
+                                            <!-- @description[no]: Tekst -->
+                                            <!-- @description[en]: Text -->
+                                            <label i18n="text">Tekst</label>
                                             <occurrences minimum="1" maximum="1"/>
                                         </input>
                                         <input name="value" type="TextLine">
-                                            <label>Verdi</label>
+                                            <!-- @description[no]: Verdi -->
+                                            <!-- @description[en]: Value -->
+                                            <label i18n="value">Verdi</label>
                                             <help-text>Verdien som vist i systemene våre. Eks: Tekst er Forsvarets Mediesenter, Verdi er desk@fms.mil.no. Vi gjør dette for å pynte på valget. Ved default blir verdien det samme som teksten.</help-text>
                                             <occurrences minimum="0" maximum="1"/>
                                         </input>
@@ -52,24 +70,32 @@
                                     <occurrences minimum="1" maximum="100"/>
                                 </item-set>
                                 <input name="required" type="CheckBox">
-                                    <label>Obligatorisk</label>
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <config>
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
                                 <item-set name="advanced">
-                                    <label>Avansert</label>
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
                                     <items>
                                         <input name="multiple" type="CheckBox">
-                                            <label>Tillat flere valg</label>
+                                            <!-- @description[no]: Tillat flere valg -->
+                                            <!-- @description[en]: Accept multiple choice -->
+                                            <label i18n="form.multiple">Tillat flere valg</label>
                                             <occurrences minimum="0" maximum="1"/>
                                             <config>
                                                 <alignment>left</alignment>
                                             </config>
                                         </input>
                                         <input name="cols" type="Long">
-                                            <label>Bredde</label>
+                                            <!-- @description[no]: Bredde -->
+                                            <!-- @description[en]: Width -->
+                                            <label i18n="form.width">Bredde</label>
                                             <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
                                             <default>12</default>
                                             <config>
@@ -84,18 +110,26 @@
                             </items>
                         </option>
                         <option name="Input">
-                            <label>Tekstfelt</label>
+                            <!-- @description[no]: Tekstfelt -->
+                            <!-- @description[en]: Textfield -->
+                            <label i18n="form.textfield">Tekstfelt</label>
                             <help-text>Til kort tekst som navn, telefon nummer eller e-mail adresse</help-text>
                             <items>
                                 <input name="label" type="TextLine">
-                                    <label>Overskrift</label>
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <input name="placeholder" type="TextLine">
-                                    <label>Placeholder</label>
+                                    <!-- @description[no]: Placeholder -->
+                                    <!-- @description[en]: Placeholder -->
+                                    <label i18n="form.placeholder">Placeholder</label>
                                 </input>
                                 <input name="cc" type="ComboBox">
-                                    <label>Innholdstype</label>
+                                    <!-- @description[no]: Innholdstype -->
+                                    <!-- @description[en]: Content type -->
+                                    <label i18n="form.content-type">Innholdstype</label>
                                     <help-text>Ved å spesifisere riktig innholdstype vil autocomplete hjelpe brukeren fylle skjemaet</help-text>
                                     <config>
                                         <option value="off">Avskrudd</option>
@@ -111,39 +145,53 @@
                                     </config>
                                 </input>
                                 <input name="required" type="CheckBox">
-                                    <label>Obligatorisk</label>
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <config>
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
                                 <item-set name="advanced">
-                                    <label>Avansert</label>
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
                                     <items>
                                         <input name="maxLength" type="Long">
-                                            <label>Maximum Lengde</label>
+                                            <!-- @description[no]: Maksimum lengde -->
+                                            <!-- @description[en]: Maximum length -->
+                                            <label i18n="form.max-length">Maximum Lengde</label>
                                             <config>
                                                 <min>0</min>
                                             </config>
                                             <occurrences minimum="0" maximum="1"/>
                                         </input>
                                         <input name="minLength" type="Long">
-                                            <label>Minimum Lengde</label>
+                                            <!-- @description[no]: Minimum lengde -->
+                                            <!-- @description[en]: Minimum length -->
+                                            <label i18n="form.min-length">Minimum Lengde</label>
                                             <occurrences minimum="0" maximum="1"/>
                                             <config>
                                                 <min>0</min>
                                             </config>
                                         </input>
                                         <option-set name="regex">
-                                            <label>Regulært uttrykk</label>
+                                            <!-- @description[no]: Regulært uttrykk -->
+                                            <!-- @description[en]: Regular expression -->
+                                            <label i18n="form.regex">Regulært uttrykk</label>
                                             <help-text>En formel for hva som skal være lovlig å skrive inn</help-text>
                                             <occurrences minimum="0" maximum="1"/>
                                             <options minimum="1" maximum="1">
                                                 <option name="template">
-                                                    <label>Ferdigdefinerte</label>
+                                                    <!-- @description[no]: Ferdigdefinerte -->
+                                                    <!-- @description[en]: Pre-made templates -->
+                                                    <label i18n="form.templates">Ferdigdefinerte</label>
                                                     <items>
                                                         <input name="regex" type="ComboBox">
-                                                            <label>Formel</label>
+                                                            <!-- @description[no]: Formel -->
+                                                            <!-- @description[en]: Formula -->
+                                                            <label i18n="form.formula">Formel</label>
                                                             <occurrences minimum="0" maximum="1"/>
                                                             <config>
                                                                 <option value="email">E-postadresse</option>
@@ -155,10 +203,14 @@
                                                     </items>
                                                 </option>
                                                 <option name="custom">
-                                                    <label>Egendefinert</label>
+                                                    <!-- @description[no]: Egendefinert -->
+                                                    <!-- @description[en]: Custom -->
+                                                    <label i18n="form.custom">Egendefinert</label>
                                                     <items>
                                                         <input name="regex" type="TextLine">
-                                                            <label>Formel</label>
+                                                            <!-- @description[no]: Formel -->
+                                                            <!-- @description[en]: Formula -->
+                                                            <label i18n="form.formula">Formel</label>
                                                             <occurrences minimum="0" maximum="1"/>
                                                         </input>
                                                     </items>
@@ -166,7 +218,9 @@
                                             </options>
                                         </option-set>
                                         <input name="cols" type="Long">
-                                            <label>Bredde</label>
+                                            <!-- @description[no]: Bredde -->
+                                            <!-- @description[en]: Width -->
+                                            <label i18n="form.width">Bredde</label>
                                             <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
                                             <default>12</default>
                                             <config>
@@ -181,19 +235,27 @@
                             </items>
                         </option>
                         <option name="Textarea">
-                            <label>Tekstområde</label>
+                            <!-- @description[no]: Tekstområde -->
+                            <!-- @description[en]: Textarea -->
+                            <label i18n="form.textarea">Tekstområde</label>
                             <help-text>Til lengre tekst som en kommentar eller tilbakemelding</help-text>
                             <items>
                                 <input name="label" type="TextLine">
-                                    <label>Overskrift</label>
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <input name="placeholder" type="TextLine">
-                                    <label>Placeholder</label>
+                                    <!-- @description[no]: Placeholder -->
+                                    <!-- @description[en]: Placeholder -->
+                                    <label i18n="form.placeholder">Placeholder</label>
                                     <occurrences minimum="0" maximum="1"/>
                                 </input>
                                 <input name="required" type="CheckBox">
-                                    <label>Obligatorisk</label>
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <default>checked</default>
                                     <config>
@@ -201,24 +263,32 @@
                                     </config>
                                 </input>
                                 <item-set name="advanced">
-                                    <label>Avansert</label>
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
                                     <items>
                                         <input name="maxLength" type="Long">
-                                            <label>Maximum Lengde</label>
+                                            <!-- @description[no]: Maksimum lengde -->
+                                            <!-- @description[en]: Maximum length -->
+                                            <label i18n="form.max-length">Maximum Lengde</label>
                                             <config>
                                                 <min>0</min>
                                             </config>
                                             <occurrences minimum="0" maximum="1"/>
                                         </input>
                                         <input name="minLength" type="Long">
-                                            <label>Minimum Lengde</label>
+                                            <!-- @description[no]: Minimum lengde -->
+                                            <!-- @description[en]: Minimum length -->
+                                            <label i18n="form.min-length">Minimum Lengde</label>
                                             <occurrences minimum="0" maximum="1"/>
                                             <config>
                                                 <min>0</min>
                                             </config>
                                         </input>
                                         <input name="cols" type="Long">
-                                            <label>Bredde</label>
+                                            <!-- @description[no]: Bredde -->
+                                            <!-- @description[en]: Width -->
+                                            <label i18n="form.width">Bredde</label>
                                             <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
                                             <default>12</default>
                                             <config>
@@ -233,21 +303,31 @@
                             </items>
                         </option>
                         <option name="Buttons">
-                            <label>Avhukinsfelt</label>
+                            <!-- @description[no]: Avhukingsfelt -->
+                            <!-- @description[en]: Checkboxes -->
+                            <label i18n="form.checkboxes">Avhukingsfelt</label>
                             <items>
                                 <input name="label" type="TextLine">
-                                    <label>Overskrift</label>
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <item-set name="options">
-                                    <label>Valg</label>
+                                    <!-- @description[no]: Valg -->
+                                    <!-- @description[en]: Choice -->
+                                    <label i18n="form.choice">Valg</label>
                                     <items>
                                         <input name="text" type="TextLine">
-                                            <label>Tekst</label>
+                                            <!-- @description[no]: Tekst -->
+                                            <!-- @description[en]: Text -->
+                                            <label i18n="form.text">Tekst</label>
                                             <occurrences minimum="1" maximum="1"/>
                                         </input>
                                         <input name="value" type="TextLine">
-                                            <label>Verdi</label>
+                                            <!-- @description[no]: Verdi -->
+                                            <!-- @description[en]: Value -->
+                                            <label i18n="value">Verdi</label>
                                             <help-text>Verdien som vist i systemene våre. Eks: Tekst er Forsvarets Mediesenter, Verdi er desk@fms.mil.no. Vi gjør dette for å pynte på valget. Ved default blir verdien det samme som teksten.</help-text>
                                             <occurrences minimum="0" maximum="1"/>
                                         </input>
@@ -255,24 +335,32 @@
                                     <occurrences minimum="1" maximum="100"/>
                                 </item-set>
                                 <input name="required" type="CheckBox">
-                                    <label>Obligatorisk</label>
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <config>
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
                                 <item-set name="advanced">
-                                    <label>Avansert</label>
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
                                     <items>
                                         <input name="multiple" type="CheckBox">
-                                            <label>Tillat flere valg</label>
+                                            <!-- @description[no]: Tillat flere valg -->
+                                            <!-- @description[en]: Accept multiple choices -->
+                                            <label i18n="form.multiple">Tillat flere valg</label>
                                             <occurrences minimum="0" maximum="1"/>
                                             <config>
                                                 <alignment>left</alignment>
                                             </config>
                                         </input>
                                         <input name="cols" type="Long">
-                                            <label>Bredde</label>
+                                            <!-- @description[no]: Bredde -->
+                                            <!-- @description[en]: Width -->
+                                            <label i18n="form.width">Bredde</label>
                                             <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
                                             <default>12</default>
                                             <config>
@@ -287,40 +375,58 @@
                             </items>
                         </option>
                         <option name="Attachment">
-                            <label>Fil-opplastning</label>
+                            <!-- @description[no]: Fil-opplastning -->
+                            <!-- @description[en]: File upload -->
+                            <label i18n="form.file-upload">Fil-opplastning</label>
                             <items>
                                 <input name="label" type="TextLine">
-                                    <label>Overskrift</label>
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <input name="multiple" type="CheckBox">
-                                    <label>Tillat flere valg</label>
+                                    <!-- @description[no]: Tillat flere valg -->
+                                    <!-- @description[en]: Accept multiple choices -->
+                                    <label i18n="form.accept-multiple-choices">Tillat flere valg</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <config>
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
                                 <input name="required" type="CheckBox">
-                                    <label>Obligatorisk</label>
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
                                     <occurrences minimum="0" maximum="1"/>
                                     <config>
                                         <alignment>left</alignment>
                                     </config>
                                 </input>
                                 <item-set name="advanced">
-                                    <label>Avansert</label>
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
                                     <items>
                                         <option-set name="accept">
-                                            <label>Tillate filtyper</label>
+                                            <!-- @description[no]: Tillate filtypes -->
+                                            <!-- @description[en]: Accepted filetypes -->
+                                            <label i18n="form.accepted-filetypes">Tillate filtyper</label>
                                             <options minimum="1" maximum="1">
                                                 <option name="custom">
-                                                    <label>Egendefinerte filtyper</label>
+                                                    <!-- @description[no]: Egendefinerte filtyper -->
+                                                    <!-- @description[en]: Custom filetypes -->
+                                                    <label i18n="form.custom">Egendefinerte filtyper</label>
                                                     <items>
                                                         <item-set name="extensions">
-                                                            <label>Filtyper</label>
+                                                            <!-- @description[no]: Filtyper -->
+                                                            <!-- @description[en]: Filetypes -->
+                                                            <label i18n="form.filetypes">Filtyper</label>
                                                             <items>
                                                                 <input name="extension" type="TextLine">
-                                                                    <label>Filtype</label>
+                                                                    <!-- @description[no]: Filtype -->
+                                                                    <!-- @description[en]: Filetype -->
+                                                                    <label i18n="form.filetype">Filtype</label>
                                                                     <help-text>Her skriver du type fil du vil skal være tillat. Eks. ".jpg", ".docx" eller ".pdf"</help-text>
                                                                     <occurrences minimum="1" maximum="1"/>
                                                                 </input>
@@ -330,10 +436,14 @@
                                                     </items>
                                                 </option>
                                                 <option name="template">
-                                                    <label>Ferdige filtype-maler</label>
+                                                    <!-- @description[no]: Ferdige filtype-maper -->
+                                                    <!-- @description[en]: Pre-made filetype templates -->
+                                                    <label i18n="form.templates">Ferdige filtype-maler</label>
                                                     <items>
                                                         <input name="extension" type="ComboBox">
-                                                            <label>Tillate filtyper</label>
+                                                            <!-- @description[no]: Tillatte filtyper -->
+                                                            <!-- @description[en]: Accepted filetypes -->
+                                                            <label i18n="form.accepted">Tillate filtyper</label>
                                                             <occurrences minimum="0" maximum="3"/>
                                                             <config>
                                                                 <option value="images/*">Bilder</option>
@@ -346,7 +456,9 @@
                                             </options>
                                         </option-set>
                                         <input name="maxSize" type="Long">
-                                            <label>Max opplastningsstørrelse (MB)</label>
+                                            <!-- @description[no]: Maks opplastningsstørrelse (MB) -->
+                                            <!-- @description[en]: Maximum upload size (MB) -->
+                                            <label i18n="form.max-size">Maks opplastningsstørrelse (MB)</label>
                                             <help-text>Tallet på hvor mange megabyte hvert med filer brukeren skal få lov å laste opp.</help-text>
                                             <default>20</default>
                                             <config>
@@ -356,7 +468,9 @@
                                             <occurrences minimum="1" maximum="1"/>
                                         </input>
                                         <input name="cols" type="Long">
-                                            <label>Bredde</label>
+                                            <!-- @description[no]: Bredde -->
+                                            <!-- @description[en]: Width -->
+                                            <label i18n="form.width">Bredde</label>
                                             <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
                                             <default>12</default>
                                             <config>

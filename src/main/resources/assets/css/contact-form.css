@@ -103,12 +103,6 @@
     align-self: flex-end;
 }
 
-@media (max-width: 550px) {
-    .contact-form__wrapper form {
-        width: 90%;
-    }
-}
-
 .contact-form__select-toggle {
     display: flex;
     align-items: center;
