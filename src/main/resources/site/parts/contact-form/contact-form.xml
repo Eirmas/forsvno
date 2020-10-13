@@ -1,14 +1,11 @@
 <part xmlns="urn:enonic:xp:model:1.0">
     <display-name>Kontaktskjema</display-name>
     <form>
-        <input name="forms" type="ContentSelector">
+        <input name="forms" type="CustomSelector">
             <label>Velg innhold</label>
             <occurrences minimum="0" maximum="0"/>
             <config>
-                <relationshipType>system:form</relationshipType>
-                <allowPath>${site}/Skjemaer/</allowPath>
-                <treeMode>false</treeMode>
-                <showStatus>true</showStatus>
+                <service>contact-form-content</service>
             </config>
         </input>
     </form>

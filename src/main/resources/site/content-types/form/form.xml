@@ -92,18 +92,7 @@
                                                 <alignment>left</alignment>
                                             </config>
                                         </input>
-                                        <input name="cols" type="Long">
-                                            <!-- @description[no]: Bredde -->
-                                            <!-- @description[en]: Width -->
-                                            <label i18n="form.width">Bredde</label>
-                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
-                                            <default>12</default>
-                                            <config>
-                                                <min>1</min>
-                                                <max>12</max>
-                                            </config>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
+                                        <mixin name="width"/>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
@@ -217,18 +206,7 @@
                                                 </option>
                                             </options>
                                         </option-set>
-                                        <input name="cols" type="Long">
-                                            <!-- @description[no]: Bredde -->
-                                            <!-- @description[en]: Width -->
-                                            <label i18n="form.width">Bredde</label>
-                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
-                                            <default>12</default>
-                                            <config>
-                                                <min>1</min>
-                                                <max>12</max>
-                                            </config>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
+                                        <mixin name="width"/>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
@@ -285,18 +263,7 @@
                                                 <min>0</min>
                                             </config>
                                         </input>
-                                        <input name="cols" type="Long">
-                                            <!-- @description[no]: Bredde -->
-                                            <!-- @description[en]: Width -->
-                                            <label i18n="form.width">Bredde</label>
-                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
-                                            <default>12</default>
-                                            <config>
-                                                <min>1</min>
-                                                <max>12</max>
-                                            </config>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
+                                        <mixin name="width"/>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
@@ -357,18 +324,7 @@
                                                 <alignment>left</alignment>
                                             </config>
                                         </input>
-                                        <input name="cols" type="Long">
-                                            <!-- @description[no]: Bredde -->
-                                            <!-- @description[en]: Width -->
-                                            <label i18n="form.width">Bredde</label>
-                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
-                                            <default>12</default>
-                                            <config>
-                                                <min>1</min>
-                                                <max>12</max>
-                                            </config>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
+                                        <mixin name="width"/>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
@@ -468,18 +424,7 @@
                                             </config>
                                             <occurrences minimum="1" maximum="1"/>
                                         </input>
-                                        <input name="cols" type="Long">
-                                            <!-- @description[no]: Bredde -->
-                                            <!-- @description[en]: Width -->
-                                            <label i18n="form.width">Bredde</label>
-                                            <help-text>Her skriver du ett tall mellom 12 og 1. 12 er fullbredde, 6 er halv bredde osv. Dersom 2 felter på rad har 6 i bredde vil de komme på samme linje (ikke mobil).</help-text>
-                                            <default>12</default>
-                                            <config>
-                                                <min>1</min>
-                                                <max>12</max>
-                                            </config>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
+                                        <mixin name="width"/>
                                     </items>
                                     <occurrences minimum="0" maximum="1"/>
                                 </item-set>
