@@ -13,6 +13,9 @@ exports.get = () => {
     const config = libs.portal.getComponent().config
     const data = {
         title: config.title,
+        icons: {
+            arrow: libs.portal.assetUrl({ path: "images/arrow-right.svg" })
+        },
         items: toArray(config.items).map((item) => ({
             title: item.title,
             text: item.text,
@@ -32,6 +35,7 @@ exports.get = () => {
         uniqueId,
         data: JSON.stringify(data)
     };
+
     const view = resolve("promocard-horizontal.ftl");
     const body = libs.freemarker.render(view, model);
     const promocardHorizontalCss = libs.portal.assetUrl({ path: "css/promocard-horizontal.css" });
