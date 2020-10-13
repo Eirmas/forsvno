@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-  <form/>
+  <form>
+    <field-set name="formConfig">
+      <label>Skjema konfigurasjon</label>
+      <items>
+        <input name="server" type="TextLine">
+          <!-- @description[no]: Navn -->
+          <!-- @description[en]: Name -->
+          <label i18n="form.server">Backend server URL</label>
+        </input>
+        <input name="siteKey" type="TextLine">
+          <!-- @description[no]: ReCAPTCHA Site Key -->
+          <!-- @description[en]: ReCAPTCHA Site Key -->
+          <label i18n="form.recaptcha">ReCAPTCHA Site Key</label>
+        </input>
+        <input name="formFolder" type="ContentSelector">
+          <!-- @description[no]: Skjema mappe -->
+          <!-- @description[en]: Contact Form Folder -->
+          <label i18n="form.folder">Skjema mappe</label>
+          <help-text>Her velger du mappen som inneholder alle skjemaene som skal vises i skjema parten.</help-text>
+          <config>
+            <relationshipType>base:folder</relationshipType>
+            <showStatus>true</showStatus>
+          </config>
+        </input>
+      </items>
+    </field-set>
+  </form>
 </site>

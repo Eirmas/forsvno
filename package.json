@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "watch": "babel --watch=src/main/resources --out-dir=build/resources/main --ignore \"**/*.js\"",
+    "watch": "babel --watch=src/main/resources --out-dir=build/resources/main",
     "build": "npm-run-all build:*",
     "build:js": "babel src/main/resources --out-dir=build/resources/main --ignore \"**/*.js\"",
     "vue": "./build-vue.sh"
