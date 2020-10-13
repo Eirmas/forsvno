@@ -6,5 +6,6 @@ yarn build
 cd ../forsvno
 npm run build
 
-enonic project build && enonic sandbox start
+enonic project clean
+enonic project build && enonic sandbox start --dev
 

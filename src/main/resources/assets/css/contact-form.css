@@ -230,8 +230,8 @@
     position: absolute;
     top: 50%;
     left: 0;
-    height: 21px;
-    width: 21px;
+    height: 20px;
+    width: 20px;
     border: 2px solid #191b21;
     border-radius: 50%;
     transform: translateY(-50%);
@@ -297,7 +297,10 @@
     border: none;
     background: none;
 }
-.contact-form__attachment-wrapper .contact-form__attachment-info div button img {
+.contact-form__attachment-wrapper .contact-form__attachment-info div button:focus {
+    outline: 1px solid #191B21;
+}
+.contact-form__attachment-wrapper .contact-form__attachment-info div button .contact-form__attachment-remove-file {
     width: .75rem;
     height: .75rem;
 }
@@ -351,8 +354,8 @@
     position: absolute;
     top: 50%;
     left: 0;
-    height: 21px;
-    width: 21px;
+    height: 20px;
+    width: 20px;
     border: 2px solid #191b21;
     transform: translateY(-50%);
 }
