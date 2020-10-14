@@ -7,16 +7,23 @@ exports.get = () => {
     const config = libs.portal.getComponent().config
     const links = (config.links) ? ((!config.links.length) ? [ config.links ] : config.links) : []
     const mapLinks = function (links) {
-        const mapped = links.map((link) => ({
-            title: link.title,
-            icon: libs.portal.assetUrl({
-                path: (link.linkType["_selected"] === "external") ? "images/external.svg" : "images/arrow-right.svg"
-            }),
-            href: (link.linkType["_selected"] === "external") ? link.linkType.external.url : libs.portal.pageUrl({
-                id: link.linkType.internal.id
-            }) + (link.linkType.internal.anchor && link.linkType.internal.anchor.length > 0) ? `#${link.linkType.internal.anchor}` : "",
-            newTab: (link.linkType["_selected"] === "external") ? link.linkType.external.newTab : false
-        }));
+        const mapped = links.map((link) => {
+
+            const isExternal = (link.linkType["_selected"] === "external")
+            const external = link.linkType.external
+            const internal = link.linkType.internal
+
+            return {
+                title: link.title,
+                icon: libs.portal.assetUrl({
+                    path: isExternal ? "images/external.svg" : "images/arrow-right.svg"
+                }),
+                href: isExternal ? external.url : libs.portal.pageUrl({
+                    id: internal.id
+                }) + (internal.anchor.length > 0) ? `#${internal.anchor}` : "",
+                newTab: isExternal ? external.newTab : false
+            }
+        });
         const array = [];
         for (let i = 0; i < mapped.length; i += 3) {
             array.push([ ...mapped.slice(i, i + 3) ])

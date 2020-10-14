@@ -2,21 +2,20 @@ const libs = {
     portal: require("/lib/xp/portal"),
     content: require("/lib/xp/content"),
     freemarker: require("/site/lib/tineikt/freemarker"),
+    utilx: require("/lib/bouvet/util-ex")
 };
 
 exports.get = () => {
     const path = libs.portal.getComponent().path;
     const uniqueId = path.split("/").join("-");
-    const toArray = function (e) {
-        return [].concat(e || []);
-    }
     const config = libs.portal.getComponent().config
+
     const data = {
         title: config.title,
         icons: {
             arrow: libs.portal.assetUrl({ path: "images/arrow-right.svg" })
         },
-        items: toArray(config.items).map((item) => ({
+        items: libs.utilx.forceArray(config.items).map((item) => ({
             title: item.title,
             text: item.text,
             decoration: (item.decoration) ? {

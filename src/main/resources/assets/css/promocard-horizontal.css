@@ -19,14 +19,14 @@
     border: none;
     background-color: transparent;
 }
-.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left svg, .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-right svg {
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left img, .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-right img {
     width: 24px;
     height: 16px;
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left {
     margin-right: 1rem;
 }
-.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left svg {
+.promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__header .promocard-horizontal__navigation .promocard-horizontal__navigation-left img {
     transform: scale(-1, 1);
 }
 .promocard-horizontal__wrapper .promocard-horizontal__container .promocard-horizontal__body {

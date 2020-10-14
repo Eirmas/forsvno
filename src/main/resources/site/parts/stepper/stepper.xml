@@ -2,17 +2,23 @@
     <display-name>Scrollbar - infografikk</display-name>
     <form>
         <item-set name="data">
-            <label>Steg</label>
+            <!-- @description[no]: Steg  -->
+            <!-- @description[en]: Step -->
+            <label i18n="stepper.step">Steg</label>
             <items>
                 <input name="text" type="TextLine">
-                    <label>Tekst</label>
+                    <!-- @description[no]: Tekst  -->
+                    <!-- @description[en]: Text -->
+                    <label i18n="text">Tekst</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <max-length>30</max-length>
                     </config>
                 </input>
                 <input  name="active" type="CheckBox">
-                    <label>Aktiv</label>
+                    <!-- @description[no]: Aktiv  -->
+                    <!-- @description[en]: Active -->
+                    <label i18n="stepper.active">Aktiv</label>
                     <config>
                         <alignment>left</alignment>
                     </config>
