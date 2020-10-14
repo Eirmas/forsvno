@@ -33,6 +33,9 @@
     border-width: 2px;
     margin: 0;
 }
+.contact-form__form-element input:disabled, .contact-form__form-element textarea:disabled {
+    background: #F1F2F0;
+}
 .contact-form__form-element button {
     width: 100%;
 }
@@ -115,6 +118,10 @@
 }
 .contact-form__select-toggle:focus {
     outline: 1px solid #191b21;
+}
+.contact-form__select-toggle:disabled {
+    background: #F1F2F0;
+    color: #191B21;
 }
 .contact-form__select-label {
     padding: .5rem 1.5rem;

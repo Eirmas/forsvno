@@ -10,7 +10,7 @@ exports.get = () => {
     const config = component.config;
     const path = component.path;
     const uniqueId = path.split("/").join("-");
-    const siteConfig = libs.portal.getSiteConfig().formConfig;
+    const siteConfig = libs.portal.getSite().data.siteConfig.config;
 
     const mapValidations = (v) => {
         return [
@@ -63,10 +63,12 @@ exports.get = () => {
 
     const formatInput = (field) => {
         const regex = field.advanced?.regex?._selected
+        log.info(JSON.stringify(field));
         const validations = {
             required: field.required,
             maxLength: field.advanced?.maxLength,
-            minLength: field.advanced?.minLength
+            minLength: field.advanced?.minLength,
+            pnum: field.cc === "pnum"
         }
         if (regex) validations[regex] = field.advanced.regex[regex].regex;
 

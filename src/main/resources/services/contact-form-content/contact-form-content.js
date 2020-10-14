@@ -23,7 +23,7 @@ exports.get = (req) => {
     const start = params.start ? parseInt(params.start) : 0;
     const count = params.count ? parseInt(params.count) : 10;
     const queryString = params.query ? params.query : "";
-    const siteConfig = libs.portal.getSiteConfig();
+    let siteConfig = libs.portal.getSite();
     if (!siteConfig) {
         return {
             status: 409,
@@ -34,7 +34,8 @@ exports.get = (req) => {
             contentType: "application/json"
         };
     }
-    const formsFolder = siteConfig.formConfig.forms || "";
+    siteConfig = siteConfig.data.siteConfig.config;
+    const formsFolder = siteConfig.formFolder || "";
     if (formsFolder) {
         const formsFolderPath = libs.content.get({ key: formsFolder })._path;
         const forms = getForms(formsFolderPath, queryString, start, count);

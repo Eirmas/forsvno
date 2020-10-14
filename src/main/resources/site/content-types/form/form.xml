@@ -130,7 +130,7 @@
                                         <option value="street-address">Adresse</option>
                                         <option value="locality">Poststed</option>
                                         <option value="postal-code">Postkode</option>
-                                        <option value="off">Personnummer</option>
+                                        <option value="pnum">Personnummer</option>
                                     </config>
                                 </input>
                                 <input name="required" type="CheckBox">
