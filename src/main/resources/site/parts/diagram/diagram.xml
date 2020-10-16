@@ -10,19 +10,25 @@
         <input name="subTitle" type="TextLine">
             <!-- @description[no]: Undertittel  -->
             <!-- @description[en]: Sub title -->
-            <label i18n="subTitle">Undertittel</label>
+            <label i18n="diagram.subTitle">Undertittel</label>
             <occurrences minimum="0" maximum="1"/>
         </input>
         <option-set name="type">
-            <label>Velg diagramtype</label>
+            <!-- @description[no]: Velg diagramtype  -->
+            <!-- @description[en]: Choose chart type -->
+            <label i18n="diagram.chooseChartType">Velg diagramtype</label>
             <expanded>false</expanded>
             <occurrences minimum="1" maximum="1"/>
             <options minimum="1" maximum="1">
                 <option name="pieData">
-                    <label>Sektordiagram</label>
+                    <!-- @description[no]: Sektordiagram  -->
+                    <!-- @description[en]: Pie Chart -->
+                    <label i18n="diagram.pieChart">Sektordiagram</label>
                     <items>
                         <item-set name="series">
-                            <label>Kategori</label>
+                            <!-- @description[no]: Kategori  -->
+                            <!-- @description[en]: Category -->
+                            <label i18n="diagram.category">Kategori</label>
                             <occurrences minimum="2" maximum="12"/>
                             <items>
                                 <input name="name" type="TextLine">
@@ -45,10 +51,14 @@
                     </items>
                 </option>
                 <option name="columnData">
-                    <label>Søylediagram</label>
+                    <!-- @description[no]: Søylediagram -->
+                    <!-- @description[en]: Column Chart -->
+                    <label i18n="diagram.columnChart">Søylediagram</label>
                     <items>
                         <item-set name="categories">
-                            <label>Felt (x-akse)</label>
+                            <!-- @description[no]: Felt (x-akse)  -->
+                            <!-- @description[en]: Field (x-axis) -->
+                            <label i18n="diagram.fieldXAxis">Felt (x-akse)</label>
                             <help-text>Se på dette som en "søyle". Eksempel på felt kan være 2020, hæren, antall døde</help-text>
                             <occurrences minimum="1" maximum="6"/>
                             <items>
@@ -61,7 +71,9 @@
                             </items>
                         </item-set>
                         <item-set name="series">
-                            <label>Kategori</label>
+                            <!-- @description[no]: Kategori  -->
+                            <!-- @description[en]: Category -->
+                            <label i18n="diagram.category">Kategori</label>
                             <help-text>En kategori har en verdi for hvert (søyle) felt på x-aksen.</help-text>
                             <occurrences minimum="1" maximum="10"/>
                             <items>
@@ -72,7 +84,9 @@
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <item-set name="data">
-                                    <label>Verdier</label>
+                                    <!-- @description[no]: Verdier  -->
+                                    <!-- @description[en]: Values -->
+                                    <label i18n="diagram.values">Verdier</label>
                                     <help-text>Antall verdier i en kategori bør være det samme som antall felt på x-aksen.</help-text>
                                     <occurrences minimum="1" maximum="6"/>
                                     <items>
@@ -90,20 +104,28 @@
                             </items>
                         </item-set>
                         <input name="xText" type="TextLine">
-                            <label>Tekst på x-akse</label>
+                            <!-- @description[no]: Tekst på x-akse  -->
+                            <!-- @description[en]: X-axis text -->
+                            <label i18n="diagram.xAxis">Tekst på x-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                         <input name="yText" type="TextLine">
-                            <label>Tekst på y-akse</label>
+                            <!-- @description[no]: Tekst på y-akse  -->
+                            <!-- @description[en]: Y-axis text -->
+                            <label i18n="diagram.yAxis">Tekst på y-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                     </items>
                 </option>
                 <option name="lineData">
-                    <label>Linjediagram</label>
+                    <!-- @description[no]: Linjediagram  -->
+                    <!-- @description[en]: Line Chart -->
+                    <label i18n="diagram.lineChart">Linjediagram</label>
                     <items>
                         <item-set name="categories">
-                            <label>Felt (x-akse)</label>
+                            <!-- @description[no]: Felt (x-akse)  -->
+                            <!-- @description[en]: Field (x-axis) -->
+                            <label i18n="diagram.fieldXAxis">Felt (x-akse)</label>
                             <help-text>Se på dette som en "søyle". Eksempel på felt kan være 2020, hæren, antall døde</help-text>
                             <occurrences minimum="1" maximum="6"/>
                             <items>
@@ -116,7 +138,9 @@
                             </items>
                         </item-set>
                         <item-set name="series">
-                            <label>Kategori</label>
+                            <!-- @description[no]: Kategori  -->
+                            <!-- @description[en]: Category -->
+                            <label i18n="diagram.category">Kategori</label>
                             <help-text>En kategori har en verdi for hvert (søyle) felt på x-aksen.</help-text>
                             <occurrences minimum="1" maximum="10"/>
                             <items>
@@ -127,7 +151,9 @@
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <item-set name="data">
-                                    <label>Verdi</label>
+                                    <!-- @description[no]: Verdi  -->
+                                    <!-- @description[en]: Value -->
+                                    <label i18n="value">Verdi</label>
                                     <help-text>Antall verdier i en kategori bør være det samme som antall felt på x-aksen.</help-text>
                                     <occurrences minimum="1" maximum="6"/>
                                     <items>
@@ -145,20 +171,28 @@
                             </items>
                         </item-set>
                         <input name="xText" type="TextLine">
-                            <label>Tekst på x-akse</label>
+                            <!-- @description[no]: Tekst på x-akse  -->
+                            <!-- @description[en]: X-axis text -->
+                            <label i18n="diagram.xAxis">Tekst på x-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                         <input name="yText" type="TextLine">
-                            <label>Tekst på y-akse</label>
+                            <!-- @description[no]: Tekst på y-akse  -->
+                            <!-- @description[en]: Y-axis text -->
+                            <label i18n="diagram.yAxis">Tekst på y-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                     </items>
                 </option>
                 <option name="areaData">
-                    <label>Områdediagram</label>
+                    <!-- @description[no]: Områdediagram  -->
+                    <!-- @description[en]: Area chart -->
+                    <label i18n="diagram.areaChart">Områdediagram</label>
                     <items>
                         <item-set name="categories">
-                            <label>Felt (x-akse)</label>
+                            <!-- @description[no]: Felt (x-akse)  -->
+                            <!-- @description[en]: Field (x-axis) -->
+                            <label i18n="diagram.fieldXAxis">Felt (x-akse)</label>
                             <help-text>Se på dette som en "søyle". Eksempel på felt kan være 2020, hæren, antall døde</help-text>
                             <occurrences minimum="1" maximum="6"/>
                             <items>
@@ -171,7 +205,9 @@
                             </items>
                         </item-set>
                         <item-set name="series">
-                            <label>Kategori</label>
+                            <!-- @description[no]: Kategori  -->
+                            <!-- @description[en]: Category -->
+                            <label i18n="diagram.category">Kategori</label>
                             <help-text>En kategori har en verdi for hvert (søyle) felt på x-aksen.</help-text>
                             <occurrences minimum="1" maximum="10"/>
                             <items>
@@ -182,7 +218,9 @@
                                     <occurrences minimum="1" maximum="1"/>
                                 </input>
                                 <item-set name="data">
-                                    <label>Verdi</label>
+                                    <!-- @description[no]: Verdi  -->
+                                    <!-- @description[en]: Value -->
+                                    <label i18n="value">Verdi</label>
                                     <help-text>Antall verdier i en kategori bør være det samme som antall felt på x-aksen.</help-text>
                                     <occurrences minimum="1" maximum="6"/>
                                     <items>
@@ -200,11 +238,15 @@
                             </items>
                         </item-set>
                         <input name="xText" type="TextLine">
-                            <label>Tekst på x-akse</label>
+                            <!-- @description[no]: Tekst på x-akse  -->
+                            <!-- @description[en]: X-axis text -->
+                            <label i18n="diagram.xAxis">Tekst på x-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                         <input name="yText" type="TextLine">
-                            <label>Tekst på y-akse</label>
+                            <!-- @description[no]: Tekst på y-akse  -->
+                            <!-- @description[en]: Y-axis text -->
+                            <label i18n="diagram.yAxis">Tekst på y-akse</label>
                             <occurrences minimum="0" maximum="1"/>
                         </input>
                     </items>

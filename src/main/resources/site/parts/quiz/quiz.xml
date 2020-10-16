@@ -2,22 +2,30 @@
     <display-name>Quiz - flervalgs</display-name>
     <form>
         <input name="title" type="TextLine">
-            <label>Tittel</label>
+            <!-- @description[no]: Tittel -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
             <occurrences minimum="1" maximum="1"/>
             <config>
                 <max-length>60</max-length>
             </config>
         </input>
         <option-set name="media">
-            <label>Media</label>
+            <!-- @description[no]: Media -->
+            <!-- @description[en]: Media -->
+            <label i18n="quiz.media">Media</label>
             <expanded>false</expanded>
             <occurrences minimum="0" maximum="1"/>
             <options minimum="0" maximum="1">
                 <option name="image">
-                    <label>Bilde</label>
+                    <!-- @description[no]: Bilde -->
+                    <!-- @description[en]: Image -->
+                    <label i18n="quiz.image">Bilde</label>
                     <items>
                         <input name="image" type="ImageSelector">
-                            <label>Bilde</label>
+                            <!-- @description[no]: Bilde -->
+                            <!-- @description[en]: Image -->
+                            <label i18n="quiz.image">Bilde</label>
                             <occurrences minimum="1" maximum="1"/>
                             <config>
                                 <allowPath>${site}/*</allowPath>
@@ -28,9 +36,9 @@
                     </items>
                 </option>
                 <option name="video">
-                    <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
-                    <!-- @description[en]: Select this if you want a video as cover image. -->
-                    <label i18n="video">Video</label>
+                    <!-- @description[no]: Video -->
+                    <!-- @description[en]: Video -->
+                    <label i18n="quiz.video">Video</label>
                     <items>
                         <input name="id" type="ContentSelector">
                             <!-- @description[no]: Velg en video med innholdsvelgeren. -->
@@ -47,16 +55,18 @@
             </options>
         </option-set>
         <input name="subTitle" type="TextLine">
-            <label>Undertittel</label>
+            <!-- @description[no]: Undertittel -->
+            <!-- @description[en]: Sub Title -->
+            <label i18n="quiz.subTitle">Undertittel</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
                 <max-length>100</max-length>
             </config>
         </input>
         <input type="HtmlArea" name="startText">
-            <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
-            <!-- @description[en]: Main content in a text block -->
-            <label i18n="text">Startside tekst</label>
+            <!-- @description[no]: Startside tekst  -->
+            <!-- @description[en]: Start page text -->
+            <label i18n="quiz.startText">Startside tekst</label>
             <occurrences minimum="0" maximum="1" />
             <config>
                 <exclude>Code | Table | Image</exclude>
@@ -64,34 +74,46 @@
             </config>
         </input>
         <item-set name="questions">
-            <label>Spørsmål</label>
+            <!-- @description[no]: Spørsmål -->
+            <!-- @description[en]: Question -->
+            <label i18n="quiz.question">Spørsmål</label>
             <items>
                 <input name="text" type="TextLine">
-                    <label>Spørsmål</label>
+                    <!-- @description[no]: Spørsmål -->
+                    <!-- @description[en]: Question -->
+                    <label i18n="quiz.question">Spørsmål</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <max-length>100</max-length>
                     </config>
                 </input>
                 <input  name="desc" type="HtmlArea">
-                    <label>Beskrivelse</label>
+                    <!-- @description[no]: Beskrivelse -->
+                    <!-- @description[en]: Description -->
+                    <label i18n="quiz.description">Beskrivelse</label>
                     <config>
                         <exclude>Code | Table | Image</exclude>
                         <allowHeadings>h4</allowHeadings>
                     </config>
                 </input>
                 <item-set name="options">
-                    <label>Svar alternativ</label>
+                    <!-- @description[no]: Svar alternativ -->
+                    <!-- @description[en]: Answer option -->
+                    <label i18n="quiz.asnwerOption">Svar alternativ</label>
                     <items>
                         <input name="text" type="TextLine">
-                            <label>Tekst</label>
+                            <!-- @description[no]: Tekst -->
+                            <!-- @description[en]: Text -->
+                            <label i18n="text">Tekst</label>
                             <occurrences minimum="1" maximum="1"/>
                             <config>
                                 <max-length>100</max-length>
                             </config>
                         </input>
                         <input  name="isCorrect" type="CheckBox">
-                            <label>Korrekt svar</label>
+                            <!-- @description[no]: Korrekt svar -->
+                            <!-- @description[en]: Correct answer -->
+                            <label i18n="quiz.correctAnswer">Korrekt svar</label>
                             <config>
                                 <alignment>right</alignment>
                             </config>
@@ -100,15 +122,21 @@
                     <occurrences minimum="1" maximum="8"/>
                 </item-set>
                 <option-set name="media">
-                    <label>Media</label>
+                    <!-- @description[no]: Media -->
+                    <!-- @description[en]: Media -->
+                    <label i18n="quiz.media">Media</label>
                     <expanded>false</expanded>
                     <occurrences minimum="0" maximum="1"/>
                     <options minimum="0" maximum="1">
                         <option name="image">
-                            <label>Bilde</label>
+                            <!-- @description[no]: Bilde -->
+                            <!-- @description[en]: Image -->
+                            <label i18n="quiz.image">Bilde</label>
                             <items>
                                 <input name="image" type="ImageSelector">
-                                    <label>Bilde</label>
+                                    <!-- @description[no]: Bilde -->
+                                    <!-- @description[en]: Image -->
+                                    <label i18n="quiz.image">Bilde</label>
                                     <occurrences minimum="1" maximum="1"/>
                                     <config>
                                         <allowPath>${site}/*</allowPath>
@@ -117,7 +145,9 @@
                                     </config>
                                 </input>
                                 <input name="side" type="RadioButton">
-                                    <label>Bildeposisjon</label>
+                                    <!-- @description[no]: Bildeposisjon -->
+                                    <!-- @description[en]: Image position -->
+                                    <label i18n="quiz.imagePosition">Bildeposisjon</label>
                                     <occurrences minimum="1" maximum="1"/>
                                     <config>
                                         <option value="left">Venstre</option>
@@ -128,9 +158,9 @@
                             </items>
                         </option>
                         <option name="video">
-                            <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
-                            <!-- @description[en]: Select this if you want a video as cover image. -->
-                            <label i18n="video">Video</label>
+                            <!-- @description[no]: Video -->
+                            <!-- @description[en]: Video -->
+                            <label i18n="quiz.video">Video</label>
                             <items>
                                 <input name="id" type="ContentSelector">
                                     <!-- @description[no]: Velg en video med innholdsvelgeren. -->
@@ -143,7 +173,9 @@
                                     </config>
                                 </input>
                                 <input name="side" type="RadioButton">
-                                    <label>Videoposisjon</label>
+                                    <!-- @description[no]: Videoposisjon -->
+                                    <!-- @description[en]: Video position -->
+                                    <label i18n="quiz.videoPosition">Videoposisjon</label>
                                     <occurrences minimum="1" maximum="1"/>
                                     <config>
                                         <option value="left">Venstre</option>
@@ -159,9 +191,9 @@
             <occurrences minimum="1" maximum="30"/>
         </item-set>
         <input type="HtmlArea" name="endText">
-            <!-- @description[no]: Hovedinnholdet i en tekstblokk  -->
-            <!-- @description[en]: Main content in a text block -->
-            <label i18n="text">Resultatside tekst</label>
+            <!-- @description[no]: Resultatside tekst  -->
+            <!-- @description[en]: Result page text -->
+            <label i18n="quiz.resultPageText">Resultatside tekst</label>
             <occurrences minimum="0" maximum="1" />
             <config>
                 <exclude>Code | Table | Image</exclude>
@@ -169,35 +201,51 @@
             </config>
         </input>
         <item-set name="feedback">
-            <label>Overstyrte resultatmeldinger</label>
+            <!-- @description[no]: Overstyrte resultatmeldinger -->
+            <!-- @description[en]: Overwritten result messages -->
+            <label i18n="quiz.overwrittenMessages">Overstyrte resultatmeldinger</label>
             <occurrences minimum="0" maximum="1" />
             <items>
                 <input name="feedback0" type="TextLine">
-                    <label>Ingen riktig</label>
+                    <!-- @description[no]: 0% -->
+                    <!-- @description[en]: 0% -->
+                    <label i18n="quiz.feedback0">0%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback1" type="TextLine">
-                    <label>0% - 19%</label>
+                    <!-- @description[no]: 1% - 19% -->
+                    <!-- @description[en]: 1% - 19% -->
+                    <label i18n="quiz.feedback1">0% - 19%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback2" type="TextLine">
-                    <label>20% - 39%</label>
+                    <!-- @description[no]: 20% - 39% -->
+                    <!-- @description[en]: 20% - 39% -->
+                    <label i18n="quiz.feedback2">20% - 39%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback3" type="TextLine">
-                    <label>40% - 59%</label>
+                    <!-- @description[no]: 40% - 59% -->
+                    <!-- @description[en]: 40% - 59% -->
+                    <label i18n="quiz.feedback3">40% - 59%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback4" type="TextLine">
-                    <label>60% - 79%</label>
+                    <!-- @description[no]: 60% - 79% -->
+                    <!-- @description[en]: 60% - 79% -->
+                    <label i18n="quiz.feedback4">60% - 79%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback5" type="TextLine">
-                    <label>80% - 99%</label>
+                    <!-- @description[no]: 80% - 99% -->
+                    <!-- @description[en]: 80% - 99% -->
+                    <label i18n="quiz.feedback5">80% - 99%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
                 <input name="feedback6" type="TextLine">
-                    <label>Alt riktig</label>
+                    <!-- @description[no]: 100% -->
+                    <!-- @description[en]: 100% -->
+                    <label i18n="quiz.feedback6">100%</label>
                     <occurrences minimum="1" maximum="1" />
                 </input>
             </items>

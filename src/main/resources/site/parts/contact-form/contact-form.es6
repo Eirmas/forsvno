@@ -10,6 +10,7 @@ exports.get = () => {
     const config = component.config;
     const path = component.path;
     const uniqueId = path.split("/").join("-");
+    const siteConfig = libs.portal.getSiteConfig().formConfig;
 
     const mapValidations = (v) => {
         return [
@@ -118,6 +119,7 @@ exports.get = () => {
             cols: field.advanced?.cols
         }
     }
+
     const formatAttachment = (field) => {
         return {
             component: "Attachment",
@@ -158,25 +160,22 @@ exports.get = () => {
     const forms = libs.utilx.forceArray(config.forms).map((e) => libs.contentLib.get({ key: e }).data)
     const data = {
         id: uniqueId,
+        siteKey: siteConfig.siteKey,
+        server: siteConfig.server,
         icons: {
             caret: libs.portal.assetUrl({ path: "images/caret.svg" }),
-            close: libs.portal.assetUrl({ path: "images/close.svg" }),
+            close: libs.portal.assetUrl({ path: "images/close-bold.svg" }),
         },
         forms: forms.map((form) => processForm(form))
     }
-
     const view = resolve("contact-form.ftl");
     const model = {
         uniqueId,
         data: JSON.stringify(data)
     };
-
-    log.info("Data: %s", JSON.stringify(data));
     const body = libs.freemarker.render(view, model);
-
     const contactFormCss = libs.portal.assetUrl({ path: "css/contact-form.css" });
     const contactFormCssContribution = `<link rel="preload" href="${contactFormCss}" as="style"><link rel="stylesheet" href="${contactFormCss}">`;
-
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/contactFormVue.js" })}" async></script>`;
 

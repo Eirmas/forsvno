@@ -2,31 +2,46 @@
     <display-name>Promokort - Horisontal</display-name>
     <form>
         <input name="title" type="TextLine">
-            <label>Tittel</label>
+            <!-- @description[no]: Tittel -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
                 <max-length>30</max-length>
             </config>
         </input>
         <item-set name="items">
-            <label>Promokort</label>
+            <!-- @description[no]: Promokort -->
+            <!-- @description[en]: Promocard -->
+            <label i18n="promocard-horizontal.promocard">Promokort</label>
             <items>
                 <input name="title" type="TextLine">
-                    <label>Tittel</label>
+                    <!-- @description[no]: Tittel -->
+                    <!-- @description[en]: Title -->
+                    <label i18n="title">Tittel</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <max-length>8</max-length>
                     </config>
                 </input>
                 <input name="text" type="TextArea">
-                    <label>Tekst</label>
+                    <!-- @description[no]: Tekst -->
+                    <!-- @description[en]: Text -->
+                    <label i18n="text">Tekst</label>
                     <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>150</max-length>
+                    </config>
                 </input>
                 <item-set name="decoration">
-                    <label>Dekorasjon</label>
+                    <!-- @description[no]: Dekorasjon -->
+                    <!-- @description[en]: Decoration -->
+                    <label i18n="promocard-horizontal.decor">Dekorasjon</label>
                     <items>
                         <input name="icon" type="ImageSelector">
-                            <label>Ikon</label>
+                            <!-- @description[no]: Ikon -->
+                            <!-- @description[en]: Icon -->
+                            <label i18n="icon">Ikon</label>
                             <occurrences minimum="1" maximum="1"/>
                             <config>
                                 <allowPath>${site}/*</allowPath>
@@ -36,7 +51,9 @@
                             </config>
                         </input>
                         <input name="caption" type="TextLine">
-                            <label>Ikon tekst</label>
+                            <!-- @description[no]: Ikon tekst -->
+                            <!-- @description[en]: Icon text -->
+                            <label i18n="promocard-horizontal.icon-text">Ikon tekst</label>
                             <occurrences minimum="1" maximum="1"/>
                         </input>
                     </items>
