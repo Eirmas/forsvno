@@ -163,7 +163,7 @@ exports.get = () => {
     const data = {
         id: uniqueId,
         siteKey: siteConfig.siteKey,
-        server: siteConfig.server,
+        server: libs.portal.serviceUrl({ service: 'contact-form-service'}),
         icons: {
             caret: libs.portal.assetUrl({ path: "images/caret.svg" }),
             close: libs.portal.assetUrl({ path: "images/close-bold.svg" }),
