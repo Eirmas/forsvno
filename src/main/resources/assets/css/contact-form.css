@@ -34,7 +34,8 @@
     margin: 0;
 }
 .contact-form__form-element input:disabled, .contact-form__form-element textarea:disabled {
-    background: #F1F2F0;
+    background: #F5F7F8;
+    color: #191B21;
 }
 .contact-form__form-element button {
     width: 100%;
@@ -42,6 +43,7 @@
 .contact-form__form-element .contact-form__input-info {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .contact-form__letter-counter:only-child {
     margin-left: auto;
@@ -100,6 +102,11 @@
 .contact-form__error-text{
     color: #AD0B0B;
     font-size: small;
+    flex-basis: 60%;
+    order: 3;
+}
+.contact-form__error-text:first-child {
+    order: 1;
 }
 .contact-form__letter-counter {
     font-size: small;
@@ -120,7 +127,7 @@
     outline: 1px solid #191b21;
 }
 .contact-form__select-toggle:disabled {
-    background: #F1F2F0;
+    background: #F5F7F8;
     color: #191B21;
 }
 .contact-form__select-label {
@@ -140,6 +147,7 @@
     left: 0;
     right: 0;
     display: none;
+    width: calc(100% + 2px);
 }
 .contact-form__select-options {
     list-style: none;
@@ -258,6 +266,9 @@
 .contact-form__radio-wrapper .contact-form__radio-container:hover input:not(:checked) ~ .contact-form__radio-text {
     text-decoration: underline;
 }
+.contact-form__radio-wrapper .contact-form__radio-container:hover input:disabled ~ .contact-form__radio-text {
+    text-decoration: none;
+}
 .contact-form__attachment-wrapper {
     display: flex;
 }
@@ -278,6 +289,10 @@
 }
 .contact-form__attachment-wrapper .contact-form__attachment-file-input input:focus ~ span{
     text-decoration: underline;
+}
+.contact-form__attachment-wrapper .contact-form__attachment-file-input input:disabled ~ span{
+    background: #F5F7F8;
+    cursor: default;
 }
 .contact-form__attachment-wrapper .contact-form__attachment-file-input span {
     display: block;
@@ -309,6 +324,9 @@
 .contact-form__attachment-wrapper .contact-form__attachment-info div button:focus {
     outline: 1px solid #191B21;
 }
+.contact-form__attachment-wrapper .contact-form__attachment-info div button:disabled {
+    opacity: 60%;
+}
 .contact-form__attachment-wrapper .contact-form__attachment-info div button .contact-form__attachment-remove-file {
     width: .75rem;
     height: .75rem;
@@ -326,7 +344,7 @@
     border: 2px solid transparent;
 }
 .contact-form__checkbox-wrapper-not-standalone {
-    background: #E3DDD8;
+    background: #e2e6e9;
     border: none !important;
 }
 
@@ -340,7 +358,7 @@
     line-height: 40px;
 }
 .contact-form__checkbox-wrapper-not-standalone .contact-form__checkbox-container:hover {
-    text-decoration: underline;
+    background: rgba(0, 0, 0, 0.1);
     transition: background .2s;
 }
 .contact-form__checkbox-wrapper .contact-form__checkbox-container {
@@ -395,6 +413,9 @@
 }
 .contact-form__checkbox-wrapper .contact-form__checkbox-container:hover input:not(:checked) ~ .contact-form__checkbox-text {
     text-decoration: underline;
+}
+.contact-form__checkbox-wrapper .contact-form__checkbox-container:hover input:disabled ~ .contact-form__checkbox-text {
+    text-decoration: none;
 }
 .contact-form__checkbox-wrapper-not-standalone .contact-form__checkbox-container:hover input:not(:checked) ~ .contact-form__checkbox-text {
     text-decoration: none !important;
