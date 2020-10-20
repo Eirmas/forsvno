@@ -3,7 +3,8 @@ const libs = {
     mail: require('/lib/xp/mail'),
     node: require('/lib/xp/node'),
     repo: require('/lib/xp/repo'),
-    httpClient: require('/lib/http-client')
+    httpClient: require('/lib/http-client'),
+    value: require('/lib/xp/value')
 };
 
 exports.post = (req) => {
@@ -11,24 +12,19 @@ exports.post = (req) => {
     let body = "";
 
     for (const key in form) {
-        body += `${form[key]}<br>`;
+        body += `${key}: ${form[key]}<br>`;
     }
-    
+
     const recaptcha = verify(form.token);
 
-    const storage = create(form.receiver.split("@").shift(), body);
+    const storage = create(form.receiver.split("@").shift(), form);
 
     const mail = send(form.receiver, body);
-    log.info(JSON.stringify(recaptcha));
-    log.info(JSON.stringify(storage));
-    log.info(JSON.stringify(mail));
+
     return {
         status: recaptcha && storage && mail ? 200 : 500,
         message: recaptcha && storage && mail ? "ok" : "error"
-    }
-    
-
-    
+    }    
 }
 /**
  *  Recaptcha - Sends the recaptcha token to Google for verification 
@@ -36,7 +32,7 @@ exports.post = (req) => {
 function verify(token) {
     log.info(token);
     const recaptcha = {
-        secret: "6LdRatYZAAAAAFkR8lRxCTl8S055MANTjCKP39HS",
+        secret: libs.portal.getSiteConfig().secretKey,
         response: token
     }
     const result = libs.httpClient.request({
@@ -44,8 +40,7 @@ function verify(token) {
         method: "POST",
         params: recaptcha
     });
-    log.info(JSON.stringify(result));
-    return result.body.success || false
+    return JSON.parse(result.body).success || false
 }
 /**
  * Mail - Sends the data to the user via email 
@@ -62,27 +57,39 @@ function send(receiver, body) {
 /** 
  * Storage - Stores the data in the Enonic XP node database
  */
-function create(repoId, data) {
-    if(!libs.repo.get(repoId)) {
-        createRepo(repoId)
+function create(receiver, data, attachments) {
+    if(!libs.repo.get("contact-forms")) {
+        createRepo("contact-forms")
     }
     try {
-        var repo = libs.node.connect({
-            repoId: repoId,
+        const repo = libs.node.connect({
+            repoId: "contact-forms",
             branch: "master"
         });
-        var result = repo.create({
+        if(!repo.get(`/${receiver}`)) {
+            repo.create({ _name: receiver });
+        }
+        const keys = Object.keys(data).filter((key) => key.startsWith("Attachment"))
+        let attachments = [];
+        for (const file of keys) {
+            const stream = libs.portal.getMultipartStream(`${file}-stream`);
+            attachments.push({ name: file, mime: data[file], stream: libs.value.binary(file.replace("@", "."), stream) })
+        }
+        const result = repo.create({
+            _parentPath: `/${receiver}`,
             data: data,
-        });
-        log.info('Content created with id ' + result._id);
+            attachments: attachments
+        });        
         
     } catch (e) {
-        log.error('Unexpected error: ' + e.message);
+        log.error('Unexpected error: ' + e);
         return false;
     }
     return true;
 }
-
+/**
+ * Creates new repository with id if nonexistent
+ */
 function createRepo(id) {
     var result = libs.repo.create({
         id: id

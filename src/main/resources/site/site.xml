@@ -14,6 +14,11 @@
           <!-- @description[en]: ReCAPTCHA Site Key -->
           <label i18n="form.recaptcha">ReCAPTCHA Site Key</label>
         </input>
+         <input name="secretKey" type="TextLine">
+          <!-- @description[no]: ReCAPTCHA Secret Key -->
+          <!-- @description[en]: ReCAPTCHA Secret Key -->
+          <label i18n="form.recaptcha">ReCAPTCHA Secret Key</label>
+        </input>
         <input name="formFolder" type="ContentSelector">
           <!-- @description[no]: Skjema mappe -->
           <!-- @description[en]: Contact Form Folder -->
