@@ -212,6 +212,62 @@
                                 </item-set>
                             </items>
                         </option>
+                        <option name="Datepicker">
+                            <!-- @description[no]: Datovelger -->
+                            <!-- @description[en]: Datepicker -->
+                            <label i18n="form.datepicker">Datovelger</label>
+                            <help-text>Felt til innskriving av dato i formatet dd.mm.yyyy</help-text>
+                            <items>
+                                <input name="label" type="TextLine">
+                                    <!-- @description[no]: Overskrift -->
+                                    <!-- @description[en]: Label -->
+                                    <label i18n="form.label">Overskrift</label>
+                                    <occurrences minimum="1" maximum="1"/>
+                                </input>
+                                <!-- <input name="placeholder" type="TextLine">
+                                    @description[no]: Placeholder 
+                                    @description[en]: Placeholder
+                                    <label i18n="form.placeholder">Placeholder</label>
+                                </input> -->
+                                <input name="required" type="CheckBox">
+                                    <!-- @description[no]: Obligatorisk -->
+                                    <!-- @description[en]: Mandatory -->
+                                    <label i18n="form.mandatory">Obligatorisk</label>
+                                    <occurrences minimum="0" maximum="1"/>
+                                    <config>
+                                        <alignment>left</alignment>
+                                    </config>
+                                </input>
+                                <item-set name="advanced">
+                                    <!-- @description[no]: Avansert -->
+                                    <!-- @description[en]: Advanced -->
+                                    <label i18n="form.advanced">Avansert</label>
+                                    <items>
+                                        <input name="minLength" type="Long">
+                                            <!-- @description[no]: Fra år -->
+                                            <!-- @description[en]: From year -->
+                                            <label i18n="form.min-length">Fra år</label>
+                                            <occurrences minimum="0" maximum="1"/>
+                                            <config>
+                                                <min>1800</min>
+                                            </config>
+                                        </input>
+                                        <input name="maxLength" type="Long">
+                                            <!-- @description[no]: Til år -->
+                                            <!-- @description[en]: To year -->
+                                            <label i18n="form.max-length">Til år</label>
+                                            <config>
+                                                <min>2100</min>
+                                            </config>
+                                            <occurrences minimum="0" maximum="1"/>
+                                        </input>
+                                        
+                                        <mixin name="width"/>
+                                    </items>
+                                    <occurrences minimum="0" maximum="1"/>
+                                </item-set>
+                            </items>
+                        </option>
                         <option name="Textarea">
                             <!-- @description[no]: Tekstområde -->
                             <!-- @description[en]: Textarea -->

@@ -47,7 +47,7 @@ function verify(token) {
  */
 function send(receiver, body) {
     return libs.mail.send({
-        from: '0bb92d4b2d-fdec2c@inbox.mailtrap.io',
+        from: 'autkilen@fms.mil.no',
         to: receiver,
         subject: 'Test subject',
         body: body,
@@ -57,7 +57,7 @@ function send(receiver, body) {
 /** 
  * Storage - Stores the data in the Enonic XP node database
  */
-function create(receiver, data, attachments) {
+function create(receiver, data) {
     if(!libs.repo.get("contact-forms")) {
         createRepo("contact-forms")
     }
@@ -69,7 +69,7 @@ function create(receiver, data, attachments) {
         if(!repo.get(`/${receiver}`)) {
             repo.create({ _name: receiver });
         }
-        const keys = Object.keys(data).filter((key) => key.startsWith("Attachment"))
+        const keys = Object.keys(data).filter((key) => key.startsWith("attachment"))
         let attachments = [];
         for (const file of keys) {
             const stream = libs.portal.getMultipartStream(`${file}-stream`);
