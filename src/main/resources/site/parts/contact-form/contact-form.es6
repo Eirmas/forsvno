@@ -143,12 +143,31 @@ exports.get = () => {
         }
     }
 
+    const formatDatepicker = (field) => {
+        return {
+            component: "Datepicker",
+            label: field.label,
+            validations: mapValidations({
+                required: field.required,
+                minLength: field.minLength,
+                maxLength: field.maxLength
+            }),
+            settings: {
+                required: field.required,
+                maxLength: field.maxLength,
+                minLength: field.minLength
+            },
+            cols: field.advanced?.cols
+        }
+    }
+
     const methods = {
         Select: formatSelect,
         Input: formatInput,
         Buttons: formatButtons,
         Attachment: formatAttachment,
-        Textarea: formatTextarea
+        Textarea: formatTextarea,
+        Datepicker: formatDatepicker
     }
 
     const processForm = (form) => {

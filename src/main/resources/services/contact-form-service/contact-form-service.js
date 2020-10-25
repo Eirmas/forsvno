@@ -4,22 +4,18 @@ const libs = {
     node: require('/lib/xp/node'),
     repo: require('/lib/xp/repo'),
     httpClient: require('/lib/http-client'),
-    value: require('/lib/xp/value')
+    value: require('/lib/xp/value'),
+    thymeleaf: require('/lib/thymeleaf')
 };
 
 exports.post = (req) => {
     const form = req.params;
-    let body = "";
-
-    for (const key in form) {
-        body += `${key}: ${form[key]}<br>`;
-    }
 
     const recaptcha = verify(form.token);
 
     const storage = create(form.receiver.split("@").shift(), form);
 
-    const mail = send(form.receiver, body);
+    const mail = send(form.receiver, form);
 
     return {
         status: recaptcha && storage && mail ? 200 : 500,
@@ -45,7 +41,14 @@ function verify(token) {
 /**
  * Mail - Sends the data to the user via email 
  */
-function send(receiver, body) {
+function send(receiver, data) {
+    let fields = [];
+    for (const key in data) {
+        if (key.startsWith("contact-form")) fields.push(JSON.parse(data[key]));
+    }
+    const view = resolve('template.html');
+    log.info(JSON.stringify(data));
+    const body = libs.thymeleaf.render(view, { fields: fields });
     return libs.mail.send({
         from: 'autkilen@fms.mil.no',
         to: receiver,

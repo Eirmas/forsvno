@@ -26,12 +26,10 @@
 .contact-form__form-element input, .contact-form__form-element textarea {
     border: 1px solid #191B21;
     padding: 0.5rem 1rem;
-    margin: 1px;
-    outline: none !important;
+    outline: none;
 }
 .contact-form__form-element input:focus, .contact-form__form-element textarea:focus {
-    border-width: 2px;
-    margin: 0;
+    outline: 2px solid #191B21;
 }
 .contact-form__form-element input:disabled, .contact-form__form-element textarea:disabled {
     background: #F5F7F8;
@@ -258,8 +256,8 @@
     display: none;
     left: 50%;
     top: 50%;
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    height: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
 }
@@ -407,8 +405,8 @@
 .contact-form__checkbox-wrapper .contact-form__checkbox-container .contact-form__checkbox-checkmark:after {
     left: 50%;
     top: 50%;
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    height: 50%;
     transform: translate(-50%, -50%);
 }
 .contact-form__checkbox-wrapper .contact-form__checkbox-container:hover input:not(:checked) ~ .contact-form__checkbox-text {
@@ -422,4 +420,39 @@
 }
 .contact-form__checkbox-wrapper .contact-form__checkbox-container:hover input ~ .contact-form__checkbox-checkmark:after {
     display: block;
+}
+.contact-form__datepicker {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: auto;
+}
+.contact-form__datepicker input {
+    width: calc(33% - 2px);
+    text-align: center;
+}
+.contact-form__datepicker input:focus {
+    outline: none !important;
+}
+.contact-form__datepicker input:disabled ~p {
+    background: #F5F7F8;
+}
+.contact-form__datepicker p {
+    border-top: 1px solid #191B21;
+    border-bottom: 1px solid #191B21;
+    padding: 0.5rem 0;
+    font-size: 14px;
+    margin: 0;
+}
+.contact-form__datepicker .contact-form__datepicker-day {
+    border-right: none;
+}
+.contact-form__datepicker .contact-form__datepicker-month {
+    border-right: none;
+    border-left: none;
+    width: calc(34% - 1.5px);
+}
+.contact-form__datepicker .contact-form__datepicker-year {
+    border-left: none;
 }
