@@ -153,7 +153,7 @@
                                         <option value="left">Venstre</option>
                                         <option value="right">Høyre</option>
                                     </config>
-                                    <default>left</default>
+                                    <default>right</default>
                                 </input>
                             </items>
                         </option>
@@ -181,7 +181,7 @@
                                         <option value="left">Venstre</option>
                                         <option value="right">Høyre</option>
                                     </config>
-                                    <default>left</default>
+                                    <default>right</default>
                                 </input>
                             </items>
                         </option>
