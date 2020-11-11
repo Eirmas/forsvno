@@ -9,6 +9,7 @@ exports.get = () => {
     const uniqueId = path.split("/").join("-");
 
     const config = libs.portal.getComponent().config
+    log.info("config: %s", JSON.stringify(config.questions))
     const data = {
         id: uniqueId,
         title: config.title,
@@ -29,7 +30,7 @@ exports.get = () => {
         questions: libs.utilx.forceArray(config.questions).map((v) => ({
             text: v.text,
             desc: v.desc,
-            options: v.options || [],
+            options: libs.utilx.forceArray(v.options) || [],
             isImageLeft: (v.media["_selected"] === 'image') ? (v.media.image.side === 'left') : (v.media.video.side === 'left'),
             media: {
                 selected: v.media["_selected"],
