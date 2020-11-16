@@ -1,0 +1,93 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Medieavspiller</display-name>
+    <form>
+        <input name="image" type="ImageSelector">
+            <label>Bilde</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>image</allowContentType> 
+                <allowPath>${site}/*</allowPath>
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>  
+                <hideToggleIcon>true</hideToggleIcon> 
+            </config>
+        </input>
+        <input name="title" type="TextLine">
+            <label>Tittel</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <input name="subtitle" type="TextLine">
+            <label>Undertittel</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <input name="ingress" type="TextArea">
+            <label>Ingress</label>
+            <config>
+                <max-length>300</max-length> 
+            </config>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <mixin name="link"/>
+        <input name="linksHeader" type="TextLine">
+            <label>Lenke overskirft</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
+        <item-set name="links">
+            <label>Lenker</label>
+            <items>
+                <input name="title" type="TextLine">
+                    <label>Tittel</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <config>
+                        <max-length>12</max-length>
+                    </config>
+                </input>
+                <input name="subtitle" type="TextArea">
+                    <label>Undertittel</label>
+                    <occurrences minimum="1" maximum="1"/>
+                </input>
+                <mixin name="link"/>
+                <item-set name="decoration">
+                    <label>Dekorasjon</label>
+                    <items>
+                        <input name="icon" type="ImageSelector">
+                            <label>Ikon</label>
+                            <occurrences minimum="1" maximum="1"/>
+                            <config>
+                                <allowPath>${site}/*</allowPath>
+                                <treeMode>true</treeMode>
+                                <showStatus>true</showStatus>
+                                <hideToggleIcon>true</hideToggleIcon>
+                            </config>
+                        </input>
+                        <input name="caption" type="TextLine">
+                            <label>Ikon tekst</label>
+                            <occurrences minimum="1" maximum="1"/>
+                        </input>
+                    </items>
+                    <occurrences minimum="0" maximum="1" />
+                </item-set>
+            </items>
+            <occurrences minimum="3" maximum="4"/>
+        </item-set>
+        <input name="service" type="ContentSelector">
+            <label>Lyd</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <allowContentType>audio</allowContentType> 
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>  
+                <hideToggleIcon>true</hideToggleIcon> 
+            </config>
+        </input>
+    </form>
+</part>
