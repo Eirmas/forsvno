@@ -10,7 +10,11 @@ exports.get = () => {
     const config = libs.portal.getComponent().config
 
     const data = {
-        data: libs.utilx.forceArray(config.data)
+        steps: libs.utilx.forceArray(config.data),
+        id: uniqueId,
+        arrowRight: libs.portal.assetUrl({
+            path: "images/arrow-right.svg"
+        })
     }
 
     const model = {

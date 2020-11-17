@@ -23,6 +23,29 @@
                         <alignment>left</alignment>
                     </config>
                 </input>
+                <item-set name="link">
+                    <!-- @description[no]: Lenke  -->
+                    <!-- @description[en]: Lenke -->
+                    <label i18n="stepper.link">Lenke</label>
+                    <items>
+                        <input type="TextLine" name="href">
+                            <!-- @description[no]: Skriv en full ekstern URL som skal lenkes til. -->
+                            <!-- @description[en]: Write a full external URL to link to. -->
+                            <label i18n="link.url">Type URL (with http/https attached)</label>
+                            <occurrences minimum="1" maximum="1" />
+                        </input>
+                        <input name="newTab" type="CheckBox">
+                            <!-- @description[no]: Kryss av hvis lenken skal åpnes i ny tab. -->
+                            <!-- @description[en]: Check if link should be opened i new tab. -->
+                            <label i18n="link.tab">Open in new tab</label>
+                            <default>checked</default>
+                            <config>
+                                <alignment>right</alignment>
+                            </config>
+                        </input>
+                    </items>
+                    <occurrences minimum="0" maximum="1"/>
+                </item-set>
             </items>
             <occurrences minimum="2" maximum="6"/>
         </item-set>
