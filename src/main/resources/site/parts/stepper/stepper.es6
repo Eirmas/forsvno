@@ -10,7 +10,17 @@ exports.get = () => {
     const config = libs.portal.getComponent().config
 
     const data = {
-        steps: libs.utilx.forceArray(config.data),
+        steps: libs.utilx.forceArray(config.data).map((step) => {
+            return {
+                text: step.text,
+                active: step.active,
+                link: step.link ? {
+                    href: `${libs.portal.pageUrl({
+                        id: step.link?.id
+                    })}${(step.link.anchor?.length > 0) ? `#${step.link.anchor}` : ''}`
+                } : false
+            }
+        }),
         id: uniqueId,
         arrowRight: libs.portal.assetUrl({
             path: "images/arrow-right.svg"
