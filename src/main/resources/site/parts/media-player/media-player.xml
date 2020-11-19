@@ -34,6 +34,13 @@
             <occurrences minimum="0" maximum="1"/>
         </input>
         <mixin name="link"/>
+        <input name="linkText" type="TextLine">
+            <label>Lenketekst</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>30</max-length>
+            </config>
+        </input>
         <input name="linksHeader" type="TextLine">
             <label>Lenke overskirft</label>
             <occurrences minimum="0" maximum="1"/>
@@ -48,7 +55,7 @@
                     <label>Tittel</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
-                        <max-length>12</max-length>
+                        <max-length>30</max-length>
                     </config>
                 </input>
                 <input name="subtitle" type="TextArea">

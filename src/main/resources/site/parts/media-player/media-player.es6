@@ -15,8 +15,7 @@ exports.get = () => {
         return [].concat(e || []);
     }
     const audio = libs.content.get({ key: config.service })
-    log.info(JSON.stringify(config));
-    log.info(JSON.stringify(audio))
+    const service = audio.data.service[audio.data.service._selected].linkType;
     const data = {
         title: config.title,
         image: libs.portal.imageUrl({ 
@@ -25,7 +24,10 @@ exports.get = () => {
         }),
         subtitle: config.subtitle,
         ingress: config.ingress,
-        link: config.linkType._selected === "external" ? config.linkType.external.url : libs.portal.pageUrl({ id: config.linkType.internal.id }),
+        link: {
+            url: config.linkType._selected === "external" ? config.linkType.external.url : libs.portal.pageUrl({ id: config.linkType.internal.id }),
+            text: config.linkText
+        },
         audio: {
             header: audio.data.header,
             subheader: audio.data.subheader,
@@ -35,7 +37,7 @@ exports.get = () => {
                 id: audio.data.cover,
                 scale: 'max(300)'
             }),
-            service: audio.data.service._selected === "external" ? audio.data.service.external.url : libs.portal.pageUrl({ id: audio.data.service.internal })
+            service: service._selected === "external" ? service.external.url : libs.portal.pageUrl({ id: service.internal.id })
         },
         linksHeader: config.linksHeader,
         links: config.links.map((link) => ({
@@ -52,7 +54,10 @@ exports.get = () => {
             arrowRight: libs.portal.assetUrl({ path: "images/arrow-right.svg" }),
             play: libs.portal.assetUrl({ path: "images/play.svg" }),
             pause: libs.portal.assetUrl({ path: "images/pause.svg" }),
-            volume: libs.portal.assetUrl({ path: "images/volume.svg" })
+            volume0: libs.portal.assetUrl({ path: "images/Volume-0.svg" }),
+            volume33: libs.portal.assetUrl({ path: "images/Volume-33.svg" }),
+            volume66: libs.portal.assetUrl({ path: "images/Volume-66.svg" }),
+            volume100: libs.portal.assetUrl({ path: "images/Volume-100.svg" }),
         }
     }
     const model = {
