@@ -1,0 +1,71 @@
+<content-type xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Lydfil</display-name>
+    <description>Innholdstype for lydfil</description>
+    <super-type>base:structured</super-type>
+    <form>
+        <input name="header" type="TextLine">
+            <!-- @description[no]: Overskrift -->
+            <!-- @description[en]: Header -->
+            <label i18n="header">Overskrift</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="subheader" type="TextLine">
+            <!-- @description[no]: Underoverskrift -->
+            <!-- @description[en]: Subheader -->
+            <label i18n="subheader">Underoverskrift</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="title" type="TextLine">
+            <!-- @description[no]: Tittel -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
+            <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="description" type="TextArea">
+            <!-- @description[no]: Beskrivelse -->
+            <!-- @description[en]: Description -->
+            <label i18n="description">Beskrivelse</label>
+            <config>
+                <max-length>110</max-length> 
+            </config>
+            <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="cover" type="ImageSelector">
+            <!-- @description[no]: Cover -->
+            <!-- @description[en]: Cover -->
+            <label i18n="cover">Cover</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config> 
+                <allowPath>${site}/*</allowPath> 
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+
+        <option-set name="service">
+            <label i18n="service.label">Lyd</label>
+            <expanded>true</expanded>
+            <occurrences minimum="1" maximum="1"/>
+            <options minimum="1" maximum="1">
+                <option name="acast">
+                    <!-- @description[no]: Acast -->
+                    <!-- @description[en]: Acast -->
+                    <label i18n="service.acast">Acast</label>
+                    <default>true</default>
+                    <items>
+                        <mixin name="link"/>
+                    </items>
+                </option>
+                <option name="soundcloud">
+                    <!-- @description[no]: Soundcloud -->
+                    <!-- @description[en]: Soundcloud -->
+                    <label i18n="service.soundcloud">Soundcloud</label>
+                    <items>
+                        <mixin name="link"/>
+                    </items>
+                </option>
+            </options>
+        </option-set>
+    </form>
+</content-type>
