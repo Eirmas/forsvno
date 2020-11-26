@@ -2,4 +2,16 @@
     <display-name>Artikkel</display-name>
     <description>Innholdstype for artikkel</description>
     <super-type>base:structured</super-type>
+    <form>
+        <mixin name="background-color" />
+        <input name="preface" type="TextArea">
+            <label>Ingress</label>
+            <config>
+                <max-length>300</max-length>
+            </config>
+        </input>
+        <input name="byline" type="TextArea">
+            <label>Byline</label>
+        </input>
+    </form>
 </content-type>

@@ -857,25 +857,19 @@ const WORDS = [
     { word: "ØUA", description: "Øving utenfor arbeidstid" }
 ]
 
-exports.get = () => {
-    const path = libs.portal.getComponent().path;
-    const uniqueId = path.split("/").join("-");
-    const toArray = function (e) {
-        return (e) ? ((!e.length) ? [ e ] : e) : []
-    }
-    const config = libs.portal.getComponent().config
+exports.macro = (context) => {
+    const config = context.params;
+    const site = libs.portal.getContent();
     const data = {
-        header: config.header,
-        subheader: config.subheader,
+        header: site.displayName,
+        subheader: site.data.preface,
         inputPlaceholder: config.inputPlaceholder,
-        table1Header: config.table1Header,
-        table2Header: config.table2Header,
         paginationIndex: config.paginationIndex,
         paginationLimit: config.paginationLimit,
-        items: WORDS
+        items: WORDS,
     };
     const model = {
-        uniqueId,
+        uniqueId: "militaere-forkortelser",
         data: JSON.stringify(data)
     };
     const view = resolve("slang-words.ftl");

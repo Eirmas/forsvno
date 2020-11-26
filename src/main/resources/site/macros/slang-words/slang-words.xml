@@ -1,4 +1,4 @@
-<part>
+<macro>
     <display-name i18n="a-macro.display-name">Militære forkortelser</display-name>
     <form>
         <input name="header" type="TextLine">
@@ -10,12 +10,6 @@
         <input name="inputPlaceholder" type="TextLine">
             <label>Hjelpetekst søkefelt</label>
         </input>
-        <input name="table1Header" type="TextLine">
-            <label>Første tittel i tabel</label>
-        </input>
-        <input name="table2Header" type="TextLine">
-            <label>Andre tittel i tabel</label>
-        </input>
         <input name="paginationIndex" type="Long">
             <label>Antall synlige elementer før paginering</label>
             <default>30</default>
@@ -25,4 +19,4 @@
             <default>15</default>
         </input>
     </form>
-</part>
+</macro>
