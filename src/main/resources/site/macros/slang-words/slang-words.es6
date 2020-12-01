@@ -2,6 +2,7 @@ const libs = {
     portal: require("/lib/xp/portal"),
     content: require("/lib/xp/content"),
     freemarker: require("/site/lib/tineikt/freemarker"),
+    i18n: require("/lib/xp/i18n")
 };
 
 const WORDS = [
@@ -867,6 +868,7 @@ exports.macro = (context) => {
         paginationIndex: config.paginationIndex,
         paginationLimit: config.paginationLimit,
         items: WORDS,
+        localize: libs.i18n.getPhrases("no", ["i18n/phrases"])
     };
     const model = {
         uniqueId: "militaere-forkortelser",
