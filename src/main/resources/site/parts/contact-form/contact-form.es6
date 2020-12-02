@@ -14,17 +14,17 @@ exports.get = () => {
 
     const mapValidations = (v) => {
         return [
-            (v.required) ? { name: "required", text: "Dette feltet er obligatorisk", value: 0 } : null,
-            (v.max) ? { name: "max", text: "Antallet verdier er over maksimalkravet", value: v.max } : null,
-            (v.min) ? { name: "min", text: "Verdiene oppfyller ikke minstegravet", value: v.min } : null,
-            (v.maxLength) ? { name: "maxLength", text: "Lengden på verdien er for lang", value: v.maxLength } : null,
-            (v.minLength) ? { name: "minLength", text: "Lengden på verdien er for kort", value: v.minLength } : null,
-            (v.custom) ? { name: "pattern", text: "Ugyldig verdi", value: v.custom } : null,
-            (v.email) ? { name: "email", text: "E-postadressen er ugyldig", value: 0 } : null,
-            (v.pnum) ? { name: "pnum", text: "Ugyldig personnummer", value: 0 } : null,
-            (v.phone) ? { name: "phone", text: "Ugyldig telefonnummer", value: 0 } : null,
-            (v.url) ? { name: "url", text: "Ugyldig lenke", value: 0 } : null,
-            (v.maxSize) ? { name: "maxSize", text: "Størrelsen er for stor", value: v.maxSize } : null
+            (v.required) ? { name: "required", text: "Dette feltet er obligatorisk", value: 0} : null,
+            (v.max) ? { name: "max", text: "Antallet verdier er over maksimalkravet", value: v.max} : null,
+            (v.min) ? { name: "min", text: "Verdiene oppfyller ikke minstegravet", value: v.min} : null,
+            (v.maxLength) ? { name: "maxLength", text: "Lengden på verdien er for lang", value: v.maxLength} : null,
+            (v.minLength) ? { name: "minLength", text: "Lengden på verdien er for kort", value: v.minLength} : null,
+            (v.custom) ? { name: "pattern", text: "Ugyldig verdi", value: v.custom} : null,
+            (v.email) ? { name: "email", text: "E-postadressen er ugyldig", value: 0} : null,
+            (v.pnum) ? { name: "pnum", text: "Ugyldig personnummer", value: 0} : null,
+            (v.phone) ? { name: "phone", text: "Ugyldig telefonnummer", value: 0} : null,
+            (v.url) ? { name: "url", text: "Ugyldig lenke", value: 0} : null,
+            (v.maxSize) ? { name: "maxSize", text: "Størrelsen er for stor", value: v.maxSize} : null
         ].filter((e) => !!e)
     }
 
@@ -54,20 +54,20 @@ exports.get = () => {
                 required: field.required
             }),
             settings: {
-                multiple: field.advanced ? .multiple,
+                multiple: field.advanced?.multiple,
                 required: field.required
             },
-            cols: field.advanced ? .cols
+            cols: field.advanced?.cols
         }
     }
 
     const formatInput = (field) => {
-        const regex = field.advanced ? .regex ? ._selected
+        const regex = field.advanced?.regex?._selected
         log.info(JSON.stringify(field));
         const validations = {
             required: field.required,
-            maxLength: field.advanced ? .maxLength,
-            minLength: field.advanced ? .minLength,
+            maxLength: field.advanced?.maxLength,
+            minLength: field.advanced?.minLength,
             pnum: field.cc === "pnum"
         }
         if (regex) validations[regex] = field.advanced.regex[regex].regex;
@@ -80,10 +80,10 @@ exports.get = () => {
             settings: {
                 cc: field.cc,
                 required: field.required,
-                maxLength: field.advanced ? .maxLength,
-                minLength: field.advanced ? .minLength,
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength,
             },
-            cols: field.advanced ? .cols
+            cols: field.advanced?.cols
         }
     }
 
@@ -94,15 +94,15 @@ exports.get = () => {
             placeholder: field.placeholder,
             validations: mapValidations({
                 required: field.required,
-                maxLength: field.advanced ? .maxLength,
-                minLength: field.advanced ? .minLength
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength
             }),
             settings: {
                 required: field.required,
-                maxLength: field.advanced ? .maxLength,
-                minLength: field.advanced ? .minLength
+                maxLength: field.advanced?.maxLength,
+                minLength: field.advanced?.minLength
             },
-            cols: field.advanced ? .cols
+            cols: field.advanced?.cols
         }
     }
 
@@ -115,10 +115,10 @@ exports.get = () => {
                 required: field.required
             }),
             settings: {
-                multiple: field.advanced ? .multiple,
+                multiple: field.advanced?.multiple,
                 required: field.required
             },
-            cols: field.advanced ? .cols
+            cols: field.advanced?.cols
         }
     }
 
@@ -130,15 +130,15 @@ exports.get = () => {
             validations: mapValidations({
                 required: field.required,
                 maxLength: (field.advanced && !field.advanced.multiple) ? 1 : false,
-                maxSize: (field.advanced ? .maxSize || 20) * (Math.pow(32, 4)),
+                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
             }),
             settings: {
-                multiple: field.advanced ? .multiple,
-                maxSize: (field.advanced ? .maxSize || 20) * (Math.pow(32, 4)),
+                multiple: field.advanced?.multiple,
+                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
                 required: field.required,
-                accept: (field.advanced ? .accept) ? mapAccept(field.advanced.accept).join(', ') : null
+                accept: (field.advanced?.accept) ? mapAccept(field.advanced.accept).join(', '): null
             },
-            cols: field.advanced ? .cols,
+            cols: field.advanced?.cols,
             value: []
         }
     }
@@ -157,7 +157,7 @@ exports.get = () => {
                 maxLength: field.maxLength,
                 minLength: field.minLength
             },
-            cols: field.advanced ? .cols
+            cols: field.advanced?.cols
         }
     }
 
@@ -182,7 +182,7 @@ exports.get = () => {
     const data = {
         id: uniqueId,
         siteKey: siteConfig.siteKey,
-        server: libs.portal.serviceUrl({ service: 'contact-form-service' }),
+        server: libs.portal.serviceUrl({ service: 'contact-form-service'}),
         icons: {
             caret: libs.portal.assetUrl({ path: "images/caret.svg" }),
             close: libs.portal.assetUrl({ path: "images/close-bold.svg" }),
