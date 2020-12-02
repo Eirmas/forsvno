@@ -53,37 +53,22 @@ exports.get = () => {
             validations: mapValidations({
                 required: field.required
             }),
-            settings: { <<
-                << << < HEAD
+            settings: {
                 multiple: field.advanced ? .multiple,
                 required: field.required
             },
-            cols: field.advanced ? .cols ===
-                === =
-                multiple : field.advanced ? .multiple,
-            required: field.required
-        },
-        cols: field.advanced ? .cols >>>
-            >>> > andreas
+            cols: field.advanced ? .cols
+        }
     }
-}
 
-const formatInput = (field) => { <<
-    << << < HEAD
-    const regex = field.advanced ? .regex ? ._selected
-    const validations = {
-        required: field.required,
-        maxLength: field.advanced ? .maxLength,
-        minLength: field.advanced ? .minLength ===
-            === =
-            const regex = field.advanced ? .regex ? ._selected
+    const formatInput = (field) => {
+        const regex = field.advanced ? .regex ? ._selected
         log.info(JSON.stringify(field));
         const validations = {
             required: field.required,
             maxLength: field.advanced ? .maxLength,
             minLength: field.advanced ? .minLength,
-            pnum: field.cc === "pnum" >>>
-                >>> > andreas
+            pnum: field.cc === "pnum"
         }
         if (regex) validations[regex] = field.advanced.regex[regex].regex;
 
