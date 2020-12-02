@@ -10,8 +10,7 @@ exports.get = () => {
     const config = component.config;
     const path = component.path;
     const uniqueId = path.split("/").join("-");
-<<<<<<< HEAD
-    const siteConfig = libs.portal.getSiteConfig().formConfig;
+    const siteConfig = libs.portal.getSite().data.siteConfig.config;
 
     const mapValidations = (v) => {
         return [
@@ -26,23 +25,6 @@ exports.get = () => {
             (v.phone) ? { name: "phone", text: "Ugyldig telefonnummer", value: 0 } : null,
             (v.url) ? { name: "url", text: "Ugyldig lenke", value: 0 } : null,
             (v.maxSize) ? { name: "maxSize", text: "Størrelsen er for stor", value: v.maxSize } : null
-=======
-    const siteConfig = libs.portal.getSite().data.siteConfig.config;
-
-    const mapValidations = (v) => {
-        return [
-            (v.required) ? { name: "required", text: "Dette feltet er obligatorisk", value: 0} : null,
-            (v.max) ? { name: "max", text: "Antallet verdier er over maksimalkravet", value: v.max} : null,
-            (v.min) ? { name: "min", text: "Verdiene oppfyller ikke minstegravet", value: v.min} : null,
-            (v.maxLength) ? { name: "maxLength", text: "Lengden på verdien er for lang", value: v.maxLength} : null,
-            (v.minLength) ? { name: "minLength", text: "Lengden på verdien er for kort", value: v.minLength} : null,
-            (v.custom) ? { name: "pattern", text: "Ugyldig verdi", value: v.custom} : null,
-            (v.email) ? { name: "email", text: "E-postadressen er ugyldig", value: 0} : null,
-            (v.pnum) ? { name: "pnum", text: "Ugyldig personnummer", value: 0} : null,
-            (v.phone) ? { name: "phone", text: "Ugyldig telefonnummer", value: 0} : null,
-            (v.url) ? { name: "url", text: "Ugyldig lenke", value: 0} : null,
-            (v.maxSize) ? { name: "maxSize", text: "Størrelsen er for stor", value: v.maxSize} : null
->>>>>>> andreas
         ].filter((e) => !!e)
     }
 
@@ -71,37 +53,37 @@ exports.get = () => {
             validations: mapValidations({
                 required: field.required
             }),
-            settings: {
-<<<<<<< HEAD
+            settings: { <<
+                << << < HEAD
                 multiple: field.advanced ? .multiple,
                 required: field.required
             },
-            cols: field.advanced ? .cols
-=======
-                multiple: field.advanced?.multiple,
-                required: field.required
-            },
-            cols: field.advanced?.cols
->>>>>>> andreas
-        }
+            cols: field.advanced ? .cols ===
+                === =
+                multiple : field.advanced ? .multiple,
+            required: field.required
+        },
+        cols: field.advanced ? .cols >>>
+            >>> > andreas
     }
+}
 
-    const formatInput = (field) => {
-<<<<<<< HEAD
-        const regex = field.advanced ? .regex ? ._selected
-        const validations = {
-            required: field.required,
-            maxLength: field.advanced ? .maxLength,
-            minLength: field.advanced ? .minLength
-=======
-        const regex = field.advanced?.regex?._selected
+const formatInput = (field) => { <<
+    << << < HEAD
+    const regex = field.advanced ? .regex ? ._selected
+    const validations = {
+        required: field.required,
+        maxLength: field.advanced ? .maxLength,
+        minLength: field.advanced ? .minLength ===
+            === =
+            const regex = field.advanced ? .regex ? ._selected
         log.info(JSON.stringify(field));
         const validations = {
             required: field.required,
-            maxLength: field.advanced?.maxLength,
-            minLength: field.advanced?.minLength,
-            pnum: field.cc === "pnum"
->>>>>>> andreas
+            maxLength: field.advanced ? .maxLength,
+            minLength: field.advanced ? .minLength,
+            pnum: field.cc === "pnum" >>>
+                >>> > andreas
         }
         if (regex) validations[regex] = field.advanced.regex[regex].regex;
 
@@ -113,17 +95,10 @@ exports.get = () => {
             settings: {
                 cc: field.cc,
                 required: field.required,
-<<<<<<< HEAD
                 maxLength: field.advanced ? .maxLength,
                 minLength: field.advanced ? .minLength,
             },
             cols: field.advanced ? .cols
-=======
-                maxLength: field.advanced?.maxLength,
-                minLength: field.advanced?.minLength,
-            },
-            cols: field.advanced?.cols
->>>>>>> andreas
         }
     }
 
@@ -134,7 +109,6 @@ exports.get = () => {
             placeholder: field.placeholder,
             validations: mapValidations({
                 required: field.required,
-<<<<<<< HEAD
                 maxLength: field.advanced ? .maxLength,
                 minLength: field.advanced ? .minLength
             }),
@@ -144,17 +118,6 @@ exports.get = () => {
                 minLength: field.advanced ? .minLength
             },
             cols: field.advanced ? .cols
-=======
-                maxLength: field.advanced?.maxLength,
-                minLength: field.advanced?.minLength
-            }),
-            settings: {
-                required: field.required,
-                maxLength: field.advanced?.maxLength,
-                minLength: field.advanced?.minLength
-            },
-            cols: field.advanced?.cols
->>>>>>> andreas
         }
     }
 
@@ -167,17 +130,10 @@ exports.get = () => {
                 required: field.required
             }),
             settings: {
-<<<<<<< HEAD
                 multiple: field.advanced ? .multiple,
                 required: field.required
             },
             cols: field.advanced ? .cols
-=======
-                multiple: field.advanced?.multiple,
-                required: field.required
-            },
-            cols: field.advanced?.cols
->>>>>>> andreas
         }
     }
 
@@ -189,7 +145,6 @@ exports.get = () => {
             validations: mapValidations({
                 required: field.required,
                 maxLength: (field.advanced && !field.advanced.multiple) ? 1 : false,
-<<<<<<< HEAD
                 maxSize: (field.advanced ? .maxSize || 20) * (Math.pow(32, 4)),
             }),
             settings: {
@@ -199,23 +154,10 @@ exports.get = () => {
                 accept: (field.advanced ? .accept) ? mapAccept(field.advanced.accept).join(', ') : null
             },
             cols: field.advanced ? .cols,
-=======
-                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
-            }),
-            settings: {
-                multiple: field.advanced?.multiple,
-                maxSize: (field.advanced?.maxSize || 20) * (Math.pow(32, 4)),
-                required: field.required,
-                accept: (field.advanced?.accept) ? mapAccept(field.advanced.accept).join(', '): null
-            },
-            cols: field.advanced?.cols,
->>>>>>> andreas
             value: []
         }
     }
 
-<<<<<<< HEAD
-=======
     const formatDatepicker = (field) => {
         return {
             component: "Datepicker",
@@ -230,22 +172,17 @@ exports.get = () => {
                 maxLength: field.maxLength,
                 minLength: field.minLength
             },
-            cols: field.advanced?.cols
+            cols: field.advanced ? .cols
         }
     }
 
->>>>>>> andreas
     const methods = {
         Select: formatSelect,
         Input: formatInput,
         Buttons: formatButtons,
         Attachment: formatAttachment,
-<<<<<<< HEAD
-        Textarea: formatTextarea
-=======
         Textarea: formatTextarea,
         Datepicker: formatDatepicker
->>>>>>> andreas
     }
 
     const processForm = (form) => {
@@ -260,11 +197,7 @@ exports.get = () => {
     const data = {
         id: uniqueId,
         siteKey: siteConfig.siteKey,
-<<<<<<< HEAD
-        server: siteConfig.server,
-=======
-        server: libs.portal.serviceUrl({ service: 'contact-form-service'}),
->>>>>>> andreas
+        server: libs.portal.serviceUrl({ service: 'contact-form-service' }),
         icons: {
             caret: libs.portal.assetUrl({ path: "images/caret.svg" }),
             close: libs.portal.assetUrl({ path: "images/close-bold.svg" }),
