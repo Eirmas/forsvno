@@ -2,18 +2,20 @@ const libs = {
     portal: require("/lib/xp/portal"),
     content: require("/lib/xp/content"),
     freemarker: require("/site/lib/tineikt/freemarker"),
+    utilx: require("/lib/bouvet/util-ex")
 };
 
 exports.get = () => {
     const path = libs.portal.getComponent().path;
     const uniqueId = path.split("/").join("-");
-    const toArray = function (e) {
-        return (e) ? ((!e.length) ? [ e ] : e) : []
-    }
     const config = libs.portal.getComponent().config
+
     const data = {
         title: config.title,
-        items: toArray(config.items).map((item) => ({
+        icons: {
+            arrow: libs.portal.assetUrl({ path: "images/arrow-right.svg" })
+        },
+        items: libs.utilx.forceArray(config.items).map((item) => ({
             title: item.title,
             text: item.text,
             decoration: (item.decoration) ? {
@@ -32,6 +34,7 @@ exports.get = () => {
         uniqueId,
         data: JSON.stringify(data)
     };
+
     const view = resolve("promocard-horizontal.ftl");
     const body = libs.freemarker.render(view, model);
     const promocardHorizontalCss = libs.portal.assetUrl({ path: "css/promocard-horizontal.css" });

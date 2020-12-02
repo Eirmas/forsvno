@@ -1,105 +1,14 @@
 <part xmlns="urn:enonic:xp:model:1.0">
     <display-name>Kontaktskjema</display-name>
     <form>
-        <item-set name="inputFields">
-            <label>Skjemafelter</label>
-            <items>
-                <option-set name="element">
-                    <label>Blokk</label>
-                    <expanded>true</expanded>
-                    <occurrences minimum="1" maximum="1"/>
-                    <help-text>Select</help-text>
-                    <options minimum="1" maximum="1">
-                        <option name="dropdown">
-                            <label>Dropdown-liste</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <item-set name="options">
-                                    <label>Valg</label>
-                                    <items>
-                                        <input name="text" type="TextLine">
-                                            <label>Tekst</label>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
-                                        <input name="value" type="TextLine">
-                                            <label>Verdi</label>
-                                            <occurrences minimum="1" maximum="1"/>
-                                        </input>
-                                    </items>
-                                    <occurrences minimum="1" maximum="20"/>
-                                </item-set>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                        <option name="text">
-                            <label>Tekstfelt</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <input name="inputType" type="ComboBox">
-                                    <label>Type</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                    <config>
-                                        <option value="text">Tekst</option>
-                                        <option value="tel">Telefonnummer</option>
-                                        <option value="email">Emailaddresse</option>
-                                    </config>
-                                </input>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                        <option name="textarea">
-                            <label>Tekstområde</label>
-                            <items>
-                                <input name="inputHeading" type="TextLine">
-                                    <label>Overskrift</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                                <input name="required" type="CheckBox">
-                                    <label>Required</label>
-                                    <occurrences minimum="0" maximum="1"/>
-                                    <default>checked</default>
-                                    <config>
-                                        <alignment>right</alignment>
-                                    </config>
-                                </input>
-                                <input name="inputId" type="TextLine">
-                                    <label>Identifikator</label>
-                                    <occurrences minimum="1" maximum="1"/>
-                                </input>
-                            </items>
-                        </option>
-                    </options>
-                </option-set>
-            </items>
-            <occurrences minimum="1" maximum="20"/>
-        </item-set>
+        <input name="forms" type="CustomSelector">
+            <!-- @description[no]: Velg innhold -->
+            <!-- @description[en]: Choose content -->
+            <label i18n="contact-form.content">Velg innhold</label>
+            <occurrences minimum="0" maximum="0"/>
+            <config>
+                <service>contact-form-content</service>
+            </config>
+        </input>
     </form>
 </part>

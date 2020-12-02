@@ -1,4 +1,10 @@
 {
-  "presets": ["@babel/preset-env"],
-  "comments": false
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "comments": false,
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ]
 }

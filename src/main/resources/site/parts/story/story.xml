@@ -2,24 +2,32 @@
     <display-name>Videohistorier</display-name>
     <form>
         <input name="title" type="TextLine">
-            <label>Tittel</label>
+            <!-- @description[no]: Tittel  -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
                 <max-length>30</max-length>
             </config>
         </input>
         <item-set name="stories">
-            <label>Story</label>
+            <!-- @description[no]: Story  -->
+            <!-- @description[en]: Story -->
+            <label i18n="story.story">Story</label>
             <items>
                 <input name="title" type="TextLine">
-                    <label>Tittel</label>
+                    <!-- @description[no]: Tittel  -->
+                    <!-- @description[en]: Title -->
+                    <label i18n="title">Tittel</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <max-length>30</max-length>
                     </config>
                 </input>
                 <input name="profilePic" type="ImageSelector">
-                    <label>Profilbilde</label>
+                    <!-- @description[no]: Profilbilde  -->
+                    <!-- @description[en]: Profile picture -->
+                    <label i18n="story.profilePicture">Profilbilde</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <allowPath>${site}/*</allowPath>
@@ -28,22 +36,24 @@
                     </config>
                 </input>
                 <item-set name="storyItems">
-                    <label>Media</label>
+                    <!-- @description[no]: Media  -->
+                    <!-- @description[en]: Media -->
+                    <label i18n="story.media">Media</label>
                     <items>
                         <option-set name="type">
-                            <!-- @description[no]: Toppbildet er det profilerte bildet som vises i toppen av siden. Det er også det bildet som brukes i alle kortvisninger av siden. Du kan velge å bruke et bilde eller en video som toppbilde. -->
-                            <!-- @description[en]: The cover image is the profile image that is shown at the top of the site. The cover is also used in all card displays of the site. You can choose between using an image and a video as a cover image. -->
-                            <label i18n="media">Bilde eller video</label>
+                            <!-- @description[no]: Bilde eller video -->
+                            <!-- @description[en]: Image or video -->
+                            <label i18n="media.imageOrVideo">Bilde eller video</label>
                             <occurrences minimum="1" maximum="1" />
                             <options minimum="1" maximum="1">
                                 <option name="image">
-                                    <!-- @description[no]: Velg denne om du ønsker et statisk bilde som toppbilde. Bildetekst er hentet direkte fra bilde innholdet. -->
-                                    <!-- @description[en]: Select this if you want a static image as cover image. The image text is taken directly from the image content. -->
+                                    <!-- @description[no]: Bilde -->
+                                    <!-- @description[en]: Image -->
                                     <label i18n="image">Bilde</label>
                                     <items>
                                         <input name="id" type="ImageSelector">
-                                            <!-- @description[no]: Velg et bilde med innholdsvelgeren. -->
-                                            <!-- @description[en]: Select an image using the content selector. -->
+                                            <!-- @description[no]: Velg et bilde -->
+                                            <!-- @description[en]: Select an image -->
                                             <label i18n="content-choose">Velg innhold</label>
                                             <occurrences minimum="1" maximum="1"/>
                                             <config>
@@ -53,9 +63,9 @@
                                     </items>
                                 </option>
                                 <option name="video">
-                                    <!-- @description[no]: Velg denne om du ønsker en video som toppbilde. -->
-                                    <!-- @description[en]: Select this if you want a video as cover image. -->
-                                    <label i18n="video">Video</label>
+                                    <!-- @description[no]: Velg denne om du ønsker en video -->
+                                    <!-- @description[en]: Select this if you want a video -->
+                                    <label i18n="story.video">Video</label>
                                     <items>
                                         <input name="id" type="ContentSelector">
                                             <!-- @description[no]: Velg en video med innholdsvelgeren. -->
@@ -75,10 +85,14 @@
                     <occurrences minimum="1" maximum="10" />
                 </item-set>
                 <item-set name="thumbnail">
-                    <label>Overstyrt thumbnail</label>
+                    <!-- @description[no]: Overstyrte bilder -->
+                    <!-- @description[en]: Overwritten images -->
+                    <label i18n="story.overwrittenThumbnails">Overstyrt thumbnail</label>
                     <items>
                         <input name="url" type="ImageSelector">
-                            <label>Thumbnail</label>
+                            <!-- @description[no]: Thumbnail -->
+                            <!-- @description[en]: Thumbnail -->
+                            <label i18n="story.thumbnail">Thumbnail</label>
                             <occurrences minimum="1" maximum="1"/>
                             <config>
                                 <allowPath>${site}/*</allowPath>
@@ -93,15 +107,15 @@
             <occurrences minimum="1" maximum="3"/>
         </item-set>
         <item-set name="background">
-            <!-- @description[no]: Velg bakgrunnsfarge til listen. -->
-            <!-- @description[en]: Chose background color of the list. -->
+            <!-- @description[no]: Velg bakgrunnsfarge -->
+            <!-- @description[en]: Choose background color -->
             <label i18n="background">Bakgrunn</label>
             <occurrences minimum="0" maximum="1" />
             <items>
                 <mixin name="background-color" />
                 <input name="twoTone" type="CheckBox">
-                    <!-- @description[no]: Kryss av for at bakgrunnsfarge ikke skal dekke hele listen.  -->
-                    <!-- @description[en]: Check this to prevent background color from covering the whole list. -->
+                    <!-- @description[no]: Kryss av for at bakgrunnsfarge ikke skal dekke hele parten.  -->
+                    <!-- @description[en]: Check this to prevent background color from covering the whole part. -->
                     <label i18n="background.twotone">2-tone bakgrunn</label>
                     <occurrences minimum="0" maximum="1" />
                 </input>

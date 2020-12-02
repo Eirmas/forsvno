@@ -6,5 +6,5 @@ yarn build
 cd ../forsvno
 npm run build
 
-enonic project deploy
+enonic project deploy --dev
 

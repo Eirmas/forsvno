@@ -160,6 +160,22 @@
     height: 100% !important;
     width: 100% !important;
 }
+.quiz__wrapper .quiz__carousel {
+    overflow: hidden;
+}
+.quiz__wrapper .quiz__carousel .quiz__carousel-items {
+    display: flex;
+    min-height: min-content;
+    will-change: transform;
+    transition: transform 0.5s ease-in-out;
+}
+.quiz__wrapper .quiz__carousel .quiz__carousel-items .quiz__carousel-content {
+    flex: 1 0 100%;
+    padding: 0 0.5rem;
+    width: 100%;
+    display: inline-block;
+    align-self: center;
+}
 @media (max-width: 767px) {
     .quiz__wrapper .quiz__question-option, .quiz__wrapper .quiz__question-option:nth-child(even) {
         margin: 0.5rem 3px;
@@ -215,67 +231,4 @@
     .quiz__wrapper, .quiz__wrapper-inner {
         padding: 2rem 0;
     }
-}
-.quiz__wrapper .tab-transition-enter {
-    transform: translate(100%, 0);
-}
-.quiz__wrapper .tab-transition-leave, .quiz__wrapper .tab-transition-leave-active {
-    position: absolute;
-    top: 0;
-}
-.quiz__wrapper .tab-transition-leave-to {
-    position: absolute;
-    transform: translate(-100%, 0);
-}
-.quiz__wrapper .tab-reverse-transition-enter {
-    transform: translate(-100%, 0);
-}
-.quiz__wrapper .tab-reverse-transition-leave, .quiz__wrapper .tab-reverse-transition-leave-to {
-    top: 0;
-    position: absolute;
-    transform: translate(100%, 0);
-}
-.quiz__wrapper .theme--light .v-image {
-    color: rgba(0, 0, 0, .87);
-}
-.quiz__wrapper .theme--dark .v-image {
-    color: #fff;
-}
-.quiz__wrapper .v-image {
-    z-index: 0;
-}
-.quiz__wrapper .v-image__image, .quiz__wrapper .v-image__placeholder {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.quiz__wrapper .v-image__image {
-    background-repeat: no-repeat;
-}
-.quiz__wrapper .v-image__image--preload {
-    filter: blur(2px);
-}
-.quiz__wrapper .v-image__image--contain {
-    background-size: contain;
-}
-.quiz__wrapper .v-image__image--cover {
-    background-size: cover;
-}
-.quiz__wrapper .v-responsive {
-    position: relative;
-    overflow: hidden;
-    flex: 1 0 auto;
-    max-width: 100%;
-    display: flex;
-}
-.quiz__wrapper .v-responsive__content {
-    flex: 1 0 0;
-    max-width: 100%;
-}
-.quiz__wrapper .v-responsive__sizer {
-    transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
-    flex: 1 0 0;
 }

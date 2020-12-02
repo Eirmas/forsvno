@@ -1,56 +1,105 @@
+"use strict";
+
 const libs = {
     portal: require("/lib/xp/portal"),
     freemarker: require("/site/lib/tineikt/freemarker"),
+    utilx: require("/lib/bouvet/util-ex")
 };
 
 exports.get = () => {
     const path = libs.portal.getComponent().path;
     const uniqueId = path.split("/").join("-");
-    const toArray = function (e) {
-        return (e) ? ((!e.length) ? [ e ] : e) : []
-    }
+
     const config = libs.portal.getComponent().config
-    const data = {
-        title: config.title || "",
-        subTitle: config.subTitle || "",
-        media: {
-            selected: config.media ? config.media._selected : "",
-            image: {
-                src: config.media ? libs.portal.imageUrl({
-                    id: config.media.image.image,
-                    scale: 'max(600)'
-                }) : null
-            },
-            video: (config.media.video.id) ? libs.content.get({
+
+    const getMedia = () => {
+        const selected = config.media ? config.media["_selected"] : "none"
+
+        let image = null
+        if (config.media.image?.image) {
+            image = libs.portal.imageUrl({
+                id: config.media.image.image,
+                scale: "max(600)"
+            })
+        }
+
+        let video = null
+        if (config.media.video?.id) {
+            video = libs.content.get({
                 key: config.media.video.id
-            }) : null
-        },
-        startText: config.startText || "",
-        questions: toArray(config.questions).map((v) => ({
-            text: v.text || "",
-            desc: v.desc || "",
-            options: v.options || [],
-            isImageLeft: (v.media["_selected"] === 'image') ? (v.media.image.side === 'left') : (v.media.video.side === 'left'),
-            media: {
-                selected: v.media ? v.media._selected : "",
-                image: {
-                    src: v.media ? libs.portal.imageUrl({
-                        id: v.media.image.image,
-                        scale: 'max(600)'
-                    }) : null
-                },
-                video: (v.media.video.id) ? libs.content.get({
-                    key: v.media.video.id
-                }) : null
-            }
-        })),
-        endText: config.endText || "",
-        feedback: config.feedback ? config.feedback : false
+            })
+        }
+
+        return {
+            selected: selected,
+            image: {
+                src: image
+            },
+            video: video
+        }
     }
+
+    const getQuestions = () => {
+        const questions = libs.utilx.forceArray(config.questions);
+
+        return questions.map((v) => {
+            const selectedMedia = v.media ? v.media["_selected"] : "none"
+
+            let mediaLeft = false
+            if (selectedMedia === "image") {
+                mediaLeft = v.media.image.side === "left"
+            }
+            if (selectedMedia === "video") {
+                mediaLeft = v.media.video.side === "left"
+            }
+
+            let image = null
+            if (v.media?.image?.image) {
+                image = libs.portal.imageUrl({
+                    id: v.media.image.image,
+                    scale: "max(600)"
+                })
+            }
+
+            let video = null
+            if (v.media?.video?.id) {
+                video = libs.content.get({
+                    key: v.media.video.id
+                })
+            }
+
+            return {
+                text: v.text,
+                desc: v.desc,
+                options: libs.utilx.forceArray(v.options),
+                isImageLeft: mediaLeft,
+                media: {
+                    selected: selectedMedia,
+                    image: {
+                        src: image
+                    },
+                    video: video
+                }
+            }
+        })
+    }
+
+    const data = {
+        id: uniqueId,
+        title: config.title,
+        subTitle: config.subTitle,
+        startText: config.startText,
+        endText: config.endText,
+        feedback: config.feedback ? config.feedback : false,
+        media: getMedia(),
+        questions: getQuestions()
+    }
+
     const model = {
         uniqueId,
         data: JSON.stringify(data)
     };
+
     const view = resolve("quiz.ftl");
     const body = libs.freemarker.render(view, model);
 
@@ -59,12 +108,11 @@ exports.get = () => {
 
     const initialDataScript = libs.freemarker.render(resolve("../../template/common/initial-data.ftl"), model);
     const vueScript = `<script src="${libs.portal.assetUrl({ path: "js/quizVue.js" })}" async></script>`;
-    const goBrainScript = "<script src=\"//play2.qbrick.com/framework/GoBrain.min.js\"></script>";
 
     return {
         body: body,
         pageContributions: {
-            headEnd: [quizCssContribution, goBrainScript],
+            headEnd: [quizCssContribution],
             bodyEnd: [initialDataScript, vueScript]
         }
     };

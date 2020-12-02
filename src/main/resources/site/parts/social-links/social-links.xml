@@ -4,7 +4,7 @@
         <input type="HtmlArea" name="text">
             <!-- @description[no]: Tekst  -->
             <!-- @description[en]: Text -->
-            <label i18n="text">Text</label>
+            <label i18n="text">Tekst</label>
             <config>
                 <exclude>Code | Table | Image</exclude>
                 <allowHeadings>h4</allowHeadings>
@@ -13,24 +13,32 @@
             </config>
         </input>
         <item-set name="items">
-            <label>Media lenker</label>
+            <!-- @description[no]: Media lenker  -->
+            <!-- @description[en]: Media links -->
+            <label i18n="socialLinks.mediaLinks">Media lenker</label>
             <items>
                 <input name="text" type="TextLine">
-                    <label>Tekst</label>
+                    <!-- @description[no]: Tekst  -->
+                    <!-- @description[en]: Text -->
+                    <label i18n="text">Tekst</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <max-length>30</max-length>
                     </config>
                 </input>
                 <input name="href" type="TextLine">
-                    <label>Ekstern lenke</label>
+                    <!-- @description[no]: Ekstern lenke  -->
+                    <!-- @description[en]: External link -->
+                    <label i18n="socialLinks.externalLink">Ekstern lenke</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <regexp>^(http|https)://</regexp>
                     </config>
                 </input>
                 <input name="icon" type="ImageSelector">
-                    <label>Icon</label>
+                    <!-- @description[no]: Ikon  -->
+                    <!-- @description[en]: Icon -->
+                    <label i18n="socialLinks.icon">Ikon</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
                         <allowPath>${site}/*</allowPath>
@@ -43,7 +51,9 @@
             <occurrences minimum="1" maximum="5"/>
         </item-set>
         <input  name="newTab" type="CheckBox">
-            <label>Åpne i ny fane</label>
+            <!-- @description[no]: Åpne i ny fane -->
+            <!-- @description[en]: Open in new tab -->
+            <label i18n="socialLinks.newTab">Åpne i ny fane</label>
             <default>checked</default>
             <config>
                 <alignment>right</alignment>
