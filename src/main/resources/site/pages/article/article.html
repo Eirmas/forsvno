@@ -530,6 +530,19 @@
     <div class="breadcrumbs__container">
     </div>
     <main data-portal-component-type="region" data-portal-region="main">
+        <!-- just for testing-->
+        <div class="article__top">
+            <div class="article__start  standard-width">
+                <h1></h1>
+                <div class="article__narrow">
+                    <div class="article__meta">
+                        <div class="p-medium" style="text-align: center;">
+                            <strong>Oppdatert:</strong> 23. nov 2020 10:02
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div data-th-each="component : ${region.components}" data-th-remove="tag">
             <div data-portal-component="${component.path}" data-th-remove="tag" />
         </div>

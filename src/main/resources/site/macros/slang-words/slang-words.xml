@@ -1,0 +1,22 @@
+<macro>
+    <display-name i18n="a-macro.display-name">Militære forkortelser</display-name>
+    <form>
+        <input name="header" type="TextLine">
+            <label>Overskrift</label>
+        </input>
+        <input name="subheader" type="TextLine">
+            <label>Underoverskrift</label>
+        </input>
+        <input name="inputPlaceholder" type="TextLine">
+            <label>Hjelpetekst søkefelt</label>
+        </input>
+        <input name="paginationIndex" type="Long">
+            <label>Antall synlige elementer før paginering</label>
+            <default>30</default>
+        </input>
+        <input name="paginationLimit" type="Long">
+            <label>Antall nye elementer ved paginering</label>
+            <default>15</default>
+        </input>
+    </form>
+</macro>
