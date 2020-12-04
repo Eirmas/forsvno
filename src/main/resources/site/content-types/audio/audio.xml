@@ -26,7 +26,7 @@
             <!-- @description[en]: Description -->
             <label i18n="description">Beskrivelse</label>
             <config>
-                <max-length>110</max-length> 
+                <max-length>110</max-length>
             </config>
             <occurrences minimum="1" maximum="1"/>
         </input>
@@ -35,8 +35,8 @@
             <!-- @description[en]: Cover -->
             <label i18n="cover">Cover</label>
             <occurrences minimum="1" maximum="1"/>
-            <config> 
-                <allowPath>${site}/*</allowPath> 
+            <config>
+                <allowPath>${site}/*</allowPath>
                 <treeMode>true</treeMode>
                 <showStatus>true</showStatus>
                 <hideToggleIcon>true</hideToggleIcon>

@@ -18,7 +18,7 @@ exports.get = () => {
     const service = audio.data.service[audio.data.service._selected].linkType;
     const data = {
         title: config.title,
-        image: libs.portal.imageUrl({ 
+        image: libs.portal.imageUrl({
             id: config.image,
             scale: 'max(600)'
         }),
@@ -44,7 +44,7 @@ exports.get = () => {
             title: link.title,
             subtitle: link.subtitle,
             url:  link.linkType._selected === "external" ? link.linkType.external.url : libs.portal.pageUrl({ id: link.linkType.internal.id }),
-            icon: libs.portal.imageUrl({ 
+            icon: libs.portal.imageUrl({
                 id: link.decoration.icon,
                 scale: 'max(600)'
             }),
@@ -58,7 +58,8 @@ exports.get = () => {
             volume33: libs.portal.assetUrl({ path: "images/Volume-33.svg" }),
             volume66: libs.portal.assetUrl({ path: "images/Volume-66.svg" }),
             volume100: libs.portal.assetUrl({ path: "images/Volume-100.svg" }),
-        }
+        },
+        server: libs.portal.serviceUrl({ service: 'waveform'})
     }
     const model = {
         uniqueId,
