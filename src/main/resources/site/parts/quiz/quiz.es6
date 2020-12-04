@@ -3,7 +3,8 @@
 const libs = {
     portal: require("/lib/xp/portal"),
     freemarker: require("/site/lib/tineikt/freemarker"),
-    utilx: require("/lib/bouvet/util-ex")
+    utilx: require("/lib/bouvet/util-ex"),
+    i18n: require("/lib/xp/i18n")
 };
 
 exports.get = () => {
@@ -92,9 +93,9 @@ exports.get = () => {
         endText: config.endText,
         feedback: config.feedback ? config.feedback : false,
         media: getMedia(),
-        questions: getQuestions()
+        questions: getQuestions(),
+        localize: libs.i18n.getPhrases(["no"], ["i18n/phrases"])
     }
-
     const model = {
         uniqueId,
         data: JSON.stringify(data)
