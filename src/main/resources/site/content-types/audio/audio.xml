@@ -4,15 +4,9 @@
     <super-type>base:structured</super-type>
     <form>
         <input name="header" type="TextLine">
-            <!-- @description[no]: Overskrift -->
-            <!-- @description[en]: Header -->
-            <label i18n="header">Overskrift</label>
-            <occurrences minimum="0" maximum="1"/>
-        </input>
-        <input name="subheader" type="TextLine">
             <!-- @description[no]: Underoverskrift -->
             <!-- @description[en]: Subheader -->
-            <label i18n="subheader">Underoverskrift</label>
+            <label i18n="header">Overskrift</label>
             <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="title" type="TextLine">
@@ -52,15 +46,8 @@
                     <!-- @description[no]: Acast -->
                     <!-- @description[en]: Acast -->
                     <label i18n="service.acast">Acast</label>
+                    <help-text>Lenke til acast iframe element. Må begynne med https://embed.acast...</help-text>
                     <default>true</default>
-                    <items>
-                        <mixin name="link"/>
-                    </items>
-                </option>
-                <option name="soundcloud">
-                    <!-- @description[no]: Soundcloud -->
-                    <!-- @description[en]: Soundcloud -->
-                    <label i18n="service.soundcloud">Soundcloud</label>
                     <items>
                         <mixin name="link"/>
                     </items>
