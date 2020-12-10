@@ -1,43 +1,95 @@
 <part xmlns="urn:enonic:xp:model:1.0">
-    <display-name>Medieavspiller</display-name>
+    <!-- @description[no]: Medieavspiller -->
+    <!-- @description[en]: Media player -->
+    <display-name i18n="mediaplayer">Medieavspiller</display-name>
     <form>
+        <input name="image" type="ImageSelector">
+            <!-- @description[no]: Bilde -->
+            <!-- @description[en]: Image -->
+            <label i18n="image">Bilde</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>image</allowContentType> 
+                <allowPath>${site}/*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>  
+                <hideToggleIcon>true</hideToggleIcon> 
+            </config>
+        </input>
         <input name="title" type="TextLine">
-            <label>Tittel</label>
+            <!-- @description[no]: Tittel -->
+            <!-- @description[en]: Title -->
+            <label i18n="title">Tittel</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
-                <max-length>30</max-length>
+                <max-length>50</max-length>
             </config>
         </input>
         <input name="subtitle" type="TextLine">
-            <label>Undertittel</label>
+            <!-- @description[no]: Undertittel -->
+            <!-- @description[en]: Subtitle -->
+            <label i18n="subtitle">Undertittel</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
-                <max-length>30</max-length>
+                <max-length>200</max-length>
             </config>
         </input>
         <input name="ingress" type="TextArea">
-            <label>Ingress</label>
+            <!-- @description[no]: Ingress -->
+            <!-- @description[en]: Ingress -->
+            <label i18n="ingress">Ingress</label>
             <config>
                 <max-length>300</max-length> 
             </config>
             <occurrences minimum="0" maximum="1"/>
         </input>
         <mixin name="link"/>
-        <input name="linksHeader" type="TextLine">
-            <label>Lenke overskirft</label>
+        <input name="linkText" type="TextLine">
+            <!-- @description[no]: Lenketekst -->
+            <!-- @description[en]: Link text -->
+            <label>Lenketekst</label>
             <occurrences minimum="0" maximum="1"/>
             <config>
-                <max-length>30</max-length>
+                <max-length>50</max-length>
+            </config>
+        </input>
+        <input name="mediaHeader" type="TextLine">
+            <!-- @description[no]: Overskrift medieavspiller -->
+            <!-- @description[en]: Header mediaplayer -->
+            <label i18n="header-mediaplayer">Overskrift medieavspiller</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="service" type="ContentSelector">
+            <!-- @description[no]: Lyd -->
+            <!-- @description[en]: Sound -->
+            <label i18n="sound">Lyd</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <allowContentType>audio</allowContentType> 
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>  
+                <hideToggleIcon>true</hideToggleIcon> 
+            </config>
+        </input>
+        <input name="linksHeader" type="TextLine">
+            <!-- @description[no]: Overskrift lenker -->
+            <!-- @description[en]: Header links -->
+            <label i18n="header-links">Overskrift lenker</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <max-length>50</max-length>
             </config>
         </input>
         <item-set name="links">
-            <label>Lenker</label>
+            <!-- @description[no]: Lenker -->
+            <!-- @description[en]: Links -->
+            <label i18n="links">Lenker</label>
             <items>
                 <input name="title" type="TextLine">
                     <label>Tittel</label>
                     <occurrences minimum="1" maximum="1"/>
                     <config>
-                        <max-length>12</max-length>
+                        <max-length>30</max-length>
                     </config>
                 </input>
                 <input name="subtitle" type="TextArea">
@@ -46,11 +98,15 @@
                 </input>
                 <mixin name="link"/>
                 <item-set name="decoration">
-                    <label>Dekorasjon</label>
+                    <!-- @description[no]: Dekorasjon -->
+                    <!-- @description[en]: Decoration -->
+                    <label i18n="decoration">Dekorasjon</label>
                     <items>
                         <input name="icon" type="ImageSelector">
-                            <label>Ikon</label>
-                            <occurrences minimum="1" maximum="1"/>
+                            <!-- @description[no]: Ikon -->
+                            <!-- @description[en]: Icon -->
+                            <label i18n="icon">Ikon</label>
+                            <occurrences minimum="0" maximum="1"/>
                             <config>
                                 <allowPath>${site}/*</allowPath>
                                 <treeMode>true</treeMode>
@@ -59,8 +115,10 @@
                             </config>
                         </input>
                         <input name="caption" type="TextLine">
-                            <label>Ikon tekst</label>
-                            <occurrences minimum="1" maximum="1"/>
+                            <!-- @description[no]: Ikon tekst -->
+                            <!-- @description[en]: Icon text -->
+                            <label i18n="icon-text">Ikon tekst</label>
+                            <occurrences minimum="0" maximum="1"/>
                         </input>
                     </items>
                     <occurrences minimum="0" maximum="1" />
